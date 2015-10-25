@@ -1,0 +1,43 @@
+Textures made by LazyJ
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* chimney_top_sandstone.png
+* chimney_top_sandstone.xcf
+* chimney_top_stone.png
+* chimney_top_stone.xcf
+* embers_animated.png
+* embers_animated.xcf
+* fake_fire_embers.png
+* fake_fire_embers.xcf
+* fake_fire_smoke_animated.png
+* ice_fire.png
+* ice_fire.xcf
+* ice_fire_animated.png
+* ice_fire_animated.xcf
+* white_smoke.svg
+* white_smoke.png
+* grey_smoke.svg
+* grey_smoke.png
+* black_smoke.svg
+* black_smoke.png
+* smoke1_1.svg
+* smoke1_2.png
+* smoke2_1.svg
+* smoke2_2.png
+
+
+
+
+Textures made by VanessaE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* flint.png
+* flint_and_steel.png
+
+
+
+Textures from Semmet9's original mod
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* fake_fire.png
+* fake_fire_animated.png
+* fake_fire_old_animated.png
+* flint.png_original
+* flint_and_steel.png_original

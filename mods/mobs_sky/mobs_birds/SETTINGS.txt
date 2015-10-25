@@ -1,0 +1,6 @@
+
+-- SETTINGS
+
+ENABLE_GULLS			= false
+ENABLE_LARGE_BIRDS		= false
+ENABLE_SMALL_BIRDS		= true

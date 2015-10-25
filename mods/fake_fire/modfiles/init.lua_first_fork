@@ -1,0 +1,253 @@
+--[[
+
+The 'Fake-Fire' mod was originally created by Semmett9.
+
+I've customized it a bit:
+   * Health-damage disabled
+   * Waving flames added
+   * Never-ending flint and steel disabled
+   * Extinguishing with water and lava(??) disabled
+
+
+
+URL to the 'Fake-Fire' thread on Minetest.net:
+http://forum.minetest.net/viewtopic.php?id=6145
+
+~ LazyJ, 2014_03_15
+
+--]]
+
+
+
+minetest.register_node("fake_fire:fake_fire", {
+    description = "fake_fire",
+	tiles = {
+		{name="fake_fire_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=1.5}},
+		},
+	-- Repeated below ~ LazyJ, 2014_02_17
+	--paramtype = "light",
+	is_ground_content = true,
+   	inventory_image = 'fake_fire.png',
+	wield_image = {
+		{name="fake_fire_animated.png", animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=1.5}},
+		},
+	drawtype = "plantlike",
+	waving = 1, -- This wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
+	light_source = 14,
+	drop = '',
+	--damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has been disabled for a reason. I don't want griefers lighting players on fire or trapping them in blazes. ~ LazyJ, 2014_0_13
+	groups = {dig_immediate=3,attached_node=1},
+	paramtype = "light",
+	walkable = false,
+	sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+		on_punch = function (pos,node,puncher)
+		minetest.sound_play("fire_extinguish", {pos = pos, gain = 1.0, max_hear_distance = 20,})
+		end
+})
+
+
+
+--[[ Uncraftable, at the moment, and I'm not sure yet how many wanna-be-firebug griefers are going to litter with fake-fire. Why give them this if it only makes the mess bigger? ~ LazyJ, 2014_03_13
+
+minetest.register_craftitem("fake_fire:old_flint_and_steel", {
+	description = "Never ending flint and steel",
+	inventory_image = "flint_and_steel.png",
+	stack_max = 1,
+	liquids_pointable = false,
+	on_use = function(itemstack, user, pointed_thing)
+		n = minetest.env:get_node(pointed_thing)
+		if pointed_thing.type == "node" then
+			minetest.env:add_node(pointed_thing.above, {name="fake_fire:fake_fire"})
+			minetest.sound_play("",
+			{gain = 1.0, max_hear_distance = 20,})
+		end
+	end
+})
+--]]
+
+
+
+-- new code --
+
+-- found then changed to my likeing from flint mod --
+local function get_nodedef_field(nodename, fieldname)
+    if not minetest.registered_nodes[nodename] then
+        return nil
+    end
+    return minetest.registered_nodes[nodename][fieldname]
+end
+
+local function set_fake_fire(pointed_thing)
+		local n = minetest.env:get_node(pointed_thing.above)
+		if n.name ~= ""  and n.name == "air" then
+			minetest.env:set_node(pointed_thing.above, {name="fake_fire:fake_fire"})
+		end
+end
+
+-- the flint and steel --
+ 
+minetest.register_tool("fake_fire:flint_and_steel", {
+	description = "Flint and steel",
+	inventory_image = "flint_and_steel.png",
+	liquids_pointable = false,
+	stack_max = 1,
+	tool_capabilities = {
+		full_punch_interval = 1.0,
+		max_drop_level=0,
+		groupcaps={flamable = {uses=65, maxlevel=1},
+		}
+	},
+	on_use = function(itemstack, user, pointed_thing)
+		if pointed_thing.type == "node" then
+			set_fake_fire(pointed_thing)
+			minetest.sound_play("",
+			{gain = 1.0, max_hear_distance = 2,})
+			itemstack:add_wear(65535/65)
+			return itemstack
+		end
+	end
+
+})
+
+
+
+--[[
+I commented out this part because:
+   1. water and lava buckets have been disabled on the server,
+   2. putting out fire with lava would only make a big mess, and
+
+As for 'realism':
+   * C'mon... This is *fake* fire.
+   * Torches have long been impervious to water.
+   * Minetest creates surreal worlds so it's OK if some things aren't perfectly realistic.
+ 
+Besides, the fake-fire can be put out by punching it - simple and effective. ~ LazyJ, 2014_03_14
+
+
+
+-- water and lava puts out fake fire --
+minetest.register_abm({
+	nodenames = {"fake_fire:fake_fire"},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
+		if minetest.env:find_node_near(pos, 1, {"default:water_source", "default:water_flowing","default:lava_source","default:lava_flowing"}) then
+		minetest.sound_play("fire_extinguish",
+		{gain = 1.0, max_hear_distance = 20,})
+		node.name = "air"
+		minetest.env:set_node(pos, node)
+		end
+	end
+})
+--]]
+
+
+minetest.register_craftitem("fake_fire:flint", {
+	description = "flint",
+	inventory_image = "flint.png",
+	stack_max = 99,
+	liquids_pointable = false,
+})
+
+minetest.register_craft({
+	output = 'fake_fire:flint_and_steel 1',
+	recipe = {
+		{"fake_fire:flint", ""},
+		{"", "default:steel_ingot"},
+	}
+})
+
+minetest.register_craft({
+	output = 'fake_fire:flint 1',
+	recipe = {
+		{"default:gravel"},
+	}
+})
+
+
+
+
+--[[
+
+These next two sections of code are a real bonus that I figured out how to pull-off. ;)
+
+The first section creates animated smoke. Trying to figure out how to make the animation appear to go upward was a headache.
+
+The second section places the animated smoke *only* above the fake-fire *if* there is nothing but air straight above the fake-fire. I also made the smoke skip a space so it looks more like puffs of smoke and made it stretch high enough to be used in chimneys. For large builds, a second fake-fire will have to be hidden close to the top of the chimney so the smoke will be visible. The smoke also emmits a low-level light.
+
+Yup, I'm proud of this little addition I've made to Semmett9's mod. :D
+
+
+  ~ LazyJ, 2014_03_15
+
+--]]
+
+
+
+-- Ok, let's make some animated smoke.
+
+minetest.register_node("fake_fire:smoke", {
+	description = "Smoke",
+	drawtype = "plantlike",
+	waving = 1,
+	light_source = 3,
+	tiles = {
+		{
+			image="fake_fire_smoke_animated.png",
+			animation={type="vertical_frames", aspect_w=16, aspect_h=16, length=2.0}
+		},
+	},
+	use_texture_alpha = true,
+	paramtype = "light",
+	is_ground_content = false,
+	walkable = false,
+	drop = "",
+	groups = {leafdecay=1,dig_immediate=3,not_in_creative_inventory=1},  -- The leafdecay makes the smoke disappear if the flame is removed. The catch is, because it depends on the leafdecay ABM, if the smoke is near a tree the smoke won't disappear if the flame is removed. Eh, minor issue not worth fretting over. ~ LazyJ, 2014_03_16
+})
+
+
+
+
+-- Now, let's make the animated smoke appear above the fake-fire.
+
+minetest.register_abm({
+	nodenames = {"fake_fire:fake_fire"},
+	interval = 1,
+	chance = 1,
+	action = function(pos, node)
+		local above = {x=pos.x, y=pos.y+1, z=pos.z}
+		local name = minetest.get_node(above).name
+		if name == "air" or name == "fake_fire:smoke" then
+			pos.y = pos.y+1
+			local height = 0
+			while minetest.get_node(pos).name == "fake_fire:smoke" and height < 7 do
+				height = height+1
+				pos.y = pos.y+2
+			end
+			if height < 7 then
+				if minetest.get_node(pos).name == "air" then
+					minetest.set_node(pos, {name="fake_fire:smoke"})
+				end
+			end
+		end
+	end,
+})
+
+
+
+--[[
+The lines below, at the end, are from the original author, Semmett9.
+
+Thanks for a nice mod, Semmett9. ;)
+
+~ LazyJ, 2014_03_14
+--]]
+
+
+
+-- Thanks-
+
+-- Many thanks for addi for his help in coding. --
+
+-- Many thanks for the players on the King Arthur's land server for giving --
+-- me support, ideas and allowing me to add the mod to the server itself. --
