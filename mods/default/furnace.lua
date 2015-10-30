@@ -262,6 +262,11 @@ minetest.register_abm({
 			fuel_state = fuel_percent .. "%"
 			formspec = active_formspec(fuel_percent, item_percent)
 			swap_node(pos, "default:furnace_active")
+			--sound (brandon reese (adventuretest))
+			if meta:get_int("sound_played") == nil or ( os.time() - meta:get_int("sound_played") ) >= 4 then
+				minetest.sound_play("default_furnace",{pos=pos})
+				meta:set_string("sound_played",os.time())
+			end
 		else
 			if not fuellist[1]:is_empty() then
 				fuel_state = "0%"

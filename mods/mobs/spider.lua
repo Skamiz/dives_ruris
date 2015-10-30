@@ -26,6 +26,9 @@ mobs:register_mob("mobs:spider", {
 	run_velocity = 3,
 	jump = true,
 	view_range = 15,
+	replace_rate = 15000,
+	replace_what = {"air"},
+	replace_with = "mobs:cobweb",
 	floats = 0,
 	drops = {
 		{name = "farming:string",
@@ -50,7 +53,7 @@ mobs:register_mob("mobs:spider", {
 	},
 })
 
-mobs:register_spawn("mobs:spider", {"default:desert_stone", "default:stone", "default:dirt_jungle_with_grass", "ethereal:crystal_dirt"}, 3, 0, 7000, 2, 31000)
+mobs:register_spawn("mobs:spider", {"default:desert_stone", "default:stone", "default:dirt_jungle_with_grass", "ethereal:crystal_dirt"}, 3, 0, 5000, 3, 31000)
 mobs:register_spawn("mobs:spider", {"default:leaves_jungle"}, 10, 5, 30000, 1, 31000)
 
 mobs:register_egg("mobs:spider", "Spider", "mobs_cobweb.png", 1)
@@ -76,7 +79,7 @@ minetest.register_node("mobs:cobweb", {
 	liquid_renewable = false,
 	liquid_range = 0,
 	walkable = false,
-	groups = {snappy = 1, liquid = 3},
+	groups = {snappy = 2, liquid = 3},
 	drop = "farming:cotton",
 	sounds = default.node_sound_leaves_defaults(),
 })

@@ -16,7 +16,7 @@ minetest.register_node(":default:apple", {
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(2),
@@ -54,18 +54,18 @@ minetest.register_node("refruit:bud_apple", {
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,fruit=1},
 	drop = {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99
 			}
 		}
@@ -96,18 +96,18 @@ minetest.register_node("refruit:flower_apple", {
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = { -- a little reward for flowerpuncher's xD
 		max_items = 1,
 		items = {
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99
 			}
 		}
@@ -152,7 +152,7 @@ minetest.register_node(":default:fruit_"..fruitname, {
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(2),
@@ -189,18 +189,18 @@ minetest.register_node("refruit:bud_"..fruitname, {
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875} ---0.2, -0.5, -0.2, 0.2, 0, 0.2
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1,fruit=1},
 	drop = {
 		max_items = 1,
 		items = {
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99
 			}
 		}
@@ -230,18 +230,18 @@ minetest.register_node("refruit:flower_"..fruitname, {
 	is_ground_content = false,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.1875, -0.3125, -0.1875, 0.1875, 0.3125, 0.1875}
 	},
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	drop = { -- a little reward for flowerpuncher's xD
 		max_items = 1,
 		items = {
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99,
 			},
 			{
-				items = {'default:leaves'},
+				items = {'default:stick'},
 				rarity = 99
 			}
 		}

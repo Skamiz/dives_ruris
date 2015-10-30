@@ -17,6 +17,9 @@ mobs:register_mob("mobs:wolf", {
 		{"mobs_wolf.png"},
 	},
 	makes_footstep_sound = true,
+	sounds = {
+		attack = "mobs_wolf",
+	},
 	view_range = 15,
 	walk_velocity = 1,
 	run_velocity = 3,

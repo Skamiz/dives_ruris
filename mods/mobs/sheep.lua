@@ -50,7 +50,7 @@ for _, col in ipairs(all_colours) do
 		follow = {"farming:wheat", "default:grass_5"},
 		view_range = 5,
 		replace_rate = 50,
-		replace_what = {"default:grass_1", "farming:salad_2", "farming:wheat_3"},
+		replace_what = {"default:grass_2", "farming:salad_2", "farming:wheat_3"},
 		replace_with = "air",
 		replace_offset = -1,
 		on_rightclick = function(self, clicker)

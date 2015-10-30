@@ -283,6 +283,20 @@ minetest.register_abm({
 })
 
 --
+-- cobbletransform
+--
+
+minetest.register_abm({
+	nodenames = {"default:cobble"},
+	neighbors = {"group:water"},
+	interval = 56,
+	chance = 120,
+	action = function(pos, node)
+		      minetest.set_node(pos, {name = "default:mossycobble"})
+	end
+})
+
+--
 -- Grass growing
 --
 

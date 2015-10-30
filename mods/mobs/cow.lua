@@ -9,7 +9,7 @@ mobs:register_mob("mobs:cow", {
 	damage = 4,
 	hp_min = 17,
 	hp_max = 20,
-	armor = 200,
+	armor = 150,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	visual = "mesh",
 	mesh = "mobs_cow.x",
@@ -47,7 +47,7 @@ mobs:register_mob("mobs:cow", {
 	follow = "farming:wheat",
 	view_range = 7,
 	replace_rate = 50,
-	replace_what = {"default:grass_3", "default:grass_5", "farming:wheat_3"},
+	replace_what = {"default:grass_2", "default:grass_4", "farming:wheat_3"},
 	replace_with = "air",
 	on_rightclick = function(self, clicker)
 		if not mobs:feed_tame(self, clicker, 8, true, true) then

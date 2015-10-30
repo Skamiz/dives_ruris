@@ -3,9 +3,6 @@
 
 externgen = {}
 
----
----Sealife (original by TenPlus1)
----
 -- seeground
 minetest.register_ore({ 
 		ore_type         = "blob",
@@ -25,6 +22,7 @@ minetest.register_ore({
 			persist=0.5
 		},
 	})
+	
 	
 -- coal desert_stone
 minetest.register_ore({
@@ -204,14 +202,38 @@ minetest.register_decoration({
 
 
 --groundleaves for jungle
+minetest.register_node("externgen:scrub", {
+	description = "Scrub",
+	drawtype = "allfaces_optional",
+	visual_scale = 1.3,
+	tiles = {"default_scrub.png"},
+	paramtype = "light",
+	is_ground_content = false,
+	sunlight_propagates = true,
+	groups = {snappy=3, flammable=2, leaves=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{
+				items = {'default:stick'},
+				rarity = 20,
+			},
+			{
+				items = {''},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 minetest.register_decoration({							
 	deco_type = "simple",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 16, -- was 16
-	fill_ratio = 0.1,
+	fill_ratio = 0.9,
 	biomes = {"default:jungle"},
-	decoration = {"default:leaves_jungle", "default:leaves_jungle2", "default:leaves_jungle3"},
-	spawn_by = {"default:tree_jungle"},
+	decoration = {"externgen:scrub"},
+	spawn_by = {"default:tree_jungle", "default:dirt_jungle_with_grass"},
 	num_spawn_by = 1,
 })
 

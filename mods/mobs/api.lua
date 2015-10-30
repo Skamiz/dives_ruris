@@ -1156,7 +1156,7 @@ end
 		end
 
 		-- knock back effect
-		--[[
+		
 		if self.knock_back > 0 then
 			local kb = self.knock_back
 			local r = self.recovery_time
@@ -1170,9 +1170,11 @@ end
 			self.object:setvelocity({x = dir.x * kb,y = 0,z = dir.z * kb})
 			self.pause_timer = r
 		end
---]]
 
--- knock back effect, adapted from blockmen's pyramids mod 
+		-- i'm not sure witch Knockbacksystem i should take. 
+		-- notice Glunggi 2015
+
+--[[ knock back effect, adapted from blockmen's pyramids mod 
 -- https://github.com/BlockMen/pyramids 
 			local kb = self.knock_back 
 			local r = self.recovery_time 
@@ -1195,7 +1197,7 @@ end
 			 
 			self.object:setvelocity({x=dir.x*kb,y=ykb,z=dir.z*kb}) 
 			self.pause_timer = r 
-
+--]]
 
 		-- attack puncher and call other mobs for help
 		if self.passive == false

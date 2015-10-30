@@ -53,7 +53,7 @@ mobs:register_mob("mobs:mese_monster", {
 	},
 })
 
-mobs:register_spawn("mobs:mese_monster", {"default:stone"}, 5, 0, 5000, 1, -120)
+mobs:register_spawn("mobs:mese_monster", {"default:stone"}, 3, 0, 5000, 1, -120)
 
 mobs:register_egg("mobs:mese_monster", "Mese Monster", "default_mese_block.png", 1)
 

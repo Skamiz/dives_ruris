@@ -645,7 +645,7 @@ minetest.register_node("default:apple", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(1),
@@ -833,7 +833,7 @@ minetest.register_node("default:fruit_coconut", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(1),
@@ -911,7 +911,7 @@ minetest.register_node("default:fruit_cocoa", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(1),
@@ -985,7 +985,7 @@ minetest.register_node("default:fruit_banana", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(1),
@@ -1077,7 +1077,7 @@ minetest.register_node("default:fruit_orange", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(1),
@@ -1169,7 +1169,7 @@ minetest.register_node("default:fruit_olive", {
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.25, -0.375, -0.25, 0.25, 0.375, 0.25}
 	},
 	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(1),
@@ -1809,7 +1809,7 @@ minetest.register_node("default:stone_with_salt", {
 	tiles = {"default_stone.png^default_mineral_salt.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
-	drop = 'default:food_salt',
+	drop = 'default:food_salt 3',
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1818,7 +1818,7 @@ minetest.register_node("default:desert_stone_with_salt", {
 	tiles = {"default_desert_stone.png^default_mineral_salt.png"},
 	is_ground_content = true,
 	groups = {cracky=3},
-	drop = 'default:food_salt',
+	drop = 'default:food_salt 3',
 	sounds = default.node_sound_stone_defaults(),
 })
 

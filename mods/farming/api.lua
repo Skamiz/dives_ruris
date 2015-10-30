@@ -225,12 +225,12 @@ farming.register_plant = function(name, def)
 	for i=1,def.steps do
 		local drop = {
 			items = {
+				{items = {mname .. ":seed_" .. pname}, rarity = 4 - i},
+				{items = {mname .. ":seed_" .. pname}, rarity = 8 - i * 2},
 				{items = {mname .. ":" .. pname}, rarity = 4 - i},
 				{items = {mname .. ":" .. pname}, rarity = 6 - i},
 				{items = {mname .. ":" .. pname}, rarity= 8 - i * 2},
 				{items = {mname .. ":" .. pname}, rarity= 9 - i * 2},
-				{items = {mname .. ":seed_" .. pname}, rarity = 4 - i},
-				{items = {mname .. ":seed_" .. pname}, rarity = 8 - i * 2},
 			}
 		}
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}

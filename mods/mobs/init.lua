@@ -29,11 +29,11 @@ dofile(path.."/treemonster.lua")
 dofile(path.."/lava_flan.lua") -- Zeg9
 dofile(path.."/mese_monster.lua")
 dofile(path.."/spider.lua") -- AspireMint
-dofile(path.."/wolf.lua") -- KrupnoPavel
+--dofile(path.."/wolf.lua") -- KrupnoPavel
 
 -- NPC
-dofile(path.."/npc.lua") -- TenPlus1
-
+--dofile(path.."/npc.lua") -- TenPlus1
+dofile(path.."/dog.lua") -- KrupnoPavel
 -- Mob Items
 dofile(path.."/crafts.lua")
 

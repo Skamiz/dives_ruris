@@ -179,10 +179,10 @@ mobs:register_mob("goblins:goblin_cobble", {
 		2, --search_offset_above
 		1, --search_offset_below
 		32, --replace_rate
-		{	"default:granite"}, --replace_what
-		"goblins:mossycobble_trap", --replace_with
+		"air", --replace_what
+		"default:cobble", --replace_with
 		30, --replace_rate_secondary
-		"goblins:mossycobble_trap" --replace_with_secondary
+		"default:mossycobble" --replace_with_secondary
 		)
 	end,
 })
@@ -273,8 +273,7 @@ mobs:register_mob("goblins:goblin_digger", {
 		1, --search_offset_above
 		1.1, --search_offset_below
 		8, --replace_rate
-		{   "default:granite",
-			"goblins:mossycobble_trap"}, --replace_what
+		"default:stone", --replace_what
 		"air", --replace_with
 		nil, --replace_rate_secondary
 		nil --replace_with_secondary
@@ -836,10 +835,10 @@ mobs:register_mob("goblins:goblin_king", {
 		2, --search_offset_above
 		1, --search_offset_below
 		32, --replace_rate
-		{	"goblins:mossycobble_trap" }, --replace_what
-		"default:cobble", --replace_with
+		"default:granite", --replace_what
+		"air", --replace_with
 		3, --replace_rate_secondary
-		"default:mossycobble" --replace_with_secondary
+		"default:cobble" --replace_with_secondary
 		)
 	end,
 })
