@@ -102,7 +102,7 @@ if mobs.mod and mobs.mod == "redo" then
 	mobs:spawn_specific("mobs_turtles:seaturtle",
 		{"default:water_flowing","default:water_source"},
 		{"default:water_flowing","default:water_source","group:seaplants","seawrecks:woodship","seawrecks:uboot"},
-		5, 20, 30, l_spawn_chance, 1, -31000, 0)
+		5, 20, 30, l_spawn_chance, 1, -10, 0)
 	mobs:register_egg("mobs_turtles:seaturtle", "Sea Turtle", "default_water.png", 1)
 
 end
