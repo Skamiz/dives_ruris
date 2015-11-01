@@ -483,7 +483,7 @@ minetest.register_biome({
 	node_top		= "default:dirt_with_grass", depth_top			= 1,
 	node_filler		= "default:dirt",			depth_filler		= 5,
 	y_min			= 2,						y_max				= 119,
-	heat_point		= 45.0,						humidity_point		= 55.0, --55
+	heat_point		= 50.0,						humidity_point		= 55.0, --55
 })
 
 minetest.register_biome({
@@ -491,7 +491,7 @@ minetest.register_biome({
 	node_top		= "default:dirt_med_with_grass", depth_top			= 1,
 	node_filler		= "default:dirt_med",			depth_filler		= 5,
 	y_min			= 2,						y_max				= 119,
-	heat_point		= 65.0,				humidity_point		= 10.0, -- 55-25
+	heat_point		= 70.0,				humidity_point		= 15.0, -- 55-25
 })
 
 minetest.register_biome({
@@ -499,7 +499,7 @@ minetest.register_biome({
 	node_top		= "default:dirt_med_with_grass", depth_top			= 1,
 	node_filler		= "default:dirt_med",			depth_filler		= 5,
 	y_min			= 2,						y_max				= 119,
-	heat_point		= 80.0,				humidity_point		= 10.0, -- 55-25
+	heat_point		= 80.0,				humidity_point		= 15.0, -- 55-25
 })
 
 minetest.register_biome({
@@ -525,7 +525,7 @@ minetest.register_biome({
 	node_filler    = "default:desert_stone",	depth_filler   = 70,
 	node_stone     = "default:desert_stone",
 	y_min     = 2,							    y_max     = 119,
-	heat_point     = 85.0,						humidity_point = 5.0,--10
+	heat_point     = 85.0,						humidity_point = 10.0,--10
 })
 
 minetest.register_biome({
@@ -569,7 +569,7 @@ minetest.register_biome({
 	node_filler		= "default:gravel",			depth_filler		= 6,
 	node_dust       = "default:snow",
 	y_min     = 120,							y_max     = 150,
-	heat_point     = 45.0,						humidity_point = 55.0,
+	heat_point     = 50.0,						humidity_point = 55.0,
 })
 
 
@@ -614,7 +614,7 @@ minetest.register_biome({
 	node_top		= "default:gravel",	        depth_top			= 2,
 	node_filler		= "default:gravel",			depth_filler		= 5,
 	y_min			= 0,						y_max				= 1,
-	heat_point		= 45.0,						humidity_point		= 55.0,
+	heat_point		= 50.0,						humidity_point		= 55.0,
 })
 
 minetest.register_biome({
