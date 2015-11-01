@@ -33,8 +33,6 @@ mobs:register_mob("mobs:spider", {
 	drops = {
 		{name = "farming:string",
 		chance = 1, min = 1, max = 5},
-		{name = "ethereal:crystal_spike",
-		chance = 15, min = 1, max = 2},
 	},
 	water_damage = 5,
 	lava_damage = 5,
