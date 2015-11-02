@@ -29,8 +29,8 @@ mobs:register_mob("mobs:dog", {
 	sounds = {
 		attack = "mobs_dog",
 	},
-	walk_velocity = 2,
-	run_velocity = 3,
+	walk_velocity = 4,
+	run_velocity = 5,
 	jump = true,
 	drops = {
 		{name = "default:leather",
