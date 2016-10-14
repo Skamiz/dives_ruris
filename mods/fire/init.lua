@@ -71,7 +71,7 @@ minetest.register_node("fire:permanent_flame", {
 })
 
 minetest.register_tool("fire:flint_and_steel", {
-	description = "Flint and Steel",
+	description = "Flint and Steel (the original)",
 	inventory_image = "fire_flint_steel.png",
 	on_use = function(itemstack, user, pointed_thing)
 		local player_name = user:get_player_name()
@@ -99,7 +99,7 @@ minetest.register_tool("fire:flint_and_steel", {
 minetest.register_craft({
 	output = "fire:flint_and_steel",
 	recipe = {
-		{"default:flint", "default:steel_ingot"}
+		{"fake_fire:flint", "fake_fire:flint", "default:steel_ingot"}
 	}
 })
 

@@ -4,7 +4,7 @@
 -- ~~~~~~~~~~~~~~~~
 local cp = {}
 minetest.register_tool("fake_fire:flint_and_steel", {
-    description = "Flint and steel",
+    description = "Flint and steel (fake)",
     inventory_image = "flint_and_steel.png",
     liquids_pointable = false,
     stack_max = 1,
