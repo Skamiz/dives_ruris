@@ -56,15 +56,27 @@ minetest.register_craftitem("default:food_tomatosauce", {
 })
 
 
-minetest.register_craft({
+--minetest.register_craft({
     
-	output = 'default:food_tomatosauce',
-	recipe = {
-	    {'farming:pepper', '', 'default:food_salt'},
-		{'farming:tomato', 'farming:tomato', 'farming:tomato'},
-		{'', 'vessels:glass_bottle', ''},
-	}
-})
+	--output = 'default:food_tomatosauce',
+	--recipe = {
+	    --{'farming:pepper', '', 'default:food_salt'},
+		--{'farming:tomato', 'farming:tomato', 'farming:tomato'},
+		--{'', 'vessels:glass_bottle', ''},
+	--}
+--})
+
+minetest.register_craft({
+		type = "shapeless",
+		output = "default:food_tomatosauce",
+		recipe = {
+			"farming:pepper",
+			"default:food_salt",
+			"farming:tomato",
+			"farming:tomato",
+			"farming:tomato"
+		}
+	})
 
 -- dough
 minetest.register_craftitem("default:food_dough", {
@@ -130,13 +142,26 @@ minetest.register_craftitem("default:food_olive_oil", {
 })
 
 
+--minetest.register_craft({
+    --output = 'default:food_olive_oil',
+	--recipe = {
+		--{'default:fruit_olive', 'default:fruit_olive', 'default:fruit_olive'},
+		--{'', 'vessels:glass_bottle', ''},
+	--}
+--})
+
 minetest.register_craft({
-    output = 'default:food_olive_oil',
-	recipe = {
-		{'default:fruit_olive', 'default:fruit_olive', 'default:fruit_olive'},
-		{'', 'vessels:glass_bottle', ''},
-	}
-})
+		type = "shapeless",
+		output = "default:food_olive_oil",
+		recipe = {
+			"default:fruit_olive",
+			"default:fruit_olive",
+			"default:fruit_olive",
+			"default:fruit_olive",
+			"default:fruit_olive"
+		}
+	})
+
 
 --Salami
 

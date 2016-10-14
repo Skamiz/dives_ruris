@@ -10,7 +10,7 @@ minetest.register_node("vines:rope_block", {
   description = "Rope",
   sunlight_propagates = true,
   paramtype = "light",
-  tile_images = {
+  tiles = {
     "default_wood.png^vines_rope.png",
     "default_wood.png^vines_rope.png",
     "default_wood.png",
@@ -48,7 +48,7 @@ minetest.register_node("vines:rope", {
   sunlight_propagates = true,
   paramtype = "light",
   drop = "",
-  tile_images = { "vines_rope.png" },
+  tiles = { "vines_rope.png" },
   drawtype = "plantlike",
   groups = {flammable=2, not_in_creative_inventory=1},
   sounds =  default.node_sound_leaves_defaults(),
@@ -68,7 +68,7 @@ minetest.register_node("vines:rope_end", {
   sunlight_propagates = true,
   paramtype = "light",
   drop = "",
-  tile_images = { "vines_rope_end.png" },
+  tiles = { "vines_rope_end.png" },
   drawtype = "plantlike",
   groups = {flammable=2, not_in_creative_inventory=1},
   sounds =  default.node_sound_leaves_defaults(),
@@ -92,7 +92,7 @@ minetest.register_node("vines:side", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_side.png" },
+  tiles = { "vines_side.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_side.png",
@@ -121,7 +121,7 @@ minetest.register_node("vines:side_rotten", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_side_rotten.png" },
+  tiles = { "vines_side_rotten.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_side.png",
@@ -141,7 +141,7 @@ minetest.register_node("vines:side2", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_side2.png" },
+  tiles = { "vines_side2.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_side2.png",
@@ -170,7 +170,7 @@ minetest.register_node("vines:side2_rotten", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_side2_rotten.png" },
+  tiles = { "vines_side2_rotten.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_side2.png",
@@ -193,7 +193,7 @@ minetest.register_node("vines:willow", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_willow.png" },
+  tiles = { "vines_willow.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_willow.png",
@@ -224,7 +224,7 @@ minetest.register_node("vines:willow_rotten", {
   paramtype = "light",
   drop = "",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_willow_rotten.png" },
+  tiles = { "vines_willow_rotten.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_willow.png",
@@ -246,7 +246,7 @@ minetest.register_node("vines:magenta", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_magenta.png" },
+  tiles = { "vines_magenta.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_magenta.png",
@@ -275,7 +275,7 @@ minetest.register_node("vines:magenta_rotten", {
   paramtype = "light",
   drop = "",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_magenta.png" },
+  tiles = { "vines_magenta.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_magenta.png",
@@ -297,7 +297,7 @@ minetest.register_node("vines:white", {
   sunlight_propagates = true,
   paramtype = "light",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_white.png" },
+  tiles = { "vines_white.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_white.png",
@@ -326,7 +326,7 @@ minetest.register_node("vines:white_rotten", {
   paramtype = "light",
   drop = "",
   -- paramtype2 = "wallmounted",
-  tile_images = { "vines_white.png" },
+  tiles = { "vines_white.png" },
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_white.png",
@@ -349,7 +349,7 @@ minetest.register_node("vines:cyan", {
   paramtype = "light",
   drawtype = "plantlike",
   --paramtype2 = "wallmounted",
-  tile_images = { "vines_cyan.png" },
+  tiles = { "vines_cyan.png" },
   --drawtype = "signlike",
   inventory_image = "vines_cyan.png",
   groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_cyan=1},
@@ -377,7 +377,7 @@ minetest.register_node("vines:cyan_rotten", {
   paramtype = "light",
   drop = "",
   --paramtype2 = "wallmounted",
-  tile_images = { "vines_cyan.png" },
+  tiles = { "vines_cyan.png" },
   drawtype = "plantlike",
   --drawtype = "signlike",
   inventory_image = "vines_cyan.png",
@@ -399,10 +399,10 @@ minetest.register_node("vines:red", {
   paramtype = "light",
   drawtype = "plantlike",
   --paramtype2 = "wallmounted",
-  tile_images = { "vines_red.png" },
+  tiles = { "vines_red.png" },
   --drawtype = "signlike",
   inventory_image = "vines_red.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_red=1},
+  groups = {attached_node=1,vines=1,snappy=3,flammable=2, hanging_node=1, color_red=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -427,7 +427,7 @@ minetest.register_node("vines:red_rotten", {
   paramtype = "light",
   drop = "",
   --paramtype2 = "wallmounted",
-  tile_images = { "vines_red.png" },
+  tiles = { "vines_red.png" },
   drawtype = "plantlike",
   --drawtype = "signlike",
   inventory_image = "vines_red.png",
@@ -437,6 +437,7 @@ minetest.register_node("vines:red_rotten", {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
+	
 })
 
 --
@@ -447,7 +448,7 @@ minetest.register_node("vines:root", {
   climbable = true,
   sunlight_propagates = true,
   paramtype = "light",
-  tile_images = { "vines_root.png" },
+  tiles = { "vines_root.png" },
   drawtype = "plantlike",
   inventory_image = "vines_root.png",
   groups = {vines=1,snappy = 3,flammable=2,hanging_node=1},
@@ -456,6 +457,14 @@ minetest.register_node("vines:root", {
     type = "fixed",
     fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
   },
+  after_dig_node = function(pos, oldnode, oldmetadata, user)
+    local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
+    if 'vines:shears' == wielded:get_name() then 
+      local inv = user:get_inventory()
+      if inv then
+        inv:add_item("main", ItemStack(oldnode.name))      end
+    end
+  end
 })
 
 
@@ -467,7 +476,7 @@ minetest.register_node("vines:vine", {
   sunlight_propagates = true,
   drop = "",
   paramtype = "light",
-  tile_images = { "vines_vine.png" },
+  tiles = { "vines_vine.png" },
   drawtype = "plantlike",
   inventory_image = "vines_vine.png",
   groups = vines_group,
@@ -477,7 +486,12 @@ minetest.register_node("vines:vine", {
     fixed = {-0.3, -1/2, -0.3, 0.3, 1/2, 0.3},
   },
   after_dig_node = function(pos, oldnode, oldmetadata, user)
-    local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
+    local wielded 
+	if user:get_wielded_item() ~= nil then 
+	wielded = user:get_wielded_item() 
+	else 
+	return 
+	end
     if 'vines:shears' == wielded:get_name() then 
       local inv = user:get_inventory()
       if inv then
@@ -495,7 +509,7 @@ minetest.register_node("vines:vine_rotten", {
   drop = "",
   sunlight_propagates = true,
   paramtype = "light",
-  tile_images = { "vines_vine_rotten.png" },
+  tiles = { "vines_vine_rotten.png" },
   drawtype = "plantlike",
   inventory_image = "vines_vine_rotten.png",
   groups = {snappy = 3,flammable=2,hanging_node=1},
@@ -639,17 +653,17 @@ minetest.register_abm({
 
 
 minetest.register_tool("vines:shears", {
-	description = "Shears for Vines",
+	description = "Shears for plants and woolblocks",
 	inventory_image = "shears.png",
 	wield_image = "shears.png",
 	stack_max = 1,
 	max_drop_level=3,
 	tool_capabilities = {
     full_punch_interval = 1.0,
-    max_drop_level=0,
+	max_drop_level=0,
     groupcaps={
-      snappy={times={[3]=0.2}, maxwear=0.05, maxlevel=3},
-      wool={times={[3]=0.2}, maxwear=0.05, maxlevel=3}
+      snappy={times={[3]=0.2}, uses=100, maxlevel=3},
+      wool={times={[3]=0.2}, uses=100, maxlevel=3}
     }
   },
 })
@@ -662,8 +676,6 @@ minetest.register_craft({
 		{'', '', 'group:stick'},
 	}
 })
-
-
 
 
 

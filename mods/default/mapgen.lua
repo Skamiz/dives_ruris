@@ -174,7 +174,7 @@ function default.register_ores()
 		clust_size       = 12,
 		y_min            = -30000,
 		y_max            = -40,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,
@@ -227,7 +227,7 @@ function default.register_ores()
 	
 end
 
-
+--[[
 function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume, chunk_size, ore_per_chunk, height_min, height_max)
 	minetest.log('action', "WARNING: default.generate_ore is deprecated")
 
@@ -269,6 +269,7 @@ function default.generate_ore(name, wherein, minp, maxp, seed, chunks_per_volume
 	end
 	--print("generate_ore done")
 end
+--]]
 
 --
 -- Mgv6 papyrus, cactus, long grasses
@@ -1332,7 +1333,7 @@ function default.register_blobs()
 		clust_size       = 7,
 		y_min            = -63,
 		y_max            = 4,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,
@@ -1351,7 +1352,7 @@ function default.register_blobs()
 		clust_size       = 7,
 		y_min            = -33,
 		y_max            = 31000,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,
@@ -1370,7 +1371,7 @@ function default.register_blobs()
 		clust_size       = 9,
 		y_min            = -31000,
 		y_max            = 31000,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,
@@ -1389,7 +1390,7 @@ function default.register_blobs()
 		clust_size       = 7,
 		y_min            = -10,
 		y_max            = 0,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,

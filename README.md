@@ -49,6 +49,9 @@ https://forum.minetest.net/viewtopic.php?id=5600
 kerova
 https://forum.minetest.net/viewtopic.php?id=8054
 
+mesecons
+https://forum.minetest.net/viewtopic.php?t=628
+
 minetest 3d armor
 https://forum.minetest.net/viewtopic.php?t=4654
 
@@ -57,6 +60,12 @@ https://forum.minetest.net/viewtopic.php?t=572
 
 mobs redo
 https://forum.minetest.net/viewtopic.php?t=9917
+
+mobs_monster
+see mobs redo
+
+mobs_animal
+see mobs redo
 
 mobs sky
 https://forum.minetest.net/viewtopic.php?f=9&t=12688
@@ -67,6 +76,10 @@ https://forum.minetest.net/viewtopic.php?f=9&t=12652
 mystairwork(fork of mymillwork)
 https://forum.minetest.net/viewtopic.php?f=9&t=10425
 
+pipeworks
+https://forum.minetest.net/viewtopic.php?t=2155
+wiki: https://github.com/minetest-mods/pipeworks/wiki
+
 signs lib
 https://forum.minetest.net/viewtopic.php?id=2041
 
@@ -75,6 +88,9 @@ https://forum.minetest.net/viewtopic.php?id=9100
 
 space suit
 https://forum.minetest.net/viewtopic.php?id=5508
+
+sprint
+https://forum.minetest.net/viewtopic.php?t=9650
 
 throwing
 https://github.com/PilzAdam/throwing
@@ -96,3 +112,15 @@ https://forum.minetest.net/viewtopic.php?id=5564
 
 there are also some elements from the ethereal mod
 https://github.com/tenplus1/ethereal
+
+----
+Update 14.10.2016
+----
+- Add Sprint for Player. (E)
+- Add Pipeworks
+- Add Mesecons
+- Add Meshes for ramps/slopes (mystairworks)
+- Add an actual mobs api (not optimised yet)
+- simplify some cookingrecipes (delete the vessels)
+- remove some warning's 
+I think its better to start a new worldmap, maybe there are some conflicts with older mobs and the slopeblocks.

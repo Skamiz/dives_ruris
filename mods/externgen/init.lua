@@ -12,7 +12,7 @@ minetest.register_ore({
 		clust_size       = 7,
 		y_min            = -100,
 		y_max            = -8,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,
@@ -158,7 +158,7 @@ minetest.register_ore({
 		clust_size       = 18,
 		y_min            = -30000,
 		y_max            = 10,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,
@@ -177,7 +177,7 @@ minetest.register_ore({
 		clust_size       = 18,
 		y_min            = -30000,
 		y_max            = 10,
-		noise_threshhold = 0,
+		noise_threshold = 0,
 		noise_params     = {
 			offset=0.35,
 			scale=0.2,

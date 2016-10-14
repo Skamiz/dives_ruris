@@ -1366,7 +1366,7 @@ minetest.register_node("default:leaves_rubber", {
 			{
 				-- player will get sapling with 1/20 chance
 				items = {'default:sapling_rubber'},
-				rarity = 15,
+				rarity = 28,
 			},
 			{
 				-- player will get leaves only if he get no saplings,

@@ -30,7 +30,7 @@ travelnet.travelnet_recipe = {
 travelnet.elevator_recipe = {
 	        {"default:steel_ingot", "default:glass", "default:steel_ingot", },
 		{"default:steel_ingot", "",              "default:steel_ingot", },
-		{"default:steel_ingot", "default:glass", "default:steel_ingot", }
+		{"default:steel_ingot", "default:bronzeblock", "default:steel_ingot", }
 }
 
 

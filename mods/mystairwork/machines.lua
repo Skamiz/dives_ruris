@@ -76,8 +76,8 @@ on_construct = function(pos)
 		"image_button[1,2;1,1;mystairwork_mach7.png;ramp; ]"..
 		"image_button[2,2;1,1;mystairwork_mach8.png;ramp_out; ]"..
 		"image_button[3,2;1,1;mystairwork_mach9.png;ramp_inn; ]"..
-		"image_button[4,2;1,1;mystairwork_mach10.png;ramp_flat; ]"..
-		"image_button[5,2;1,1;mystairwork_mach11.png;ramp_massiv; ]"..
+		--"image_button[4,2;1,1;mystairwork_mach10.png;ramp_flat; ]"..
+		--"image_button[5,2;1,1;mystairwork_mach11.png;ramp_massiv; ]"..
 
 		"list[current_player;main;1,3;8,4;]")
 	meta:set_string("infotext", "Stair WorkStation")
@@ -100,8 +100,8 @@ or fields["stair_sub"]
 or fields["ramp"] 
 or fields["ramp_out"]
 or fields["ramp_inn"]
-or fields["ramp_flat"]
-or fields["ramp_massiv"]
+-- or fields["ramp_flat"]
+-- or fields["ramp_massiv"]
 then
 
 --Crown Mould-----------------------------------------
@@ -150,6 +150,7 @@ then
 		end
 	end
 	
+	
 	if fields["stair_sub"] then
 		make_ok = "0"
 		anzahl = "2"
@@ -186,6 +187,8 @@ then
 		end
 	end
 	
+	--[[
+	
 	if fields["ramp_flat"] then
 		make_ok = "0"
 		anzahl = "2"
@@ -204,6 +207,7 @@ then
 		end
 	end
 	
+	--]]
 	
 	local ingotstack = inv:get_stack("ingot", 1)
     local resstack = inv:get_stack("res", 1)

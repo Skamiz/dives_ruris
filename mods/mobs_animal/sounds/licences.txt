@@ -1,0 +1,7 @@
+licences
+mobs_dog
+
+know as
+LRBark 2 by Lionel Allorge
+licences:
+http://artlibre.org/
