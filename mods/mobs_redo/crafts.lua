@@ -19,6 +19,16 @@ minetest.register_craftitem("mobs:leather", {
 	inventory_image = "mobs_leather.png",
 })
 
+minetest.register_craft({
+	output = "default:hardened_leather 1",
+	recipe = {
+	    {'', 'default:food_salt', ''},
+		{'mobs:leather', 'mobs:leather', 'mobs:leather'},
+		{'', 'bucket:bucket_water', ''},
+	},
+	replacements = {{ "bucket:bucket_water", "bucket:bucket_water"}}
+})
+
 -- raw meat
 minetest.register_craftitem("mobs:meat_raw", {
 	description = S("Raw Meat"),
