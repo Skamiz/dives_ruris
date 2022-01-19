@@ -75,15 +75,17 @@ minetest.register_craft({
 
 
 --Throw In Trash Can Code
-
+--[[
 local old_on_step = minetest.registered_entities["__builtin:item"].on_step
-minetest.registered_entities["__builtin:item"].on_step = function(self, dtime)
-    if minetest.env:get_node(self.object:getpos()).name == "trash_can:trash_can_wooden" then
+minetest.registered_entities["__builtin:item"].on_step = function(self, dtime, moveresult)
+    if minetest.get_node(self.object:get_pos()).name == "trash_can:trash_can_wooden" then
         self.object:remove()
         return
-    end
-    old_on_step(self, dtime)
+	else
+    	old_on_step(self, dtime, moveresult)
+	end
 end
+--]]
 
 --Unused stuff
 --minetest.register_node("trash_can:trash_can_full",{

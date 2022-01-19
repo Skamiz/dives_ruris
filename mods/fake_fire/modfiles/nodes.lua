@@ -18,16 +18,16 @@ minetest.register_tool("fake_fire:flint_and_steel", {
     -- This next section took me a lot of keyboard bashing to figure out.
     -- The lua documentation and examples for Minetest are terrible.
     -- ~ LazyJ, 2014_06_23
-  
+
     local snow_ice_list = {"snow", "ice",}
-  
+
       for _, which_one_is_it in pairs(snow_ice_list) do
         local snow_ice = which_one_is_it
-  
+
         if
           -- A *node*, not a player or sprite. ~ LazyJ
           pointed_thing.type == "node"
-          
+
           --[[
             These next two "and nots" tell Minetest not to put the
             red flame on snow and ice stuff. This "string" bit was
@@ -38,7 +38,7 @@ minetest.register_tool("fake_fire:flint_and_steel", {
             to identify the nodes by their group properties and I
             couldn't figure out how to do it. The clue for the
             "string"came from Blockmen's "Landscape" mod.
-        
+
             Another quirk is that the "string" doesn't work well
             with variable lists (see "snow_ice_list") when using
             "and not". Ice-fire would light on snow but when I
@@ -46,20 +46,20 @@ minetest.register_tool("fake_fire:flint_and_steel", {
             understand what was happening until I mentally changed
             the wording "and not" to "is not" and spoke out-loud
             each thing that line of code was to accomplish:
-        
+
             "Is not snow, then make fake-fire."
             "Is not ice, then make fake-fire."
-        
+
             That's when I caught the problem.
-        
+
             Ice *is not* snow, so Minetest was correctly following
             the instruction, "Is not snow, then make fake-fire."
             and that is why fake-fire appeared instead of ice-fire
-            when I clicked on ice.   
-       
+            when I clicked on ice.
+
             ~ LazyJ
           --]]
-                  
+
         and not
         string.find(minetest.get_node(pointed_thing.under).name, "snow")
         and not
@@ -72,13 +72,13 @@ minetest.register_tool("fake_fire:flint_and_steel", {
           then
             minetest.set_node(pointed_thing.above,
             {name="fake_fire:smokeless_fire"}
-            )           
+            )
           else
             minetest.chat_send_player(
             user:get_player_name(), "No-no! You are not allowed put fire there!"
             )
           end
-  
+
       elseif
 
         pointed_thing.type == "node"
@@ -90,7 +90,7 @@ minetest.register_tool("fake_fire:flint_and_steel", {
             minetest.get_node(pointed_thing.under).name,
             snow_ice
             )
-        and 
+        and
         minetest.get_node(pointed_thing.above).name == "air"
         then
           if not minetest.is_protected(pointed_thing.above,
@@ -98,15 +98,15 @@ minetest.register_tool("fake_fire:flint_and_steel", {
           then
             minetest.set_node(pointed_thing.above,
             {name="fake_fire:smokeless_ice_fire"}
-            )           
+            )
           else
             minetest.chat_send_player(
             user:get_player_name(), "No-no! You are not allowed put fire there!"
             )
-          end            
+          end
       end -- if
-    end -- for/do 
-    
+    end -- for/do
+
       minetest.sound_play("",
       {gain = 1.0, max_hear_distance = 2,})
       itemstack:add_wear(65535/25)
@@ -117,16 +117,16 @@ minetest.register_tool("fake_fire:flint_and_steel", {
 
 
 --[[
-  
+
   SOME LESSONS LEARNED (and keeping this because I'll forget)
-  
+
   flint_and_steel is registered as a tool. Tools do not materialize something
   like placing a block (on_construct) makes that block appear. Tools are
   *used* so "on_use" works but not "on_construct".
 
   on_rightclick is meant for the code of the thing being clicked on, not the
   code of the thing doing the clicking.
-  
+
   ~ LazyJ
 
 --]]
@@ -150,7 +150,7 @@ minetest.register_node("fake_fire:embers", {
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because embers produce some light it should be somewhat "true" but this
     -- is an area where Minetest lacks in subtlety so I'm opting for 100% that
-    -- embers *don't* have a shadow. 
+    -- embers *don't* have a shadow.
     sunlight_propagates = true,
     -- It's almost soft, brittle charcoal. ~ LazyJ
     groups = {choppy=3, crumbly=3, oddly_breakable_by_hand=3},
@@ -160,7 +160,7 @@ minetest.register_node("fake_fire:embers", {
     -- that little bit nicer looking. ~ Lazyj
     paramtype2 = "facedir",
     walkable = true,
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
 })
 
 
@@ -171,17 +171,17 @@ minetest.register_node("fake_fire:embers", {
   of the clouds and it is intended for flames and chimney_tops that are out
   in the open. If this column of smoke is used *inside* chimneys the smoke will
   pass through the walls of the chimney.
-  
+
   The second smoke column is a narrow, vertical column that *is* intended for
   the inside of chimneys. A vertical-space check is run to determine which node
   to set, when punched, and those nodes trigger a specific column of smoke.
-  
+
   The vertical-space check is not perfect. There are situations where it is
   desirable to have smoke pass through what is above (tree leaves,
   lattice canopy, cave ceiling). Then there are situations where it is *not*
   desirable to have smokk pass through what is above, like apartment and office
-  building floors. Catch 22. 
-  
+  building floors. Catch 22.
+
   ~ LazyJ, 2014_07_28
 
 --]]
@@ -298,7 +298,7 @@ minetest.register_node("fake_fire:chimney_top_sandstone_d", {
     -- that will be craftable. To get the smoking variety, simply punch the
     -- node. Same approach is used with the smoking and non-smoking flames.
     -- ~ LazyJ
-  
+
 -- SMOKELESS CHIMNEY TOP - STONE
 minetest.register_node("fake_fire:smokeless_chimney_top_stone", {
     description = "Chimney Top - Stone",
@@ -416,7 +416,7 @@ minetest.register_node("fake_fire:fake_fire", {
     -- Adding sunlight_propagtes and leaving comments as a future reference.
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because fire produces light it should be "true" so fire *doesn't* have
-    -- a shadow. 
+    -- a shadow.
     sunlight_propagates = true,
     -- damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has
     -- been disabled for a reason. I don't want griefers lighting players on
@@ -429,7 +429,7 @@ minetest.register_node("fake_fire:fake_fire", {
     paramtype = "light",
     walkable = false,
     drop = "",  -- So fire won't return to the inventory. ~ LazyJ
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
     on_punch = function (pos,node,puncher)
 		  -- A max_hear_distance of 20 may freak some players out by the "hiss"
 		  -- so I reduced it to 5.
@@ -462,7 +462,7 @@ minetest.register_node("fake_fire:fake_fire_d", {
     -- Adding sunlight_propagtes and leaving comments as a future reference.
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because fire produces light it should be "true" so fire *doesn't* have
-    -- a shadow. 
+    -- a shadow.
     sunlight_propagates = true,
     -- damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has
     -- been disabled for a reason. I don't want griefers lighting players on
@@ -475,12 +475,12 @@ minetest.register_node("fake_fire:fake_fire_d", {
     paramtype = "light",
     walkable = false,
     drop = "",  -- So fire won't return to the inventory. ~ LazyJ
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
     on_punch = function (pos,node,puncher)
       -- A max_hear_distance of 20 may freak some players out by the "hiss"
       -- so I reduced it to 5.
-      minetest.sound_play("fire_extinguish", {pos = pos, gain = 1.0,
-      max_hear_distance = 5,})
+      -- minetest.sound_play("fire_extinguish", {pos = pos, gain = 1.0,
+      -- max_hear_distance = 5,})
       -- This swaps the smoky version with the smokeless version. ~ LazyJ
       minetest.set_node(pos, {name = "fake_fire:smokeless_fire"})
     end
@@ -508,7 +508,7 @@ minetest.register_node("fake_fire:smokeless_fire", {
     -- Adding sunlight_propagtes and leaving comments as a future reference.
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because fire produces light it should be "true" so fire *doesn't* have
-    -- a shadow. 
+    -- a shadow.
     sunlight_propagates = true,
     -- damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has
     -- been disabled for a reason. I don't want griefers lighting players on
@@ -521,7 +521,7 @@ minetest.register_node("fake_fire:smokeless_fire", {
     paramtype = "light",
     walkable = false,
     drop = "",  -- So fire won't return to the inventory. ~ LazyJ
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
     on_punch = function (pos,node,puncher)
       -- A max_hear_distance of 20 may freak some players out by the "hiss"
       -- so I reduced it to 5.
@@ -580,7 +580,7 @@ minetest.register_node("fake_fire:ice_fire", {
     -- Adding sunlight_propagtes and leaving comments as a future reference.
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because fire produces light it should be "true" so fire *doesn't* have
-    -- a shadow. 
+    -- a shadow.
     sunlight_propagates = true,
     -- damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has
     -- been disabled for a reason. I don't want griefers lighting players on
@@ -593,7 +593,7 @@ minetest.register_node("fake_fire:ice_fire", {
     paramtype = "light",
     walkable = false,
     drop = "",  -- So fire won't return to the inventory. ~ LazyJ
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
     on_punch = function (pos,node,puncher)
       -- A max_hear_distance of 20 may freak some players out by the "hiss"
       -- so I reduced it to 5.
@@ -626,7 +626,7 @@ minetest.register_node("fake_fire:ice_fire_d", {
     -- Adding sunlight_propagtes and leaving comments as a future reference.
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because fire produces light it should be "true" so fire *doesn't* have
-    -- a shadow. 
+    -- a shadow.
     sunlight_propagates = true,
     -- damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has
     -- been disabled for a reason. I don't want griefers lighting players on
@@ -639,7 +639,7 @@ minetest.register_node("fake_fire:ice_fire_d", {
     paramtype = "light",
     walkable = false,
     drop = "",  -- So fire won't return to the inventory. ~ LazyJ
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
     on_punch = function (pos,node,puncher)
       -- A max_hear_distance of 20 may freak some players out by the "hiss"
       -- so I reduced it to 5.
@@ -672,7 +672,7 @@ minetest.register_node("fake_fire:smokeless_ice_fire", {
     -- Adding sunlight_propagtes and leaving comments as a future reference.
     -- If true, sunlight will go infinitely through this (no shadow is cast).
     -- Because fire produces light it should be "true" so fire *doesn't* have
-    -- a shadow. 
+    -- a shadow.
     sunlight_propagates = true,
     -- damage_per_second = 2*0.5, -- It's *fake* fire. PvP on our server has
     -- been disabled for a reason. I don't want griefers lighting players on
@@ -685,7 +685,7 @@ minetest.register_node("fake_fire:smokeless_ice_fire", {
     paramtype = "light",
     walkable = false,
     drop = "",  -- So fire won't return to the inventory. ~ LazyJ
-    sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
+    -- sounds = minetest.sound_play("fire_small", {pos=cp, loop=true}),
     on_punch = function (pos,node,puncher)
       -- A max_hear_distance of 20 may freak some players out by the "hiss"
       -- so I reduced it to 5.
@@ -748,13 +748,13 @@ minetest.register_alias("fake_fire:smoke", "air")
 	Yup, I'm proud of this little addition I've made to Semmett9's mod. :D
 
 	~ LazyJ, 2014_03_15
-	
-	
+
+
 	UPDATE 2014_07_28
 	I've learned how to use particles to make smoke so I've commented-out the
 	animated smoke node I had created and added an alias to convert the old
 	nodes to air.
-	
+
 	~ LazyJ
 
 --]]
@@ -772,7 +772,7 @@ minetest.register_node("fake_fire:smoke", {
 	-- If true, sunlight will go infinitely through this (no shadow).
 	-- I want smoke to cast a shadow like real smoke does.
 	-- Fire, on the other hand, produces light so it should be "true" so fire
-	-- *doesn't* have a shadow. 
+	-- *doesn't* have a shadow.
 	-- sunlight_propagates = false,
 	tiles = {
 		{

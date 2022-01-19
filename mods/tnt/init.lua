@@ -342,7 +342,7 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast)
 		local s = vector.add(pos, {x = x, y = y, z = z})
 		local r = vector.distance(pos, s)
 		if r / radius < 1.4 then
-			nodeupdate(s)
+			--nodeupdate(s)
 		end
 	end
 	end
@@ -580,7 +580,7 @@ function tnt.register_tnt(def)
 		on_construct = function(pos)
 			minetest.sound_play("tnt_ignite", {pos = pos})
 			minetest.get_node_timer(pos):start(4)
-			nodeupdate(pos)
+			--nodeupdate(pos)
 		end,
 	})
 end

@@ -36,7 +36,7 @@ end
 local function removeObjectWithSound(object)
 	movers[object] = nil
 	removedAlreadyDammit[object] = true
-	local pos=object:getpos() 
+	local pos=object:getpos()
 	minetest.sound_play("item_gone", {
 		pos=pos,
 		gain = 0.2,
@@ -154,14 +154,15 @@ local function moveTowards(object, player, pickupRadius, attractRadius)
 	-- A1 = G * M2 / R ^2
 	-- G = whatever it takes for stuff to orbit around the player
 	-- and the weight of the player is ^^^
-	-- A1 = C / R^2	
+	-- A1 = C / R^2
 	local A
 	A = drops.playerGMass / R^2
 	A = math.max(A,2*drops.playerGMass)
 	object:setacceleration(vector.multiply(direct,A))
 end
 
-if minetest.setting_get("enable_item_pickup") == "true" then
+if false then
+-- if minetest.setting_get("enable_item_pickup") == "true" then
 	local tickets = 0 -- XXX: oy vey
 	moveDelay = 0
 	minetest.register_globalstep(function(dtime)
@@ -197,6 +198,10 @@ if minetest.setting_get("enable_item_pickup") == "true" then
 								movers[object] = {player,ticket}
 								tickets = tickets + 1
 								moveTowards(object, player, pickupRadius, attractRadius)
+
+								--from some point in the game history deleting an item invalidates it imediately and old mods don't handle that
+								if not object:get_luaentity() then return end
+
 								-- make sure object doesn't push the player around!
 								object:get_luaentity().physical_state = true
 								object:get_luaentity().object:set_properties({
@@ -258,7 +263,7 @@ if minetest.setting_get("enable_item_drops") == "true" then
 						end
 						-- hurl it out into space at a random velocity
 						-- (still falling though)
-					obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})			
+					obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})
 					end
 				end
 			end
