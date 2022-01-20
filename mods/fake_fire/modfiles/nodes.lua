@@ -405,10 +405,11 @@ minetest.register_node("fake_fire:fake_fire", {
 		  },
     is_ground_content = true,
    	inventory_image = 'fake_fire.png',
-    wield_image = {
-		  {name="fake_fire_animated.png", animation={type="vertical_frames",
-      aspect_w=16, aspect_h=16, length=1.0}},
-		   },
+    wield_image = "fake_fire.png",
+    -- wield_image = {
+	-- 	  {name="fake_fire_animated.png", animation={type="vertical_frames",
+    --   aspect_w=16, aspect_h=16, length=1.0}},
+	-- 	   },
     drawtype = "plantlike",
     -- Waving wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
     waving = 1,
@@ -451,10 +452,11 @@ minetest.register_node("fake_fire:fake_fire_d", {
       },
     is_ground_content = true,
     inventory_image = 'fake_fire.png',
-    wield_image = {
-      {name="fake_fire_animated.png", animation={type="vertical_frames",
-      aspect_w=16, aspect_h=16, length=1.0}},
-       },
+    wield_image = "fake_fire.png",
+    -- wield_image = {
+    --   {name="fake_fire_animated.png", animation={type="vertical_frames",
+    --   aspect_w=16, aspect_h=16, length=1.0}},
+    --    },
     drawtype = "plantlike",
     -- Waving wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
     waving = 1,
@@ -497,10 +499,11 @@ minetest.register_node("fake_fire:smokeless_fire", {
       },
     is_ground_content = true,
     inventory_image = 'fake_fire.png',
-    wield_image = {
-      {name="fake_fire_animated.png", animation={type="vertical_frames",
-      aspect_w=16, aspect_h=16, length=1.0}},
-      },
+    wield_image = "fake_fire.png",
+    -- wield_image = {
+    --   {name="fake_fire_animated.png", animation={type="vertical_frames",
+    --   aspect_w=16, aspect_h=16, length=1.0}},
+    --   },
     drawtype = "plantlike",
     -- Waving wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
     waving = 1,
@@ -569,10 +572,11 @@ minetest.register_node("fake_fire:ice_fire", {
       },
     is_ground_content = true,
     inventory_image = 'ice_fire.png',
-    wield_image = {
-      {name="ice_fire_animated.png", animation={type="vertical_frames",
-      aspect_w=16, aspect_h=16, length=1.0}},
-      },
+    wield_image = "ice_fire.png",
+    -- wield_image = {
+    --   {name="ice_fire_animated.png", animation={type="vertical_frames",
+    --   aspect_w=16, aspect_h=16, length=1.0}},
+    --   },
     drawtype = "plantlike",
     -- Waving wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
     waving = 1,
@@ -615,10 +619,11 @@ minetest.register_node("fake_fire:ice_fire_d", {
       },
     is_ground_content = true,
     inventory_image = 'ice_fire.png',
-    wield_image = {
-      {name="ice_fire_animated.png", animation={type="vertical_frames",
-      aspect_w=16, aspect_h=16, length=1.0}},
-      },
+	wield_image = "ice_fire.png",
+    -- wield_image = {
+    --   {name="ice_fire_animated.png", animation={type="vertical_frames",
+    --   aspect_w=16, aspect_h=16, length=1.0}},
+    --   },
     drawtype = "plantlike",
     -- Waving wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
     waving = 1,
@@ -661,10 +666,11 @@ minetest.register_node("fake_fire:smokeless_ice_fire", {
       },
     is_ground_content = true,
     inventory_image = 'ice_fire.png',
-    wield_image = {
-      {name="ice_fire_animated.png", animation={type="vertical_frames",
-      aspect_w=16, aspect_h=16, length=1.0}},
-      },
+	wield_image = "ice_fire.png",
+    -- wield_image = {
+    --   {name="ice_fire_animated.png", animation={type="vertical_frames",
+    --   aspect_w=16, aspect_h=16, length=1.0}},
+    --   },
     drawtype = "plantlike",
     -- Waving wasn't an option when this mod was written. ~ LazyJ, 2014_03_13
     waving = 1,
