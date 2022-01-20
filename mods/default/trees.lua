@@ -2,7 +2,7 @@
 
 default.place_tree = function (pos, ofx, ofz, schem)
 	-- Remove Sapling and Place Tree Schematic
-	minetest.env:set_node(pos, {name="air"})
+	minetest.set_node(pos, {name="air"})
 	pos.x = pos.x - ofx
 	pos.z = pos.z - ofz
 	pos.y = pos.y - 1

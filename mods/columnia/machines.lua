@@ -43,13 +43,13 @@ minetest.register_node("columnia:machine", {
 	},
 
 	after_place_node = function(pos, placer)
-	local meta = minetest.env:get_meta(pos);
+	local meta = minetest.get_meta(pos);
 			meta:set_string("owner",  (placer:get_player_name() or ""));
 			meta:set_string("infotext",  "Columnia Workstation is empty (owned by " .. (placer:get_player_name() or "") .. ")");
 		end,
 
 can_dig = function(pos,player)
-	local meta = minetest.env:get_meta(pos);
+	local meta = minetest.get_meta(pos);
 	local inv = meta:get_inventory()
 	if not inv:is_empty("ingot") then
 		return false
@@ -60,7 +60,7 @@ can_dig = function(pos,player)
 end,
 
 on_construct = function(pos)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	meta:set_string("formspec", "invsize[10,10;]"..
 		"background[-0.20,-0.25;10.40,11;columnia_background.png]"..
 		"listcolors[#001100;#006600;#ffffff;#006600;#ffffff]"..
@@ -100,7 +100,7 @@ on_construct = function(pos)
 end,
 
 on_receive_fields = function(pos, formname, fields, sender)
-	local meta = minetest.env:get_meta(pos)
+	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 
 -----------------------------

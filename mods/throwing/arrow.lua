@@ -42,10 +42,10 @@ local THROWING_ARROW_ENTITY={
 THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
 	local pos = self.object:get_pos()
-	local node = minetest.env:get_node(pos)
+	local node = minetest.get_node(pos)
 
 	if self.timer>0.2 then
-		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
+		local objs = minetest.get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_entity" and obj:get_luaentity().name ~= "__builtin:item" then
@@ -69,7 +69,7 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow')
+			minetest.add_item(self.lastpos, 'throwing:arrow')
 			self.object:remove()
 		end
 	end
@@ -131,10 +131,10 @@ local THROWING_ARROW_STONE_ENTITY={
 THROWING_ARROW_STONE_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
 	local pos = self.object:get_pos()
-	local node = minetest.env:get_node(pos)
+	local node = minetest.get_node(pos)
 
 	if self.timer>0.2 then
-		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
+		local objs = minetest.get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_stone_entity" and obj:get_luaentity().name ~= "__builtin:item" then
@@ -158,7 +158,7 @@ THROWING_ARROW_STONE_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow_stone')
+			minetest.add_item(self.lastpos, 'throwing:arrow_stone')
 			self.object:remove()
 		end
 	end
@@ -220,10 +220,10 @@ local THROWING_ARROW_BRONZE_ENTITY={
 THROWING_ARROW_BRONZE_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
 	local pos = self.object:get_pos()
-	local node = minetest.env:get_node(pos)
+	local node = minetest.get_node(pos)
 
 	if self.timer>0.2 then
-		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
+		local objs = minetest.get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_bronze_entity" and obj:get_luaentity().name ~= "__builtin:item" then
@@ -247,7 +247,7 @@ THROWING_ARROW_BRONZE_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow_bronze')
+			minetest.add_item(self.lastpos, 'throwing:arrow_bronze')
 			self.object:remove()
 		end
 	end
@@ -309,10 +309,10 @@ local THROWING_ARROW_DIAMOND_ENTITY={
 THROWING_ARROW_DIAMOND_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
 	local pos = self.object:get_pos()
-	local node = minetest.env:get_node(pos)
+	local node = minetest.get_node(pos)
 
 	if self.timer>0.2 then
-		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
+		local objs = minetest.get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_diamond_entity" and obj:get_luaentity().name ~= "__builtin:item" then
@@ -336,7 +336,7 @@ THROWING_ARROW_DIAMOND_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow_diamond')
+			minetest.add_item(self.lastpos, 'throwing:arrow_diamond')
 			self.object:remove()
 		end
 	end
@@ -398,10 +398,10 @@ local THROWING_ARROW_NYAN_ENTITY={
 THROWING_ARROW_NYAN_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
 	local pos = self.object:get_pos()
-	local node = minetest.env:get_node(pos)
+	local node = minetest.get_node(pos)
 
 	if self.timer>0.2 then
-		local objs = minetest.env:get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
+		local objs = minetest.get_objects_inside_radius({x=pos.x,y=pos.y,z=pos.z}, 2)
 		for k, obj in pairs(objs) do
 			if obj:get_luaentity() ~= nil then
 				if obj:get_luaentity().name ~= "throwing:arrow_nyan_entity" and obj:get_luaentity().name ~= "__builtin:item" then
@@ -425,7 +425,7 @@ THROWING_ARROW_NYAN_ENTITY.on_step = function(self, dtime)
 
 	if self.lastpos.x~=nil then
 		if node.name ~= "air" then
-			minetest.env:add_item(self.lastpos, 'throwing:arrow_nyan')
+			minetest.add_item(self.lastpos, 'throwing:arrow_nyan')
 			self.object:remove()
 		end
 	end

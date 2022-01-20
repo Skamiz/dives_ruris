@@ -21,7 +21,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
                 }
         },
         on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 			meta:set_string("formspec",
 				"size[8,9]"..
 				"button[3,0;2,1;empty;Empty Trash]"..
@@ -34,7 +34,7 @@ minetest.register_node("trash_can:trash_can_wooden",{
 		inv:set_size("main", 8*4)
 	end,
         can_dig = function(pos,player)
-		local meta = minetest.env:get_meta(pos);
+		local meta = minetest.get_meta(pos);
 		local inv = meta:get_inventory()
                 return inv:is_empty("main")
         end,

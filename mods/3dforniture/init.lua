@@ -58,19 +58,19 @@ minetest.register_alias('armchair', '3dforniture:armchair')
 
 local on_lamp_puncher = function (pos, node, puncher)
 	if node.name == "3dforniture:table_lamp_off" then
-		minetest.env:add_node(pos, {name="3dforniture:table_lamp_low"})
+		minetest.add_node(pos, {name="3dforniture:table_lamp_low"})
 		--nodeupdate(pos)
 	elseif node.name == "3dforniture:table_lamp_low" then
-		minetest.env:add_node(pos, {name="3dforniture:table_lamp_med"})
+		minetest.add_node(pos, {name="3dforniture:table_lamp_med"})
 		--nodeupdate(pos)
 	elseif node.name == "3dforniture:table_lamp_med" then
-		minetest.env:add_node(pos, {name="3dforniture:table_lamp_hi"})
+		minetest.add_node(pos, {name="3dforniture:table_lamp_hi"})
 		--nodeupdate(pos)
 	elseif node.name == "3dforniture:table_lamp_hi" then
-		minetest.env:add_node(pos, {name="3dforniture:table_lamp_max"})
+		minetest.add_node(pos, {name="3dforniture:table_lamp_max"})
 		--nodeupdate(pos)
 	elseif node.name == "3dforniture:table_lamp_max" then
-		minetest.env:add_node(pos, {name="3dforniture:table_lamp_off"})
+		minetest.add_node(pos, {name="3dforniture:table_lamp_off"})
 		--nodeupdate(pos)
     end
 end
@@ -79,11 +79,11 @@ end
 local on_toilet_puncher = function (pos, node, puncher)
   if node.name == '3dforniture:toilet' then
     local dir = node["param2"]
-    minetest.env:add_node(pos, {name="3dforniture:toilet_open", paramtype2='none', param2=dir})
+    minetest.add_node(pos, {name="3dforniture:toilet_open", paramtype2='none', param2=dir})
     --nodeupdate(pos)
   elseif node.name == '3dforniture:toilet_open' then
     local dir = node["param2"]
-    minetest.env:add_node(pos, {name="3dforniture:toilet", paramtype2='none', param2=dir})
+    minetest.add_node(pos, {name="3dforniture:toilet", paramtype2='none', param2=dir})
     --nodeupdate(pos)
   end
 end

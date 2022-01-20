@@ -60,7 +60,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--pos.y =pos.y-0.4
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 15.1/16)) do -- IDKWTF this is but it works
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 15.1/16)) do -- IDKWTF this is but it works
 				if object:is_player() then
 					--player_speed = object:get_physics_override({speed}) -- this can get out of control
 					object:set_physics_override({speed = .1})
@@ -77,7 +77,7 @@ minetest.register_abm({
 	chance = 3,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--pos.y =pos.y-0.4
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 2)) do--1.3
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 2)) do--1.3
 			if object:is_player() then
 				if object:get_hp() > 0 then
 					object:set_hp(object:get_hp()-1)
@@ -95,7 +95,7 @@ minetest.register_abm({
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--pos.y =pos.y-0.4
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 2)) do--1.3
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 2)) do--1.3
 			if object:is_player() then
 				if object:get_hp() > 0 then
 					object:set_hp(object:get_hp()-1)
@@ -113,7 +113,7 @@ minetest.register_abm({
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--pos.y =pos.y-0.4
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 2)) do--1.3
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 2)) do--1.3
 			if object:is_player() then
 				if object:get_hp() > 0 then
 					object:set_hp(object:get_hp()-1)
@@ -131,7 +131,7 @@ minetest.register_abm({
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--pos.y =pos.y-0.4
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 2)) do--1.3
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 2)) do--1.3
 			if object:is_player() then
 				if object:get_hp() > 0 then
 					object:set_hp(object:get_hp()-2)
@@ -150,7 +150,7 @@ minetest.register_abm({
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--pos.y =pos.y-0.4
-		for _,object in ipairs(minetest.env:get_objects_inside_radius(pos, 2)) do--1.3
+		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 2)) do--1.3
 			if object:is_player() then
 				if object:get_hp() > 0 then
 					object:set_hp(object:get_hp()-2)
