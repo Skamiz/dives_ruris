@@ -41,7 +41,7 @@ end
 
 --load custom settings
 local set = io.open(minetest.get_modpath("hud").."/hud.conf", "r")
-if set then 
+if set then
 	dofile(minetest.get_modpath("hud").."/hud.conf")
 	set:close()
 else
@@ -215,7 +215,7 @@ hud.set_hunger = function(player)
 	if not inv  or not value then return nil end
 	if value > 30 then value = 30 end
 	if value < 0 then value = 0 end
-	
+
 	inv:set_stack("hunger", 1, ItemStack({name=":", count=value+1}))
 
 	return true
@@ -254,6 +254,7 @@ end)
 local main_timer = 0
 local timer = 0
 local timer2 = 0
+local damage_enabled = minetest.setting_getbool("enable_damage")
 minetest.after(2.5, function()
 	minetest.register_globalstep(function(dtime)
 	 main_timer = main_timer + dtime
@@ -265,7 +266,7 @@ minetest.after(2.5, function()
 			local name = player:get_player_name()
 
 			-- only proceed if damage is enabled
-			if minetest.setting_getbool("enable_damage") then
+			if damage_enabled then
 			 local h = tonumber(hud.hunger[name])
 			 local hp = player:get_hp()
 			 if HUD_ENABLE_HUNGER and timer > 4 then
@@ -273,7 +274,7 @@ minetest.after(2.5, function()
 				if h > 15 and hp > 0 and hud.air[name] > 0 then
 					player:set_hp(hp+1)
 				-- or damage player by 1 hp if saturation is < 2 (of 30)
-				elseif h <= 1 and minetest.setting_getbool("enable_damage") then
+				elseif h <= 1 and damage_enabled then
 					if hp-1 >= 0 then player:set_hp(hp-1) end
 				end
 			 end
@@ -292,7 +293,7 @@ minetest.after(2.5, function()
 			 update_hud(player)
 			end
 		 end
-		
+
 		end
 		if timer > 4 then timer = 0 end
 		if timer2 > HUD_HUNGER_TICK then timer2 = 0 end
