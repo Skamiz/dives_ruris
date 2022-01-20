@@ -162,15 +162,15 @@ local function moveTowards(object, player, pickupRadius, attractRadius)
 end
 
 if false then
--- if minetest.setting_get("enable_item_pickup") == "true" then
+-- if minetest.settings:get("enable_item_pickup") == "true" then
 	local tickets = 0 -- XXX: oy vey
 	moveDelay = 0
 	minetest.register_globalstep(function(dtime)
 		-- it's much more efficient to just restart... no way to unregister_globalstep right?
-		if not minetest.setting_get("enable_item_pickup") then return end
+		if not minetest.settings:get("enable_item_pickup") then return end
 		moveDelay = moveDelay + dtime
-		local pickupRadius = tonumber(minetest.setting_get("pickup_radius"))
-		local attractRadius = tonumber(minetest.setting_get("attract_radius"))
+		local pickupRadius = tonumber(minetest.settings:get("pickup_radius"))
+		local attractRadius = tonumber(minetest.settings:get("attract_radius"))
 		if not pickupRadius then pickupRadius = 0.5 end
 		if not attractRadius then attractRadius = 3 end
 
@@ -183,7 +183,7 @@ if false then
 			end
 		end
 		for _, player in ipairs(minetest.get_connected_players()) do
-			if player:get_hp() > 0 or not minetest.setting_getbool("enable_damage") then
+			if player:get_hp() > 0 or not minetest.settings:get_bool("enable_damage") then
 				local playerPosition = player:get_pos()
 				if playerPosition ~= nil then
 					playerPosition.y = playerPosition.y + 0.5
@@ -227,7 +227,7 @@ if false then
 	end)
 end
 
-if minetest.setting_get("enable_item_drops") == "true" then
+if minetest.settings:get("enable_item_drops") == "true" then
 	local old_handle_node_drops = minetest.handle_node_drops
 
 	function new_handle_node_drops(pos, drops, digger)
@@ -236,7 +236,7 @@ if minetest.setting_get("enable_item_drops") == "true" then
 		end
 		local inv
 		-- the digger might be a node, like a constructor
-		if minetest.setting_getbool("creative_mode") and digger and digger:is_player() then
+		if minetest.settings:get_bool("creative_mode") and digger and digger:is_player() then
 			inv = digger:get_inventory()
 		end
 		for _, item in ipairs(drops) do
@@ -274,7 +274,7 @@ if minetest.setting_get("enable_item_drops") == "true" then
 	end
 
 	function checkSetting(pos, drops, digger)
-		if minetest.setting_get("enable_item_drops") == "true" then
+		if minetest.settings:get("enable_item_drops") == "true" then
 			return new_handle_node_drops(pos, drops, digger)
 		else
 			return old_handle_node_drops(pos, drops, digger)

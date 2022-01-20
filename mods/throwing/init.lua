@@ -10,7 +10,7 @@ arrows = {
 local throwing_shoot_arrow = function(itemstack, player)
 	for _,arrow in ipairs(arrows) do
 		if player:get_inventory():get_stack("main", player:get_wield_index()+1):get_name() == arrow[1] then
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				player:get_inventory():remove_item("main", arrow[1])
 			end
 			local playerpos = player:get_pos()
@@ -36,7 +36,7 @@ minetest.register_tool("throwing:bow_wood", {
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(itemstack, user, pointed_thing) then
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:add_wear(65535/75)
 			end
 		end
@@ -59,7 +59,7 @@ minetest.register_tool("throwing:bow_stone", {
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:add_wear(65535/100)
 			end
 		end
@@ -83,7 +83,7 @@ minetest.register_tool("throwing:bow_steel", {
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
-			if not minetest.setting_getbool("creative_mode") then
+			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:add_wear(65535/200)
 			end
 		end
@@ -106,6 +106,6 @@ dofile(minetest.get_modpath("throwing").."/teleport_arrow.lua")
 --dofile(minetest.get_modpath("throwing").."/dig_arrow.lua")
 --dofile(minetest.get_modpath("throwing").."/build_arrow.lua")
 
-if minetest.setting_get("log_mods") then
+if minetest.settings:get("log_mods") then
 	minetest.log("action", "throwing loaded")
 end

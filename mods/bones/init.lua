@@ -62,8 +62,8 @@ minetest.register_node("bones:bones", {
 		local meta = minetest.get_meta(pos)
 		local time = meta:get_int("time")+elapsed
 		local publish = 1200
-		if tonumber(minetest.setting_get("share_bones_time")) then
-			publish = tonumber(minetest.setting_get("share_bones_time"))
+		if tonumber(minetest.settings:get("share_bones_time")) then
+			publish = tonumber(minetest.settings:get("share_bones_time"))
 		end
 		if publish == 0 then
 			return
@@ -78,7 +78,7 @@ minetest.register_node("bones:bones", {
 })
 
 minetest.register_on_dieplayer(function(player)
-	if minetest.setting_getbool("creative_mode") then
+	if minetest.settings:get_bool("creative_mode") then
 		return
 	end
 	

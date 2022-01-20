@@ -33,13 +33,13 @@ if rawget(_G, "invisibility") then
 end
 
 -- Load settings
-local damage_enabled = minetest.setting_getbool("enable_damage")
-local peaceful_only = minetest.setting_getbool("only_peaceful_mobs")
-local disable_blood = minetest.setting_getbool("mobs_disable_blood")
-local creative = minetest.setting_getbool("creative_mode")
-local spawn_protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 1
-local remove_far = minetest.setting_getbool("remove_far_mobs")
-local difficulty = tonumber(minetest.setting_get("mob_difficulty")) or 1.0
+local damage_enabled = minetest.settings:get_bool("enable_damage")
+local peaceful_only = minetest.settings:get_bool("only_peaceful_mobs")
+local disable_blood = minetest.settings:get_bool("mobs_disable_blood")
+local creative = minetest.settings:get_bool("creative_mode")
+local spawn_protected = tonumber(minetest.settings:get("mobs_spawn_protected")) or 1
+local remove_far = minetest.settings:get_bool("remove_far_mobs")
+local difficulty = tonumber(minetest.settings:get("mob_difficulty")) or 1.0
 
 -- pathfinding settings
 local enable_pathfinding = true
@@ -2415,7 +2415,7 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 	interval, chance, aoc, min_height, max_height, day_toggle)
 
 	-- chance override in minetest.conf for registered mob
-	local new_chance = tonumber(minetest.setting_get(name .. "_chance"))
+	local new_chance = tonumber(minetest.settings:get(name .. "_chance"))
 
 	if new_chance ~= nil then
 

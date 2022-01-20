@@ -155,7 +155,7 @@ mobs:register_mob("goblins:goblin_cobble", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -249,7 +249,7 @@ mobs:register_mob("goblins:goblin_digger", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -341,7 +341,7 @@ mobs:register_mob("goblins:goblin_coal", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -435,7 +435,7 @@ mobs:register_mob("goblins:goblin_iron", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -529,7 +529,7 @@ mobs:register_mob("goblins:goblin_copper", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -623,7 +623,7 @@ mobs:register_mob("goblins:goblin_gold", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -717,7 +717,7 @@ mobs:register_mob("goblins:goblin_diamond", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
@@ -811,7 +811,7 @@ mobs:register_mob("goblins:goblin_king", {
 
 			-- right clicking with gold lump drops random item from mobs.npc_drops
 			if item:get_name() == "default:gold_lump" then
-				if not minetest.setting_getbool("creative_mode") then
+				if not minetest.settings:get_bool("creative_mode") then
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end

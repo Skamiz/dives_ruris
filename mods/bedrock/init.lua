@@ -36,6 +36,6 @@ minetest.register_node("bedrock:deepstone", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-if minetest.setting_getbool("log_mods") then
+if minetest.settings:get_bool("log_mods") then
 	minetest.log("action", "[bedrock] loaded.")
 end

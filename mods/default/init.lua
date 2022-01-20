@@ -51,7 +51,7 @@ dofile(minetest.get_modpath("default").."/food.lua")
 dofile(minetest.get_modpath("default").."/fishing.lua")
 
 -- 10 slot hotbar key 1 - 0 (for ppl w/o a mouseweel)
-hotbar_size = minetest.setting_get("hotbar_size") or 10
+hotbar_size = minetest.settings:get("hotbar_size") or 10
 
 minetest.register_on_joinplayer(function(player)
 	player:hud_set_hotbar_itemcount(hotbar_size)

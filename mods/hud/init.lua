@@ -29,9 +29,9 @@ HUD_ARMOR_OFFSET = {x=-80, y=-7} -- x175
 HUD_TICK = 0.2
 HUD_HUNGER_TICK = 111
 
-HUD_ENABLE_HUNGER = minetest.setting_getbool("hud_hunger_enable")
+HUD_ENABLE_HUNGER = minetest.settings:get_bool("hud_hunger_enable")
 if HUD_ENABLE_HUNGER == nil then
-	HUD_ENABLE_HUNGER = minetest.setting_getbool("enable_damage")
+	HUD_ENABLE_HUNGER = minetest.settings:get_bool("enable_damage")
 end
 
 HUD_SHOW_ARMOR = false
@@ -64,7 +64,7 @@ local function custom_hud(player)
 	player:hud_set_hotbar_selected_image("hud_hotbar_selected.png")
  -- end
 
- if minetest.setting_getbool("enable_damage") then
+ if minetest.settings:get_bool("enable_damage") then
  --hunger
 	if HUD_ENABLE_HUNGER then
        	 player:hud_add({
@@ -254,7 +254,7 @@ end)
 local main_timer = 0
 local timer = 0
 local timer2 = 0
-local damage_enabled = minetest.setting_getbool("enable_damage")
+local damage_enabled = minetest.settings:get_bool("enable_damage")
 minetest.after(2.5, function()
 	minetest.register_globalstep(function(dtime)
 	 main_timer = main_timer + dtime

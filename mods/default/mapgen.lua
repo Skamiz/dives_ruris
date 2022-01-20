@@ -30,6 +30,7 @@ minetest.register_alias("default:junglewood", "default:wood_jungle")
 minetest.register_alias("default:pinewood", "default:wood_pine")
 minetest.register_alias("mapgen_river_water_source", "default:river_water_source")
 
+-- TODO: this function ins't mentioned in the API for some god damned reason, but still works
 minetest.register_on_mapgen_init(function(mgparams)
 	minetest.set_mapgen_params({mgname="v7", mg_flags="nodungeons", mgv7_spflags = "ridges", "water_level=1"})
 end)
@@ -60,7 +61,7 @@ function default.register_ores()
 		y_min          = -30000,
 		y_max          = 0,
 	})
-	
+
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:stone_with_iron",
@@ -164,9 +165,9 @@ function default.register_ores()
 		y_min          = -30000,
 		y_max          = -120,
 	})
-	
-	
-		minetest.register_ore({ 
+
+
+		minetest.register_ore({
 		ore_type         = "blob",
 		ore              = "default:marble",
 		wherein          = {"default:stone"},
@@ -184,8 +185,8 @@ function default.register_ores()
 			persist=0.5
 		},
 	})
-	
-	
+
+
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite",
@@ -198,7 +199,7 @@ function default.register_ores()
 		y_max     = 31000,
 		flags          = "absheight",
 	})
-	
+
 	minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite",
@@ -211,7 +212,7 @@ function default.register_ores()
 		y_max     = -150,
 		flags          = "absheight",
 	})
-	
+
 		minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite",
@@ -224,7 +225,7 @@ function default.register_ores()
 		y_max     = -301,
 		flags          = "absheight",
 	})
-	
+
 end
 
 --[[
@@ -478,7 +479,7 @@ function default.register_biomes()
 	minetest.clear_registered_biomes()
 
 
-	
+
 minetest.register_biome({
 	name			= "default:grassland",
 	node_top		= "default:dirt_with_grass", depth_top			= 1,
@@ -583,7 +584,7 @@ minetest.register_biome({
 	heat_point		= 55.0,						humidity_point		= 55.0,
 })
 
-	
+
 -- shore's
 
 minetest.register_biome({
@@ -634,22 +635,22 @@ minetest.register_biome({
 	heat_point		= 10.0,						humidity_point		= 45.0,
 })
 
-minetest.register_biome({ 
-		name = "default:shoreice", 
-		node_dust = "default:snow", 
-		node_top = "default:snowblock", 
- 		depth_top = 1, 
-		node_filler = "default:snowblock", 
- 		depth_filler = 1, 
-		node_water_top = "default:ice", 
- 		depth_water_top = 2, 
- 		--node_water = "", 
- 		node_river_water = "default:ice", 
-		y_min = 1, 
-		y_max = 2, 
-		heat_point = -5, 
-		humidity_point = 45, 
-	}) 
+minetest.register_biome({
+		name = "default:shoreice",
+		node_dust = "default:snow",
+		node_top = "default:snowblock",
+ 		depth_top = 1,
+		node_filler = "default:snowblock",
+ 		depth_filler = 1,
+		node_water_top = "default:ice",
+ 		depth_water_top = 2,
+ 		--node_water = "",
+ 		node_river_water = "default:ice",
+		y_min = 1,
+		y_max = 2,
+		heat_point = -5,
+		humidity_point = 45,
+	})
 
 -- lakes
 
@@ -712,7 +713,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		local bpos2 = { x=pos.x, y=pos.y + 2, z=pos.z }
 
 		if minetest.get_node(bpos).name == "air" and minetest.get_node(bpos2).name == "air" and pos.y <= -300 then
-		        
+
 				local pla = math.random(1,8)
 				if pla >= 3 then
 				   return
@@ -723,14 +724,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				elseif dung >= 3 then dungname = "dungeon_2"
 				end
 				minetest.place_schematic(bpos, path..dungname..".mts", 0, '', 0)
-			
-		
+
+
 		end
 	end
 end)
 
 -- Grassland1
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_grass",
 	sidelen = 40, -- was 16
@@ -742,7 +743,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_grass",
 	sidelen = 40, -- was 16
@@ -754,7 +755,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_grass",
 	sidelen = 40, -- was 16
@@ -766,7 +767,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_grass",
 	sidelen = 40, -- was 16
@@ -780,7 +781,7 @@ minetest.register_decoration({
 
 --desert
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = {"default:desert_sand", "default:sand"},
 	sidelen = 40, -- was 16
@@ -793,7 +794,7 @@ minetest.register_decoration({
 })
 
 --mediteran
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_med_with_grass",
 	sidelen = 40, -- was 16
@@ -805,7 +806,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_med_with_grass",
 	sidelen = 40, -- was 16
@@ -817,7 +818,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 --[[
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_med_with_grass",
 	sidelen = 40, -- was 16
@@ -848,7 +849,7 @@ minetest.register_decoration({
 	})
 --]]
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_med_with_grass",
 	sidelen = 40, -- was 16
@@ -880,7 +881,7 @@ minetest.register_decoration({
 	})
 
 --Deep Forest
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_deep_with_grass",
 	sidelen = 40, -- was 16
@@ -891,7 +892,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_deep_with_grass",
 	sidelen = 40, -- was 16
@@ -903,7 +904,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_deep_with_grass",
 	sidelen = 40, -- was 16
@@ -915,7 +916,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_deep_with_grass",
 	sidelen = 40, -- was 16
@@ -928,7 +929,7 @@ minetest.register_decoration({
 })
 
 --Snowland
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_snow",
 	sidelen = 40, -- was 16
@@ -947,7 +948,7 @@ minetest.register_decoration({
 })
 
 --jungle
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 40, -- was 16
@@ -959,7 +960,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 40, -- was 16
@@ -972,7 +973,7 @@ minetest.register_decoration({
 })
 
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 40, -- was 16
@@ -984,7 +985,7 @@ minetest.register_decoration({
 	rotation = "random",
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 40, -- was 16
@@ -994,9 +995,9 @@ minetest.register_decoration({
 	schematic = path.."rubbertree.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
-})  
+})
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 40, -- was 16
@@ -1006,9 +1007,9 @@ minetest.register_decoration({
 	schematic = path.."cocoatree_gen.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
-}) 
+})
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 40, -- was 16
@@ -1018,7 +1019,7 @@ minetest.register_decoration({
 	schematic = path.."bananatree_gen.mts",
 	flags = "place_center_x, place_center_z",
 	rotation = "random",
-}) 
+})
 
 	--
 	-- Register decorations
@@ -1026,7 +1027,7 @@ minetest.register_decoration({
 
 	-- Flowers
 -- Grassland
-	minetest.register_decoration({							
+	minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_with_grass",
 	sidelen = 16, -- was 16
@@ -1036,7 +1037,7 @@ minetest.register_decoration({
 })
 
 --Mediterran
-	minetest.register_decoration({							
+	minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_med_with_grass",
 	sidelen = 16, -- was 16
@@ -1045,7 +1046,7 @@ minetest.register_decoration({
 	decoration = {"default:flowers_cosmo", "default:grass_3", "default:flowers_lavendel", "default:flowers_geranium", "default:flowers_heliconia", "simple_bushes:red"},
 })
 
-	minetest.register_decoration({							
+	minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_med_with_grass",
 	sidelen = 16, -- was 16
@@ -1055,7 +1056,7 @@ minetest.register_decoration({
 })
 
 --Deepforest
-	minetest.register_decoration({							
+	minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_deep_with_grass",
 	sidelen = 16, -- was 16
@@ -1066,7 +1067,7 @@ minetest.register_decoration({
 
 --jungle
 
-	minetest.register_decoration({							
+	minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 16, -- was 16
@@ -1077,7 +1078,7 @@ minetest.register_decoration({
 
 --snow
 
-	minetest.register_decoration({							
+	minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_with_snow",
 	sidelen = 16, -- was 16
@@ -1107,30 +1108,30 @@ minetest.register_decoration({
 		decoration = "flowers:rose",
 	})
 ]]
-	
+
 
 -- Grasses
 
 --Deepforestgrass (grass 1)
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_deep_with_grass"},
 	sidelen = 16, -- was 16
 	fill_ratio = 0.18,
 	biomes = {"default:deepforest"},
-	decoration = "default:grass_1", 
+	decoration = "default:grass_1",
 })
 -- mediterrangrass (grass 2 + 3)
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_med_with_grass"},
 	sidelen = 16, -- was 16
 	fill_ratio = 0.08,
 	biomes = {"default:mediteran", "default:mediteran2"},
-	decoration = {"default:grass_2", "default:grass_3"}, 
+	decoration = {"default:grass_2", "default:grass_3"},
 })
 --Grasslandgrass (Grass 4 + 5)
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 16, -- was 16
@@ -1160,7 +1161,7 @@ minetest.register_decoration({
 ]]
 
 -- Jungle Grass
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_jungle_with_grass"},
 	sidelen = 16, -- was 16
@@ -1187,7 +1188,7 @@ minetest.register_decoration({							-- Snow
 --food
 --
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 16, -- was 16
@@ -1196,7 +1197,7 @@ minetest.register_decoration({
 	decoration = {"farming:onion_3", "farming:salad_3", "farming:beens_3"},
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_med_with_grass"},
 	sidelen = 16, -- was 16
@@ -1205,7 +1206,7 @@ minetest.register_decoration({
 	decoration = {"farming:tomato_3"},
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_med_with_grass"},
 	sidelen = 16, -- was 16
@@ -1214,7 +1215,7 @@ minetest.register_decoration({
 	decoration = {"farming:corn_3", "farming:pepper_3"},
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_deep_with_grass"},
 	sidelen = 16, -- was 16
@@ -1223,7 +1224,7 @@ minetest.register_decoration({
 	decoration = {"farming:carrot_3", "farming:mushroom_3", "farming:strawberry_3"},
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_jungle_with_grass"},
 	sidelen = 16, -- was 16
@@ -1237,26 +1238,26 @@ minetest.register_decoration({
 -- plants
 --
 
-minetest.register_decoration({ 
- 		deco_type = "schematic", 
- 		place_on = {"default:gravel"}, 
- 		sidelen = 16, 
-		noise_params = { 
- 			offset = -0.12, 
- 			scale = 0.3, 
- 			spread = {x = 200, y = 200, z = 200}, 
- 			seed = 33, 
- 			octaves = 3, 
-			persist = 0.7 
- 		}, 
-		biomes = {"default:shoregr1", "default:shoregr2"}, 
-		y_min = 0, 
-		y_max = 0, 
- 		schematic = minetest.get_modpath("flowers").."/schematics/waterlily.mts", 
-		rotation = "random", 
-	}) 
-	
-minetest.register_decoration({							
+minetest.register_decoration({
+ 		deco_type = "schematic",
+ 		place_on = {"default:gravel"},
+ 		sidelen = 16,
+		noise_params = {
+ 			offset = -0.12,
+ 			scale = 0.3,
+ 			spread = {x = 200, y = 200, z = 200},
+ 			seed = 33,
+ 			octaves = 3,
+			persist = 0.7
+ 		},
+		biomes = {"default:shoregr1", "default:shoregr2"},
+		y_min = 0,
+		y_max = 0,
+ 		schematic = minetest.get_modpath("flowers").."/schematics/waterlily.mts",
+		rotation = "random",
+	})
+
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:dirt_jungle_with_grass"},
 	sidelen = 16, -- was 16
@@ -1269,7 +1270,7 @@ minetest.register_decoration({
 	--num_spawn_by = 1,
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:sand"},
 	sidelen = 16, -- was 16
@@ -1283,7 +1284,7 @@ minetest.register_decoration({
 	y_min = 1,
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:gravel"},
 	sidelen = 16, -- was 16
@@ -1295,7 +1296,7 @@ minetest.register_decoration({
 	y_min = 1,
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:desert_sand"},
 	sidelen = 16, -- was 16
@@ -1308,7 +1309,7 @@ minetest.register_decoration({
 	height_max = 4,
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"default:desert_sand"},
 	sidelen = 16, -- was 16
@@ -1325,7 +1326,7 @@ end
 --
 
 function default.register_blobs()
-	minetest.register_ore({ 
+	minetest.register_ore({
 		ore_type         = "blob",
 		ore              = "default:sand",
 		wherein          = {"default:stone"},
@@ -1381,8 +1382,8 @@ function default.register_blobs()
 			persist=0.5
 		},
 	})
-	
-	minetest.register_ore({ 
+
+	minetest.register_ore({
 		ore_type         = "blob",
 		ore              = "default:clay",
 		wherein          = {"default:sand"},
@@ -1400,7 +1401,7 @@ function default.register_blobs()
 			persist=0.5
 		},
 	})
-	
+
 end
 --
 --
@@ -1423,4 +1424,3 @@ elseif mg_params.mgname == "v7" then
 	default.register_blobs()
 	default.register_ores()
 end
-

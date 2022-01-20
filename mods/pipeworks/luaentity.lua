@@ -54,15 +54,15 @@ end
 local active_blocks = {} -- These only contain active blocks near players (i.e., not forceloaded ones)
 local handle_active_blocks_step = 2
 local handle_active_blocks_timer = 0
-local active_block_range = tonumber(minetest.setting_get("active_block_range")) or 2
+local active_block_range = tonumber(minetest.settings:get("active_block_range")) or 2
 minetest.register_globalstep(function(dtime)
 	handle_active_blocks_timer = handle_active_blocks_timer + dtime
 	if handle_active_blocks_timer >= handle_active_blocks_step then
 		handle_active_blocks_timer = handle_active_blocks_timer - handle_active_blocks_step
-		-- local active_block_range = tonumber(minetest.setting_get("active_block_range")) or 2
+		-- local active_block_range = tonumber(minetest.settings:get("active_block_range")) or 2
 		local new_active_blocks = {}
 		for _, player in ipairs(minetest.get_connected_players()) do
-			local blockpos = get_blockpos(player:getpos())
+			local blockpos = get_blockpos(player:get_pos())
 			local minp = vector.subtract(blockpos, active_block_range)
 			local maxp = vector.add(blockpos, active_block_range)
 

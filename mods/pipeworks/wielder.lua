@@ -230,7 +230,7 @@ local function register_wielder(data)
 			end,
 			after_place_node = function (pos, placer)
 				pipeworks.scan_for_tube_objects(pos)
-				local placer_pos = placer:getpos()
+				local placer_pos = placer:get_pos()
 				if placer_pos and placer:is_player() then placer_pos = vector.add(placer_pos, assumed_eye_pos) end
 				if placer_pos then
 					local dir = vector.subtract(pos, placer_pos)
