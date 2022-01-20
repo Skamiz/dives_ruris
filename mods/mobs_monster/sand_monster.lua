@@ -55,7 +55,7 @@ mobs:register_mob("mobs_monster:sand_monster", {
 	},
 --[[
 	custom_attack = function(self, p)
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 		minetest.add_item(pos, "default:sand")
 	end,
 ]]

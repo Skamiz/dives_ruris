@@ -643,7 +643,7 @@ if( travelnet.travelnet_effect_enabled ) then
 
     on_step = function( self, dtime )
        -- this is supposed to be more flickering than smooth animation
-       self.object:setyaw( self.object:getyaw()+1);
+       self.object:set_yaw( self.object:get_yaw()+1);
        self.anz_rotations = self.anz_rotations + 1;
        -- eventually self-destruct
        if( self.anz_rotations > 15 ) then

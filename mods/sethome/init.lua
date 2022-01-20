@@ -36,7 +36,7 @@ minetest.register_chatcommand("home", {
             return false
         end
         if homepos[player:get_player_name()] then
-            player:setpos(homepos[player:get_player_name()])
+            player:set_pos(homepos[player:get_player_name()])
             minetest.chat_send_player(name, "Teleported to home!")
         else
             minetest.chat_send_player(name, "Set a home using /sethome")
@@ -49,7 +49,7 @@ minetest.register_chatcommand("sethome", {
     privs = {home=true},
     func = function(name)
         local player = minetest.get_player_by_name(name)
-        local pos = player:getpos()
+        local pos = player:get_pos()
         homepos[player:get_player_name()] = pos
         minetest.chat_send_player(name, "Home set!")
         changed = true

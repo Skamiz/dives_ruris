@@ -25,7 +25,7 @@ minetest.register_node("columnia:column_mid_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -80,7 +80,7 @@ minetest.register_node("columnia:column_top_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -135,7 +135,7 @@ minetest.register_node("columnia:column_bottom_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -191,7 +191,7 @@ minetest.register_node("columnia:column_crosslink_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -244,7 +244,7 @@ minetest.register_node("columnia:column_link_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -300,7 +300,7 @@ minetest.register_node("columnia:column_linkdown_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -354,7 +354,7 @@ minetest.register_node("columnia:column_linkcross_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -411,7 +411,7 @@ minetest.register_node("columnia:column_linkcrossdown_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -468,7 +468,7 @@ minetest.register_node("columnia:column_linkvertical_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -522,7 +522,7 @@ minetest.register_node("columnia:column_linkangle_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -579,7 +579,7 @@ minetest.register_node("columnia:column_linkangle_down_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -633,7 +633,7 @@ minetest.register_node("columnia:column_linktee_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -690,7 +690,7 @@ minetest.register_node("columnia:column_linktee_down_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -758,7 +758,7 @@ minetest.register_node("columnia:column_stairsub_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -827,7 +827,7 @@ minetest.register_node("columnia:column_stairsubpillar_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,

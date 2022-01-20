@@ -88,18 +88,18 @@ end
 
 set_velocity = function(self, v)
 
-	local yaw = self.object:getyaw() + self.rotate or 0
+	local yaw = self.object:get_yaw() + self.rotate or 0
 
-	self.object:setvelocity({
+	self.object:set_velocity({
 		x = sin(yaw) * -v,
-		y = self.object:getvelocity().y,
+		y = self.object:get_velocity().y,
 		z = cos(yaw) * v
 	})
 end
 
 get_velocity = function(self)
 
-	local v = self.object:getvelocity()
+	local v = self.object:get_velocity()
 
 	return (v.x * v.x + v.z * v.z) ^ 0.5
 end
@@ -339,7 +339,7 @@ function check_for_death(self)
 
 			if obj then
 
-				obj:setvelocity({
+				obj:set_velocity({
 					x = random(-10, 10) / 9,
 					y = 5,
 					z = random(-10, 10) / 9,
@@ -397,7 +397,7 @@ local function is_at_cliff(self)
 		return false
 	end
 
-	local yaw = self.object:getyaw()
+	local yaw = self.object:get_yaw()
 	local dir_x = -sin(yaw) * (self.collisionbox[4] + 0.5)
 	local dir_z = cos(yaw) * (self.collisionbox[4] + 0.5)
 	local pos = self.object:get_pos()
@@ -529,7 +529,7 @@ do_jump = function(self)
 	end
 
 	-- where is front
-	local yaw = self.object:getyaw()
+	local yaw = self.object:get_yaw()
 	local dir_x = -sin(yaw) * (self.collisionbox[4] + 0.5)
 	local dir_z = cos(yaw) * (self.collisionbox[4] + 0.5)
 
@@ -552,11 +552,11 @@ do_jump = function(self)
 	and not nod.name:find("gate"))
 	or self.walk_chance == 0 then
 
-		local v = self.object:getvelocity()
+		local v = self.object:get_velocity()
 
 		v.y = self.jump_height + 1
 
-		self.object:setvelocity(v)
+		self.object:set_velocity(v)
 
 		if self.sounds.jump then
 
@@ -664,7 +664,7 @@ local function breed(self)
 			})
 
 			-- jump when fully grown so not to fall into ground
-			self.object:setvelocity({
+			self.object:set_velocity({
 				x = 0,
 				y = self.jump_height,
 				z = 0
@@ -792,7 +792,7 @@ function replace(self, pos)
 
 		if self.replace_what
 		and self.replace_with
-		and self.object:getvelocity().y == 0
+		and self.object:get_velocity().y == 0
 		and #minetest.find_nodes_in_area(pos, pos, self.replace_what) > 0 then
 
 			minetest.set_node(pos, {name = self.replace_with})
@@ -869,7 +869,7 @@ function smart_mobs(self, s, p, dist, dtime)
 		self.path.way = minetest.find_path(s, p1, 16, 2, 6, "Dijkstra") --"A*_noprefetch")
 
 		-- attempt to unstick mob that is "daydreaming"
-		self.object:setpos({
+		self.object:set_pos({
 			x = s.x + 0.1 * (random() * 2 - 1),
 			y = s.y + 1,
 			z = s.z + 0.1 * (random() * 2 - 1)
@@ -911,11 +911,11 @@ function smart_mobs(self, s, p, dist, dtime)
 					end
 
 					s.y = s.y - sheight
-					self.object:setpos({x = s.x, y = s.y + 2, z = s.z})
+					self.object:set_pos({x = s.x, y = s.y + 2, z = s.z})
 
 				else -- dig 2 blocks to make door toward player direction
 
-					local yaw1 = self.object:getyaw() + pi / 2
+					local yaw1 = self.object:get_yaw() + pi / 2
 
 					local p1 = {
 						x = s.x + cos(yaw1),
@@ -1187,7 +1187,7 @@ local follow_flop = function(self)
 					yaw = yaw + pi
 				end
 
-				self.object:setyaw(yaw)
+				self.object:set_yaw(yaw)
 
 				-- anyone but standing npc's can move along
 				if dist > self.reach
@@ -1195,8 +1195,8 @@ local follow_flop = function(self)
 
 					if (self.jump
 					and get_velocity(self) <= 0.5
-					and self.object:getvelocity().y == 0)
-					or (self.object:getvelocity().y == 0
+					and self.object:get_velocity().y == 0)
+					or (self.object:get_velocity().y == 0
 					and self.jump_chance > 0) then
 
 						do_jump(self)
@@ -1223,7 +1223,7 @@ local follow_flop = function(self)
 	and self.standing_in ~= self.fly_in then
 
 		self.state = "flop"
-		self.object:setvelocity({x = 0, y = -5, z = 0})
+		self.object:set_velocity({x = 0, y = -5, z = 0})
 
 		set_animation(self, "stand")
 
@@ -1299,7 +1299,7 @@ local do_states = function(self, dtime)
 				yaw = (random(0, 360) - 180) / 180 * pi
 			end
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 		end
 
 		set_velocity(self, 0)
@@ -1354,14 +1354,14 @@ local do_states = function(self, dtime)
 				yaw = yaw + pi
 			end
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 
 		-- otherwise randomly turn
 		elseif random(1, 100) <= 30 then
 
 			local yaw = (random(0, 360) - 180) / 180 * pi
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 		end
 
 		-- stand for great fall in front
@@ -1371,7 +1371,7 @@ local do_states = function(self, dtime)
 		if temp_is_cliff == false
 		and self.jump
 		and get_velocity(self) <= 0.5
-		and self.object:getvelocity().y == 0 then
+		and self.object:get_velocity().y == 0 then
 
 			do_jump(self)
 		end
@@ -1407,7 +1407,7 @@ local do_states = function(self, dtime)
 		-- jump when walking comes to a halt
 		if self.jump
 		and get_velocity(self) <= 0.5
-		and self.object:getvelocity().y == 0 then
+		and self.object:get_velocity().y == 0 then
 
 			do_jump(self)
 		end
@@ -1453,7 +1453,7 @@ local do_states = function(self, dtime)
 				yaw = yaw + pi
 			end
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 
 			if dist > self.reach then
 
@@ -1468,7 +1468,7 @@ local do_states = function(self, dtime)
 					self.blinktimer = 0
 
 					if get_velocity(self) <= 0.5
-					and self.object:getvelocity().y == 0 then
+					and self.object:get_velocity().y == 0 then
 
 						do_jump(self)
 					end
@@ -1547,13 +1547,13 @@ local do_states = function(self, dtime)
 				local me_y = floor(p1.y)
 				local p2 = p
 				local p_y = floor(p2.y + 1)
-				local v = self.object:getvelocity()
+				local v = self.object:get_velocity()
 
 				if nod.name == self.fly_in then
 
 					if me_y < p_y then
 
-						self.object:setvelocity({
+						self.object:set_velocity({
 							x = v.x,
 							y = 1 * self.walk_velocity,
 							z = v.z
@@ -1561,7 +1561,7 @@ local do_states = function(self, dtime)
 
 					elseif me_y > p_y then
 
-						self.object:setvelocity({
+						self.object:set_velocity({
 							x = v.x,
 							y = -1 * self.walk_velocity,
 							z = v.z
@@ -1570,7 +1570,7 @@ local do_states = function(self, dtime)
 				else
 					if me_y < p_y then
 
-						self.object:setvelocity({
+						self.object:set_velocity({
 							x = v.x,
 							y = 0.01,
 							z = v.z
@@ -1578,7 +1578,7 @@ local do_states = function(self, dtime)
 
 					elseif me_y > p_y then
 
-						self.object:setvelocity({
+						self.object:set_velocity({
 							x = v.x,
 							y = -0.01,
 							z = v.z
@@ -1628,7 +1628,7 @@ local do_states = function(self, dtime)
 				yaw = yaw + pi
 			end
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 
 			-- move towards enemy if beyond mob reach
 			if dist > self.reach then
@@ -1643,8 +1643,8 @@ local do_states = function(self, dtime)
 				-- jump attack
 				if (self.jump
 				and get_velocity(self) <= 0.5
-				and self.object:getvelocity().y == 0)
-				or (self.object:getvelocity().y == 0
+				and self.object:get_velocity().y == 0)
+				or (self.object:get_velocity().y == 0
 				and self.jump_chance > 0) then
 
 					do_jump(self)
@@ -1741,7 +1741,7 @@ local do_states = function(self, dtime)
 				yaw = yaw + pi
 			end
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 
 			set_velocity(self, 0)
 
@@ -1777,7 +1777,7 @@ local do_states = function(self, dtime)
 				vec.y = vec.y * (v / amount)
 				vec.z = vec.z * (v / amount)
 
-				obj:setvelocity(vec)
+				obj:set_velocity(vec)
 			end
 		end
 	end
@@ -1791,12 +1791,12 @@ local falling = function(self, pos)
 	end
 
 	-- floating in water (or falling)
-	local v = self.object:getvelocity()
+	local v = self.object:get_velocity()
 
 	-- going up then apply gravity
 	if v.y > 0.1 then
 
-		self.object:setacceleration({
+		self.object:set_acceleration({
 			x = 0,
 			y = self.fall_speed,
 			z = 0
@@ -1808,7 +1808,7 @@ local falling = function(self, pos)
 
 		if self.floats == 1 then
 
-			self.object:setacceleration({
+			self.object:set_acceleration({
 				x = 0,
 				y = -self.fall_speed / (max(1, v.y) ^ 2),
 				z = 0
@@ -1816,7 +1816,7 @@ local falling = function(self, pos)
 		end
 	else
 		-- fall downwards
-		self.object:setacceleration({
+		self.object:set_acceleration({
 			x = 0,
 			y = self.fall_speed,
 			z = 0
@@ -1824,7 +1824,7 @@ local falling = function(self, pos)
 
 		-- fall damage
 		if self.fall_damage == 1
-		and self.object:getvelocity().y == 0 then
+		and self.object:get_velocity().y == 0 then
 
 			local d = self.old_y - self.object:get_pos().y
 
@@ -1955,7 +1955,7 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 	if self.knock_back > 0
 	and tflp > punch_interval then
 
-		local v = self.object:getvelocity()
+		local v = self.object:get_velocity()
 		local r = 1.4 - min(punch_interval, 1.4)
 		local kb = r * 5
 		local up = 2
@@ -1966,7 +1966,7 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 			up = 0
 		end
 
-		self.object:setvelocity({
+		self.object:set_velocity({
 			x = dir.x * kb,
 			y = up,
 			z = dir.z * kb
@@ -1993,7 +1993,7 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 			yaw = yaw + pi
 		end
 
-		self.object:setyaw(yaw)
+		self.object:set_yaw(yaw)
 		self.state = "runaway"
 		self.runaway_timer = 0
 		self.following = nil
@@ -2115,7 +2115,7 @@ local mob_activate = function(self, staticdata, dtime_s, def)
 	self.object:set_armor_groups({immortal = 1, fleshy = self.armor})
 	self.old_y = self.object:get_pos().y
 	self.old_health = self.health
-	self.object:setyaw((random(0, 360) - 180) / 180 * pi)
+	self.object:set_yaw((random(0, 360) - 180) / 180 * pi)
 	self.sounds.distance = self.sounds.distance or 10
 	self.textures = textures
 	self.mesh = mesh
@@ -2131,7 +2131,7 @@ end
 local mob_step = function(self, dtime)
 
 	local pos = self.object:get_pos()
-	local yaw = self.object:getyaw() or 0
+	local yaw = self.object:get_yaw() or 0
 
 	-- when lifetimer expires remove mob (except npc and tamed)
 	if self.type ~= "npc"

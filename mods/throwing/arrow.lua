@@ -41,7 +41,7 @@ local THROWING_ARROW_ENTITY={
 
 THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local node = minetest.env:get_node(pos)
 
 	if self.timer>0.2 then
@@ -130,7 +130,7 @@ local THROWING_ARROW_STONE_ENTITY={
 
 THROWING_ARROW_STONE_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local node = minetest.env:get_node(pos)
 
 	if self.timer>0.2 then
@@ -219,7 +219,7 @@ local THROWING_ARROW_BRONZE_ENTITY={
 
 THROWING_ARROW_BRONZE_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local node = minetest.env:get_node(pos)
 
 	if self.timer>0.2 then
@@ -308,7 +308,7 @@ local THROWING_ARROW_DIAMOND_ENTITY={
 
 THROWING_ARROW_DIAMOND_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local node = minetest.env:get_node(pos)
 
 	if self.timer>0.2 then
@@ -397,7 +397,7 @@ local THROWING_ARROW_NYAN_ENTITY={
 
 THROWING_ARROW_NYAN_ENTITY.on_step = function(self, dtime)
 	self.timer=self.timer+dtime
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local node = minetest.env:get_node(pos)
 
 	if self.timer>0.2 then

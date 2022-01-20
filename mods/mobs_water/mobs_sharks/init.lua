@@ -65,8 +65,8 @@ if mobs.mod and mobs.mod == "redo" then
 			animation = l_anims,
 			do_custom = function(self)
 				if HELP_WITH_EXPERIMENT then
-					local p = self.object:getpos()
-					local a = self.object:getvelocity()
+					local p = self.object:get_pos()
+					local a = self.object:get_velocity()
 					if p.y > 0 and a.y > 0 then
 						a.y = -1
 					else
@@ -76,7 +76,7 @@ if mobs.mod and mobs.mod == "redo" then
 						elseif r > 50 and r <= 75 then a.y = -0.25
 						end
 					end
-					self.object:setvelocity(a)
+					self.object:set_velocity(a)
 				end
 			end
 		})

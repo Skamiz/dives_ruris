@@ -53,7 +53,7 @@ end
 function beds.set_spawns()
 	for name,_ in pairs(beds.player) do
 		local player = minetest.get_player_by_name(name)
-		local p = player:getpos()
+		local p = player:get_pos()
 		beds.spawn[name] = p
 	end
 	beds.save_spawns()

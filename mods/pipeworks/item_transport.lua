@@ -8,7 +8,7 @@ function pipeworks.tube_inject_item(pos, start_pos, velocity, item)
 	local obj = luaentity.add_entity(pos, "pipeworks:tubed_item")
 	obj:set_item(stack:to_string())
 	obj.start_pos = vector.new(start_pos)
-	obj:setvelocity(velocity)
+	obj:set_velocity(velocity)
 	--obj:set_color("red") -- todo: this is test-only code
 	return obj
 end
@@ -120,7 +120,7 @@ minetest.register_entity("pipeworks:tubed_item", {
 			textures = {stack:get_name()}
 		})
 		local def = stack:get_definition()
-		self.object:setyaw((def and def.type == "node") and 0 or math.pi * 0.25)
+		self.object:set_yaw((def and def.type == "node") and 0 or math.pi * 0.25)
 	end,
 
 	get_staticdata = luaentity.get_staticdata,
@@ -239,7 +239,7 @@ luaentity.register_entity("pipeworks:tubed_item", {
 				return
 			end
 			velocity = vector.multiply(velocity, -1)
-			self:setvelocity(velocity)
+			self:set_velocity(velocity)
 			self:set_item(leftover:to_string())
 			return
 		end
@@ -257,7 +257,7 @@ luaentity.register_entity("pipeworks:tubed_item", {
 
 			if new_velocity and not vector.equals(velocity, new_velocity) then
 				self:setpos(self.start_pos)
-				self:setvelocity(new_velocity)
+				self:set_velocity(new_velocity)
 			end
 		end
 	end

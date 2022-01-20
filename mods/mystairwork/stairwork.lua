@@ -26,7 +26,7 @@ minetest.register_node("mystairwork:stair_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -81,7 +81,7 @@ minetest.register_node("mystairwork:stair_out_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -136,7 +136,7 @@ minetest.register_node("mystairwork:stair_inn_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -189,7 +189,7 @@ minetest.register_node("mystairwork:stair_pillar_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -361,7 +361,7 @@ minetest.register_node("mystairwork:stair_sub_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -468,7 +468,7 @@ minetest.register_node("mystairwork:ramp_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -520,7 +520,7 @@ minetest.register_node("mystairwork:ramp_out_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -572,7 +572,7 @@ minetest.register_node("mystairwork:ramp_inn_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -642,7 +642,7 @@ minetest.register_node("mystairwork:stair_sub_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -711,7 +711,7 @@ minetest.register_node("mystairwork:ramp_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -793,7 +793,7 @@ minetest.register_node("mystairwork:ramp_out_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -876,7 +876,7 @@ minetest.register_node("mystairwork:ramp_inn_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -929,7 +929,7 @@ minetest.register_node("mystairwork:ramp_flat_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,
@@ -997,7 +997,7 @@ minetest.register_node("mystairwork:ramp_massiv_"..mat, {
 			local p1 = pointed_thing.above
 			local param2 = 0
 
-			local placer_pos = placer:getpos()
+			local placer_pos = placer:get_pos()
 			if placer_pos then
 				local dir = {
 					x = p1.x - placer_pos.x,

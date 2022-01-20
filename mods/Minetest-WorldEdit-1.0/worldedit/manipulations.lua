@@ -566,7 +566,7 @@ worldedit.clearobjects = function(pos1, pos2)
 	for _, obj in pairs(minetest.get_objects_inside_radius(center, radius)) do --all objects in bounding sphere
 		local entity = obj:get_luaentity()
 		if not (entity and entity.name:find("^worldedit:")) then --avoid WorldEdit entities
-			local pos = obj:getpos()
+			local pos = obj:get_pos()
 			if pos.x >= pos1x and pos.x <= pos2x
 			and pos.y >= pos1y and pos.y <= pos2y
 			and pos.z >= pos1z and pos.z <= pos2z then --inside region

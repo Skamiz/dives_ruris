@@ -36,7 +36,7 @@ end
 local function removeObjectWithSound(object)
 	movers[object] = nil
 	removedAlreadyDammit[object] = true
-	local pos=object:getpos()
+	local pos=object:get_pos()
 	minetest.sound_play("item_gone", {
 		pos=pos,
 		gain = 0.2,
@@ -86,8 +86,8 @@ local function stop(object)
 	movers[object] = nil
 	-- no pickup, even though it's close, so
 	-- stop moving towards the player
-	object:setvelocity({x=0, y=0, z=0})
-	object:setacceleration({x=0, y=0, z=0})
+	object:set_velocity({x=0, y=0, z=0})
+	object:set_acceleration({x=0, y=0, z=0})
 	-- also we can walk on it and it can push pressure plates
 	-- physical_state = false means "please make us physical again"
 	local lua = object:get_luaentity()
@@ -119,14 +119,14 @@ drops.playerGMass = 1.7
 
 local function moveTowards(object, player, pickupRadius, attractRadius)
 	-- move it towards the player, then pick it up after a delay!
-	local pos1 = player:getpos()
+	local pos1 = player:get_pos()
 	if pos1 == nil then return end
-	local pos2 = object:getpos()
+	local pos2 = object:get_pos()
 	if pos2 == nil then return end
 	pos1.y = pos1.y+0.5 -- head towards player's belt
 	local direct = vector.subtract(pos1, pos2)
 	local R = vector.length(direct)
-	v = object:getvelocity()
+	v = object:get_velocity()
 	stopped = v.x == 0 and v.y == 0 and v.z == 0
 	-- when direction(X) = direction(V) we passed the player
 	-- so project V onto X. If same, passed. If not, approaching.
@@ -158,7 +158,7 @@ local function moveTowards(object, player, pickupRadius, attractRadius)
 	local A
 	A = drops.playerGMass / R^2
 	A = math.max(A,2*drops.playerGMass)
-	object:setacceleration(vector.multiply(direct,A))
+	object:set_acceleration(vector.multiply(direct,A))
 end
 
 if false then
@@ -184,7 +184,7 @@ if false then
 		end
 		for _, player in ipairs(minetest.get_connected_players()) do
 			if player:get_hp() > 0 or not minetest.setting_getbool("enable_damage") then
-				local playerPosition = player:getpos()
+				local playerPosition = player:get_pos()
 				if playerPosition ~= nil then
 					playerPosition.y = playerPosition.y + 0.5
 					local inv = player:get_inventory()
@@ -263,7 +263,7 @@ if minetest.setting_get("enable_item_drops") == "true" then
 						end
 						-- hurl it out into space at a random velocity
 						-- (still falling though)
-					obj:setvelocity({x=1/x, y=obj:getvelocity().y, z=1/z})
+					obj:set_velocity({x=1/x, y=obj:get_velocity().y, z=1/z})
 					end
 				end
 			end
@@ -308,7 +308,7 @@ function minetest.item_drop(itemstack, dropper, pos)
 			v.x = v.x*2
 			v.y = v.y*2 + 1
 			v.z = v.z*2
-			obj:setvelocity(v)
+			obj:set_velocity(v)
 			obj:get_luaentity().dropped_by = dropper:get_player_name()
 		end
 		return r

@@ -13,12 +13,12 @@ local throwing_shoot_arrow = function(itemstack, player)
 			if not minetest.setting_getbool("creative_mode") then
 				player:get_inventory():remove_item("main", arrow[1])
 			end
-			local playerpos = player:getpos()
+			local playerpos = player:get_pos()
 			local obj = minetest.env:add_entity({x=playerpos.x,y=playerpos.y+1.5,z=playerpos.z}, arrow[2])
 			local dir = player:get_look_dir()
-			obj:setvelocity({x=dir.x*19, y=dir.y*19, z=dir.z*19})
-			obj:setacceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
-			obj:setyaw(player:get_look_yaw()+math.pi)
+			obj:set_velocity({x=dir.x*19, y=dir.y*19, z=dir.z*19})
+			obj:set_acceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
+			obj:set_yaw(player:get_look_yaw()+math.pi)
 			minetest.sound_play("throwing_sound", {pos=playerpos})
 			if obj:get_luaentity().player == "" then
 				obj:get_luaentity().player = player

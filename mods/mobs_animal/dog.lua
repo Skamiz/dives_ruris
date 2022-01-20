@@ -70,7 +70,7 @@ mobs:register_mob("mobs_animal:dog", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				--[[
 				minetest.add_item(pos, {

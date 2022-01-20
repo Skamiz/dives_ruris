@@ -36,9 +36,9 @@ local search_replace2 = function(
 
 	if math.random(1, search_rate) == 1 then
 		-- look for nodes
-		local pos  = vector.round(self.object:getpos())
-		local pos1 = vector.round(self.object:getpos())
-		local pos2 = vector.round(self.object:getpos())
+		local pos  = vector.round(self.object:get_pos())
+		local pos1 = vector.round(self.object:get_pos())
+		local pos2 = vector.round(self.object:get_pos())
 
 		-- if we are looking, will we look below and by how much?
 		if math.random(1, search_rate_below) == 1 then
@@ -159,7 +159,7 @@ mobs:register_mob("goblins:goblin_cobble", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -253,7 +253,7 @@ mobs:register_mob("goblins:goblin_digger", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -345,7 +345,7 @@ mobs:register_mob("goblins:goblin_coal", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -439,7 +439,7 @@ mobs:register_mob("goblins:goblin_iron", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -533,7 +533,7 @@ mobs:register_mob("goblins:goblin_copper", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -627,7 +627,7 @@ mobs:register_mob("goblins:goblin_gold", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -721,7 +721,7 @@ mobs:register_mob("goblins:goblin_diamond", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]
@@ -815,7 +815,7 @@ mobs:register_mob("goblins:goblin_king", {
 					item:take_item()
 					clicker:set_wielded_item(item)
 				end
-				local pos = self.object:getpos()
+				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
 				minetest.add_item(pos, {
 					name = goblin_drops[math.random(1, #goblin_drops)]

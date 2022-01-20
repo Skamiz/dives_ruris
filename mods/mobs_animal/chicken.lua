@@ -66,7 +66,7 @@ mobs:register_mob("mobs_animal:chicken", {
 			return
 		end
 
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 
 		minetest.add_item(pos, "mobs:egg")
 
@@ -158,7 +158,7 @@ local egg_VELOCITY = 19
 -- shoot egg
 local mobs_shoot_egg = function (item, player, pointed_thing)
 
-	local playerpos = player:getpos()
+	local playerpos = player:get_pos()
 
 	minetest.sound_play("default_place_node_hard", {
 		pos = playerpos,
@@ -178,13 +178,13 @@ local mobs_shoot_egg = function (item, player, pointed_thing)
 	ent.velocity = egg_VELOCITY -- needed for api internal timing
 	ent.switch = 1 -- needed so that egg doesn't despawn straight away
 
-	obj:setvelocity({
+	obj:set_velocity({
 		x = dir.x * egg_VELOCITY,
 		y = dir.y * egg_VELOCITY,
 		z = dir.z * egg_VELOCITY
 	})
 
-	obj:setacceleration({
+	obj:set_acceleration({
 		x = dir.x * -3,
 		y = -egg_GRAVITY,
 		z = dir.z * -3
