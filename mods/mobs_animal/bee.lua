@@ -18,7 +18,7 @@ mobs:register_mob("mobs_animal:bee", {
 	makes_footstep_sound = false,
 	sounds = {
 		random = "mobs_bee",
-	},	
+	},
 	walk_velocity = 1,
 	jump = true,
 	drops = {
@@ -59,7 +59,6 @@ minetest.register_craftitem(":mobs:honey", {
 minetest.register_node(":mobs:beehive", {
 	description = S("Beehive"),
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"mobs_beehive.png"},
 	inventory_image = "mobs_beehive.png",
 	paramtype = "light",

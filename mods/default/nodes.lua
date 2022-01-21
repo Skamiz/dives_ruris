@@ -589,7 +589,6 @@ minetest.register_node("default:wood", {
 minetest.register_node("default:sapling", {
 	description = "Appletree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling.png"},
 	inventory_image = "default_sapling.png",
 	wield_image = "default_sapling.png",
@@ -608,7 +607,6 @@ minetest.register_node("default:leaves", {
 	description = "Appletree Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -636,7 +634,6 @@ minetest.register_node("default:leaves", {
 minetest.register_node("default:apple", {
 	description = "Apple",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_apple.png"},
 	inventory_image = "default_apple.png",
 	paramtype = "light",
@@ -662,7 +659,6 @@ minetest.register_node("default:apple", {
 minetest.register_node("default:sapling_beech", {
 	description = "Beech Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_beech.png"},
 	inventory_image = "default_sapling_beech.png",
 	wield_image = "default_sapling_beech.png",
@@ -681,7 +677,6 @@ minetest.register_node("default:leaves_beech", {
 	description = "Beech Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_beech.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -710,7 +705,6 @@ minetest.register_node("default:leaves_beech", {
 minetest.register_node("default:sapling_cypress", {
 	description = "Cypress Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_cypress.png"},
 	inventory_image = "default_sapling_cypress.png",
 	wield_image = "default_sapling_cypress.png",
@@ -729,7 +723,6 @@ minetest.register_node("default:leaves_cypress", {
 	description = "Cypress needles",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_cypress.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -777,7 +770,6 @@ minetest.register_node("default:wood_palm", {
 minetest.register_node("default:sapling_palm", {
 	description = "Palm Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_palm.png"},
 	inventory_image = "default_sapling_palm.png",
 	wield_image = "default_sapling_palm.png",
@@ -796,7 +788,6 @@ minetest.register_node("default:leaves_palm", {
 	description = "Palm Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_palm.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -824,7 +815,6 @@ minetest.register_node("default:leaves_palm", {
 minetest.register_node("default:fruit_coconut", {
 	description = "Coconut",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_fruit_coconut.png"},
 	inventory_image = "default_fruit_coconut.png",
 	paramtype = "light",
@@ -855,7 +845,6 @@ minetest.register_node("default:fruit_coconut", {
 minetest.register_node("default:sapling_cocoa", {
 	description = "Cocoa Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_cocoa.png"},
 	inventory_image = "default_sapling_cocoa.png",
 	wield_image = "default_sapling_cocoa.png",
@@ -874,7 +863,6 @@ minetest.register_node("default:leaves_cocoa", {
 	description = "Cocoa Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_cocoa.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -902,7 +890,6 @@ minetest.register_node("default:leaves_cocoa", {
 minetest.register_node("default:fruit_cocoa", {
 	description = "Cocoa",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_fruit_cocoa.png"},
 	inventory_image = "default_fruit_cocoa.png",
 	paramtype = "light",
@@ -929,7 +916,6 @@ minetest.register_node("default:fruit_cocoa", {
 minetest.register_node("default:sapling_banana", {
 	description = "Banana Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_banana.png"},
 	inventory_image = "default_sapling_banana.png",
 	wield_image = "default_sapling_banana.png",
@@ -948,7 +934,6 @@ minetest.register_node("default:leaves_banana", {
 	description = "Banana Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_banana.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -976,7 +961,6 @@ minetest.register_node("default:leaves_banana", {
 minetest.register_node("default:fruit_banana", {
 	description = "Banana",
 	drawtype = "torchlike",
-	visual_scale = 1.0,
 	tiles = {"default_fruit_banana.png"},
 	inventory_image = "default_fruit_banana.png",
 	paramtype = "light",
@@ -1021,7 +1005,6 @@ minetest.register_node("default:wood_orange", {
 minetest.register_node("default:sapling_orange", {
 	description = "Orangetree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_orange.png"},
 	inventory_image = "default_sapling_orange.png",
 	wield_image = "default_sapling_orange.png",
@@ -1040,7 +1023,6 @@ minetest.register_node("default:leaves_orange", {
 	description = "Orangetree Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_orange.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1068,7 +1050,6 @@ minetest.register_node("default:leaves_orange", {
 minetest.register_node("default:fruit_orange", {
 	description = "Orange",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_fruit_orange.png"},
 	inventory_image = "default_fruit_orange.png",
 	paramtype = "light",
@@ -1113,7 +1094,6 @@ minetest.register_node("default:wood_olive", {
 minetest.register_node("default:sapling_olive", {
 	description = "Olivetree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_olive.png"},
 	inventory_image = "default_sapling_olive.png",
 	wield_image = "default_sapling_olive.png",
@@ -1132,7 +1112,6 @@ minetest.register_node("default:leaves_olive", {
 	description = "Olivetree Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_olive.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1160,7 +1139,6 @@ minetest.register_node("default:leaves_olive", {
 minetest.register_node("default:fruit_olive", {
 	description = "Olive",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_fruit_olive.png"},
 	inventory_image = "default_fruit_olive.png",
 	paramtype = "light",
@@ -1205,7 +1183,6 @@ minetest.register_node("default:wood_birch", {
 minetest.register_node("default:sapling_birch", {
 	description = "Birch Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_birch.png"},
 	inventory_image = "default_sapling_birch.png",
 	wield_image = "default_sapling_birch.png",
@@ -1224,7 +1201,6 @@ minetest.register_node("default:leaves_birch", {
 	description = "Birch Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_birch.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1270,7 +1246,6 @@ minetest.register_node("default:wood_poplar", {
 minetest.register_node("default:sapling_poplar", {
 	description = "Poplar Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_poplar.png"},
 	inventory_image = "default_sapling_poplar.png",
 	wield_image = "default_sapling_poplar.png",
@@ -1289,7 +1264,6 @@ minetest.register_node("default:leaves_poplar", {
 	description = "Poplar Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_poplar.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1336,7 +1310,6 @@ minetest.register_node("default:wood_rubber", {
 minetest.register_node("default:sapling_rubber", {
 	description = "Rubbertree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_rubber.png"},
 	inventory_image = "default_sapling_rubber.png",
 	wield_image = "default_sapling_rubber.png",
@@ -1355,7 +1328,6 @@ minetest.register_node("default:leaves_rubber", {
 	description = "Rubber Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_rubber.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1403,7 +1375,6 @@ minetest.register_node("default:wood_ahorn", {
 minetest.register_node("default:sapling_ahorn", {
 	description = "Ahorntree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_ahorn.png"},
 	inventory_image = "default_sapling_ahorn.png",
 	wield_image = "default_sapling_ahorn.png",
@@ -1422,7 +1393,6 @@ minetest.register_node("default:leaves_ahorn", {
 	description = "Ahorn Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_ahorn.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1470,7 +1440,6 @@ minetest.register_node("default:wood_oak", {
 minetest.register_node("default:sapling_oak", {
 	description = "Oaktree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_oak.png"},
 	inventory_image = "default_sapling_oak.png",
 	wield_image = "default_sapling_oak.png",
@@ -1489,7 +1458,6 @@ minetest.register_node("default:leaves_oak", {
 	description = "Oak Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_oak.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1538,7 +1506,6 @@ minetest.register_node("default:leaves_jungle", {
 	description = "Jungle Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_jungle.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1566,7 +1533,6 @@ minetest.register_node("default:leaves_jungle", {
 minetest.register_node("default:sapling_jungle", {
 	description = "Jungle Sapling (xxl)",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_jungle.png"},
 	inventory_image = "default_sapling_jungle.png",
 	wield_image = "default_sapling_jungle.png",
@@ -1584,7 +1550,6 @@ minetest.register_node("default:leaves_jungle2", {
 	description = "Green Jungle Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_jungle2.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1612,7 +1577,6 @@ minetest.register_node("default:leaves_jungle2", {
 minetest.register_node("default:sapling_jungle2", {
 	description = "Green Jungle Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_jungle2.png"},
 	inventory_image = "default_sapling_jungle2.png",
 	wield_image = "default_sapling_jungle2.png",
@@ -1631,7 +1595,6 @@ minetest.register_node("default:leaves_jungle3", {
 	description = "Bright Green Jungle Leaves",
 	drawtype = "allfaces_optional",
 	waving = 1,
-	visual_scale = 1.3,
 	tiles = {"default_leaves_jungle3.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -1659,7 +1622,6 @@ minetest.register_node("default:leaves_jungle3", {
 minetest.register_node("default:sapling_jungle3", {
 	description = "Bright Green Jungle Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_jungle3.png"},
 	inventory_image = "default_sapling_jungle3.png",
 	wield_image = "default_sapling_jungle3.png",
@@ -1696,7 +1658,6 @@ minetest.register_node("default:wood_pine", {
 minetest.register_node("default:leaves_pine",{
 	description = "Pine Needles",
 	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
 	tiles = {"default_leaves_pine.png"},
 	waving = 1,
 	paramtype = "light",
@@ -1725,7 +1686,6 @@ minetest.register_node("default:leaves_pine",{
 minetest.register_node("default:sapling_pine", {
 	description = "Pine Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_sapling_pine.png"},
 	inventory_image = "default_sapling_pine.png",
 	wield_image = "default_sapling_pine.png",
@@ -1763,7 +1723,6 @@ minetest.register_node("default:acacia_wood", {
 minetest.register_node("default:acacia_leaves", {
 	description = "Acacia Leaves",
 	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
 	tiles = {"default_acacia_leaves.png"},
 	waving = 1,
 	paramtype = "light",
@@ -1784,7 +1743,6 @@ minetest.register_node("default:acacia_leaves", {
 minetest.register_node("default:acacia_sapling", {
 	description = "Acacia Tree Sapling",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_acacia_sapling.png"},
 	inventory_image = "default_acacia_sapling.png",
 	wield_image = "default_acacia_sapling.png",
@@ -2107,7 +2065,7 @@ minetest.register_node("default:cactus", {
 	groups = {snappy=1,choppy=3,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,
-	
+
 	after_dig_node = function(pos, node, metadata, digger)
 		default.dig_up(pos, node, digger)
 	end,
@@ -2156,7 +2114,6 @@ minetest.register_node("default:dry_shrub", {
 	description = "Dry Shrub",
 	drawtype = "plantlike",
 	waving = 1,
-	visual_scale = 1.0,
 	tiles = {"default_dry_shrub.png"},
 	inventory_image = "default_dry_shrub.png",
 	wield_image = "default_dry_shrub.png",
@@ -2673,11 +2630,11 @@ minetest.register_node("default:latern", {
 	node_box = {
 		type = "fixed",
 		fixed = {
-	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25}, 
-			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875}, 
-			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125}, 
-			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625}, 
-			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125}, 
+	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25},
+			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875},
+			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125},
+			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625},
+			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125},
 		}
 	},
 	sounds = default.node_sound_glass_defaults(),
@@ -2703,11 +2660,11 @@ minetest.register_node("default:laternrusty", {
 	node_box = {
 		type = "fixed",
 		fixed = {
-	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25}, 
-			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875}, 
-			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125}, 
-			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625}, 
-			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125}, 
+	        {-0.25, -0.1875, -0.25, 0.25, 0.1875, 0.25},
+			{-0.1875, -0.25, -0.1875, 0.1875, 0.25, 0.1875},
+			{-0.125, -0.3125, -0.125, 0.125, 0.3125, 0.125},
+			{-0.0625, -0.5, -0.0625, 0.0625, 0.375, 0.0625},
+			{-0.125, -0.5, -0.125, 0.125, -0.4375, 0.125},
 		}
 	},
 	sounds = default.node_sound_glass_defaults(),
@@ -4017,7 +3974,7 @@ minetest.register_node("default:vase_randomizer", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},

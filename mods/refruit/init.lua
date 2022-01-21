@@ -7,7 +7,6 @@ refruit = {}
 minetest.register_node(":default:apple", {
 	description = "Apple",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"default_apple.png"},
 	inventory_image = "default_apple.png",
 	paramtype = "light",
@@ -27,14 +26,14 @@ minetest.register_node(":default:apple", {
 			minetest.set_node(pos, {name="default:apple", param2=1})
 		end
 	end,
-	
+
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		    if oldnode.name == "default:apple" then
 			   if oldnode.param2 ~= 0 then
 			      return
 			   end
 		       minetest.set_node(pos,{name = "refruit:bud_apple"})
-			else 
+			else
 		       return
 			end
 	end,
@@ -45,7 +44,6 @@ minetest.register_node(":default:apple", {
 minetest.register_node("refruit:bud_apple", {
 	description = "Apple Bud",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"refruit_bud_apple.png"},
 	inventory_image = "refruit_bud_apple.png",
 	paramtype = "light",
@@ -71,13 +69,13 @@ minetest.register_node("refruit:bud_apple", {
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
-	
+
 	-- undestructable bud's
 	--[[
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		    if oldnode.name == "refruit:bud_apple" then
 		       minetest.set_node(pos,{name = "refruit:bud_apple"})
-			else 
+			else
 		       return
 			end
 	end,
@@ -87,7 +85,6 @@ minetest.register_node("refruit:bud_apple", {
 minetest.register_node("refruit:flower_apple", {
 	description = "Apple Flower",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"refruit_flower_apple.png"},
 	inventory_image = "refruit_flower_apple.png",
 	paramtype = "light",
@@ -111,15 +108,15 @@ minetest.register_node("refruit:flower_apple", {
 				rarity = 99
 			}
 		}
-	}, 
+	},
 	sounds = default.node_sound_leaves_defaults(),
-	
+
 	-- undestructable flower's
 	--[[
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		    if oldnode.name == "refruit:flower_apple" then
 		       minetest.set_node(pos,{name = "refruit:flower_apple"})
-			else 
+			else
 		       return
 			end
 	end,
@@ -143,7 +140,6 @@ local drawtyp   = fruit_tab[i][3]
 minetest.register_node(":default:fruit_"..fruitname, {
 	description = fruitdesc,
 	drawtype = drawtyp,
-	visual_scale = 1.0,
 	tiles = {"default_fruit_"..fruitname..".png"},
 	inventory_image = "default_fruit_"..fruitname..".png",
 	paramtype = "light",
@@ -169,7 +165,7 @@ minetest.register_node(":default:fruit_"..fruitname, {
 			      return
 			   end
 		       minetest.set_node(pos,{name = "refruit:bud_"..fruitname})
-			else 
+			else
 		       return
 			end
 	end,
@@ -180,7 +176,6 @@ minetest.register_node(":default:fruit_"..fruitname, {
 minetest.register_node("refruit:bud_"..fruitname, {
 	description = fruitdesc.." Bud",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"refruit_bud_"..fruitname..".png"},
 	inventory_image = "refruit_bud_"..fruitname..".png",
 	paramtype = "light",
@@ -211,7 +206,7 @@ minetest.register_node("refruit:bud_"..fruitname, {
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		    if oldnode.name == "refruit:bud_"..fruitname then
 		       minetest.set_node(pos,{name = "refruit:bud_"..fruitname})
-			else 
+			else
 		       return
 			end
 	end,
@@ -221,7 +216,6 @@ minetest.register_node("refruit:bud_"..fruitname, {
 minetest.register_node("refruit:flower_"..fruitname, {
 	description = fruitdesc.." Flower",
 	drawtype = "plantlike",
-	visual_scale = 1.0,
 	tiles = {"refruit_flower_"..fruitname..".png"},
 	inventory_image = "refruit_flower_"..fruitname..".png",
 	paramtype = "light",
@@ -245,14 +239,14 @@ minetest.register_node("refruit:flower_"..fruitname, {
 				rarity = 99
 			}
 		}
-	}, 
+	},
 	sounds = default.node_sound_leaves_defaults(),
 	-- undestructable
 	--[[
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		    if oldnode.name == "refruit:flower_"..fruitname then
 		       minetest.set_node(pos,{name = "refruit:flower_"..fruitname})
-			else 
+			else
 		       return
 			end
 	end,
