@@ -30,10 +30,12 @@ minetest.register_alias("default:junglewood", "default:wood_jungle")
 minetest.register_alias("default:pinewood", "default:wood_pine")
 minetest.register_alias("mapgen_river_water_source", "default:river_water_source")
 
--- TODO: this function ins't mentioned in the API for some god damned reason, but still works
-minetest.register_on_mapgen_init(function(mgparams)
-	minetest.set_mapgen_params({mgname="v7", mg_flags="nodungeons", mgv7_spflags = "ridges", "water_level=1"})
-end)
+
+minetest.set_mapgen_setting("mg_name", "v7", true)
+minetest.set_mapgen_setting("mg_flags", "nodungeons", true)
+minetest.set_mapgen_setting("mgv7_spflags", "ridges", true)
+minetest.set_mapgen_setting("water_level", "1", true)
+
 
 --
 -- Ore generation
@@ -1409,16 +1411,15 @@ end
 --
 -- Detect mapgen and select suitable biome code
 --
-
-local mg_params = minetest.get_mapgen_params()
-if mg_params.mgname == "v5" then
+local mg_name = minetest.get_mapgen_setting("mg_name")
+if mg_name == "v5" then
 	default.register_biomes()
 	default.register_blobs()
 	default.register_ores()
-elseif mg_params.mgname == "v6" then
+elseif mg_name == "v6" then
 	minetest.register_on_generated(default.mgv6_ongen)
 	default.register_ores()
-elseif mg_params.mgname == "v7" then
+elseif mg_name == "v7" then
 	default.register_biomes()
 	default.register_decorations()
 	default.register_blobs()
