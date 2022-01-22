@@ -4,24 +4,24 @@
 
 --[[
    3D Forniture
-   
+
    Copyright 2012 Tonyka
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-   
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
    MA 02110-1301, USA.
-   
+
    Contributors:
 
     InfinityProject
@@ -31,7 +31,7 @@
     cosarara97
 
         code.
-   
+
 ]]--
 
 -- replacement
@@ -114,11 +114,11 @@
 	})
 
 	]]
-	
- --nodes  
+
+ --nodes
 
 	-- Deco Home
-	        
+
 		--Table
 		minetest.register_node("3dforniture:table",
 			{description = 'Table',
@@ -149,8 +149,8 @@
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, wtable=1}
-		})  
-		
+		})
+
 		minetest.register_node("3dforniture:table_black",
 			{description = 'Black Table',
 			tiles = {
@@ -180,8 +180,8 @@
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, wtable=1}
-		})  
-		
+		})
+
 		minetest.register_node("3dforniture:table_white",
 			{description = 'White Table',
 			tiles = {
@@ -211,7 +211,7 @@
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, wtable=1}
-		})  
+		})
 
 		--smallTable
 		minetest.register_node("3dforniture:table_s",
@@ -232,15 +232,15 @@
 				type = "fixed",
 				fixed = {
 					{-0.5, -0.125, -0.5, 0.5, 0, 0.5},
-					{0.375, -0.5, -0.5, 0.5, -0.125, -0.375}, 
+					{0.375, -0.5, -0.5, 0.5, -0.125, -0.375},
 					{-0.5, -0.5, -0.5, -0.375, -0.125, -0.375},
 					{-0.5, -0.5, 0.375, -0.375, -0.125, 0.5},
 					{0.375, -0.5, 0.375, 0.5, -0.125, 0.5},
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, wtables=1}
-		})  
-		
+		})
+
 		minetest.register_node("3dforniture:table_black_s",
 			{description = 'Smal Black Table',
 			tiles = {
@@ -259,15 +259,15 @@
 				type = "fixed",
 				fixed = {
 					{-0.5, -0.125, -0.5, 0.5, 0, 0.5},
-					{0.375, -0.5, -0.5, 0.5, -0.125, -0.375}, 
+					{0.375, -0.5, -0.5, 0.5, -0.125, -0.375},
 					{-0.5, -0.5, -0.5, -0.375, -0.125, -0.375},
 					{-0.5, -0.5, 0.375, -0.375, -0.125, 0.5},
 					{0.375, -0.5, 0.375, 0.5, -0.125, 0.5},
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, wtables=1}
-		})  
-		
+		})
+
 		minetest.register_node("3dforniture:table_white_s",
 			{description = 'Smal White Table',
 			tiles = {
@@ -286,14 +286,14 @@
 				type = "fixed",
 				fixed = {
 					{-0.5, -0.125, -0.5, 0.5, 0, 0.5},
-					{0.375, -0.5, -0.5, 0.5, -0.125, -0.375}, 
+					{0.375, -0.5, -0.5, 0.5, -0.125, -0.375},
 					{-0.5, -0.5, -0.5, -0.375, -0.125, -0.375},
 					{-0.5, -0.5, 0.375, -0.375, -0.125, 0.5},
 					{0.375, -0.5, 0.375, 0.5, -0.125, 0.5},
 				},
 			},
 			groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, wtables=1}
-		})  
+		})
 		--Cabinet
 		minetest.register_node("3dforniture:cabinet", {
 	    description = "Cabinet (deco)",
@@ -310,7 +310,7 @@
 	    groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3},
 	    sounds = default.node_sound_wood_defaults(),
         })
-		
+
 		--Chair
 		minetest.register_node("3dforniture:chair",
 			{ description = 'Chair',
@@ -343,7 +343,7 @@
 			},
 			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, chair=1}
 		})
-		
+
 		minetest.register_node("3dforniture:chair_black",
 			{ description = 'Black Chair',
 			tiles = {
@@ -375,7 +375,7 @@
 			},
 			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, chair=1}
 		})
-		
+
 		minetest.register_node("3dforniture:chair_white",
 			{ description = 'White Chair',
 			tiles = {
@@ -449,7 +449,7 @@
 			},
 			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, achair=1}
 		})
-		
+
 		minetest.register_node("3dforniture:armchair_white",
 			{ description = 'White Armchair',
 			tiles = {
@@ -490,7 +490,7 @@
 			},
 			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, achair=1}
 		})
-		
+
 		minetest.register_node("3dforniture:armchair_blue",
 			{ description = 'Blue Armchair',
 			tiles = {
@@ -531,7 +531,7 @@
 			},
 			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, achair=1}
 		})
-		
+
 			minetest.register_node("3dforniture:armchair_brown",
 			{ description = 'Brown Armchair',
 			tiles = {
@@ -572,7 +572,7 @@
 			},
 			 groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2, achair=1}
 		})
-		
+
 			minetest.register_node("3dforniture:armchair_red",
 			{ description = 'Red Armchair',
 			tiles = {
@@ -840,7 +840,7 @@
 			},
 			sunlight_propagates = true,
 			walkable = false,
-			light_source = 16,
+			light_source = minetest.LIGHT_MAX,
 			selection_box = {
 				type = "fixed",
 				fixed = {-0.5, -0.5, -0.5, 0.5,0.5, 0.5},
@@ -854,9 +854,9 @@
 			--Toilet
 			minetest.register_node("3dforniture:toilet",
 				{ description = 'Toilet',
-				tiles = { 
-					"forniture_marble.png", "forniture_marble.png", 
-					"forniture_marble_s1.png", "forniture_marble_s1.png", 
+				tiles = {
+					"forniture_marble.png", "forniture_marble.png",
+					"forniture_marble_s1.png", "forniture_marble_s1.png",
 					"forniture_marble_s2.png", "forniture_marble_s2.png",
 				},
 				drawtype = "nodebox",
@@ -971,7 +971,7 @@
 						{-0.2,-0.45,0.4, -0.15,-0.3,0.45},
 						{-0.25,-0.4,0.4, -0.1,-0.35,0.45},
 
-						--taps 2 
+						--taps 2
 						{0.15,-0.4,0.45, 0.2,-0.35,0.5},
 						{0.15,-0.45,0.4, 0.2,-0.3,0.45},
 						{0.1,-0.4,0.4, 0.25,-0.35,0.45},
@@ -1214,7 +1214,7 @@
 				type = "fixed",
 				fixed = {-1/2, -1/2, 1/4, 1/2, 1/2, 1/2}, },
 				 groups = {cracky=1}
-		})  
+		})
 
 		--Torch Wakll
 		minetest.register_node("3dforniture:torch_wall",
@@ -1255,7 +1255,7 @@
 			},
 			sunlight_propagates = true,
 			walkable = false,
-			light_source = 18,
+			light_source = minetest.LIGHT_MAX,
 			selection_box = {
 				type = "fixed",
 				fixed = {-0.15, -0.45, 0.15, 0.15,0.35, 0.5},
