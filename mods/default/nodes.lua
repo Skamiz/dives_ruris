@@ -2679,6 +2679,7 @@ local chest_formspec =
 	default.gui_slots..
 	"list[current_name;main;0,0.3;8,4;]"..
 	"list[current_player;main;0,4.85;8,1;]"..
+	"listring[]" ..
 	"list[current_player;main;0,6.08;8,3;8]"..
 	default.get_hotbar_bg(0,4.85)
 
@@ -2691,6 +2692,7 @@ local function get_locked_chest_formspec(pos)
 		default.gui_slots..
 		"list[nodemeta:".. spos .. ";main;0,0.3;8,4;]"..
 		"list[current_player;main;0,4.85;8,1;]"..
+		"listring[]" ..
 		"list[current_player;main;0,6.08;8,3;8]"..
 		default.get_hotbar_bg(0,4.85)
  return formspec
