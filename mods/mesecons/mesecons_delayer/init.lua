@@ -70,6 +70,7 @@ minetest.register_node("mesecons_delayer:delayer_off_"..tostring(i), {
 		"mesecons_delayer_sides_off.png",
 		"mesecons_delayer_sides_off.png"
 		},
+	use_texture_alpha = "opaque",
 	inventory_image = "mesecons_delayer_off_1.png",
 	wield_image = "mesecons_delayer_off_1.png",
 	walkable = true,
@@ -127,6 +128,7 @@ minetest.register_node("mesecons_delayer:delayer_on_"..tostring(i), {
 		"mesecons_delayer_sides_on.png",
 		"mesecons_delayer_sides_on.png"
 		},
+	use_texture_alpha = "opaque",
 	walkable = true,
 	selection_box = {
 		type = "fixed",

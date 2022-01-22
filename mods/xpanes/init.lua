@@ -116,6 +116,7 @@ function xpanes.register_pane(name, def)
 		end
 		minetest.register_node(":xpanes:"..name.."_"..i, {
 			drawtype = "nodebox",
+			use_texture_alpha = "blend",
 			tiles = {def.textures[3], def.textures[3], texture},
 			paramtype = "light",
 			groups = def.groups,
@@ -190,4 +191,3 @@ xpanes.register_pane("bar", {
 		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'}
 	}
 })
-

@@ -16,12 +16,12 @@ xconnected_get_candidate[5]  = {"_ln", 1 };
 xconnected_get_candidate[10] = {"_ln", 0 };
 -- two neighbours
 xconnected_get_candidate[3]  = {"_c2", 0 };
-xconnected_get_candidate[6]  = {"_c2", 3 };   
+xconnected_get_candidate[6]  = {"_c2", 3 };
 xconnected_get_candidate[12] = {"_c2", 2 };
 xconnected_get_candidate[9]  = {"_c2", 1 };
 -- three neighbours
 xconnected_get_candidate[7]  = {"_c3", 3 };
-xconnected_get_candidate[11] = {"_c3", 0 }; 
+xconnected_get_candidate[11] = {"_c3", 0 };
 xconnected_get_candidate[13] = {"_c3", 1 };
 xconnected_get_candidate[14] = {"_c3", 2 };
 -- four neighbours
@@ -50,10 +50,10 @@ xconnected_update_one_node = function( pos, name, digged )
 		if(    node
 		   and node.name
 		   and minetest.registered_nodes[node.name] ) then
-	
+
 			local ndef= minetest.registered_nodes[node.name];
 			-- nodes that drop the same are considered similar xconnected nodes
-			if( ndef.drop == name 
+			if( ndef.drop == name
 			  -- ..and also those that share the xcentered group
 			  or (ndef.groups and ndef.groups.xconnected)) then
 				candidates[i] = node.name;
@@ -97,7 +97,7 @@ xconnected_update = function( pos, name, active, has_been_digged )
 		if( c[j]~=0 and c[j]~='ignore') then
 			xconnected_update_one_node( {x=pos.x+dir2.x, y=pos.y, z=pos.z+dir2.z}, c[j], false );
 		end
-	end		
+	end
 end
 
 -- def: that part of the node definition that is shared between all nodes
@@ -106,7 +106,7 @@ end
 -- ln: node has 2 neighbours at opposite ends and forms a line with them
 xconnected.register = function( name, def, node_box_data, selection_box_data )
 
-	for k,v in pairs( node_box_data ) do 
+	for k,v in pairs( node_box_data ) do
 		-- some common values for all xconnected nodes
 		def.drawtype   = "nodebox";
 		def.paramtype  = "light";
@@ -182,7 +182,7 @@ xconnected.construct_node_box_data = function( node_box_list, center_node_box_li
 		table.insert( res.c3, {v[3], v[2], v[1],    v[6], v[5], v[4]});
 		table.insert( res.c4, {v[3], v[2], v[1],    v[6], v[5], v[4]});
 	end
-	
+
 	-- now we have a t-crossing
 	for _,v in pairs( node_box_list ) do
 		-- mirror x
@@ -203,7 +203,7 @@ xconnected.construct_node_box_data = function( node_box_list, center_node_box_li
 		table.insert( res.c2, v );
 		table.insert( res.c3, v );
 		table.insert( res.c4, v );
-	end	
+	end
 
 	-- no center node
 	if( #res.c0 < 1 ) then
@@ -224,7 +224,7 @@ xconnected.register_pane = function( name, tiles, def )
 		{},
 		-- a full pane (with neighbours on opposite sides)
 		{{-1/32, -0.5, -0.5,  1/32, 0.5, 0.5}});
-	local selection_box_data = 
+	local selection_box_data =
 		xconnected.construct_node_box_data(
 		{{-0.06, -0.5, 0,     0.06, 0.5, 0.5}},
 		{},
@@ -235,7 +235,7 @@ xconnected.register_pane = function( name, tiles, def )
 			textures = {tiles,tiles,tiles,tiles},
 			is_ground_content = false,
 			sunlight_propagates = true,
-			use_texture_alpha = true,
+			use_texture_alpha = "blend",
 			sounds = default.node_sound_glass_defaults(),
 			groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3, pane=1},
 		};
@@ -265,13 +265,14 @@ xconnected.register_wall = function( name, tiles, def )
 		{{-0.25, -0.5, -0.25, 0.25, 0.5, 0.25 }},
 		{{-0.2, -0.5, -0.5,  0.2, 5/16, 0.5}});
 	if( not( def )) then
-		def = { 
+		def = {
 			description = name,
 			textures = {tiles,tiles,tiles,tiles},
 			is_ground_content = false,
 			sunlight_propagates = true,
 			sounds = default.node_sound_stone_defaults(),
 			groups = {cracky=3, stone=1, pane=1},
+			use_texture_alpha = "clip",
 		};
 	end
 	xconnected.register( name,
@@ -299,7 +300,7 @@ xconnected.register_fence = function( name, tiles, def )
 		{{-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}},
 		{{-0.2, -0.5, -0.2, 0.2, 0.5, 0.2}});
 	if( not( def )) then
-		def = { 
+		def = {
 			description = name,
 			textures = {tiles,tiles,tiles,tiles},
 			is_ground_content = false,

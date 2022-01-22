@@ -5,6 +5,7 @@ function beds.register_bed(name, def)
 		wield_image = def.wield_image,
 		drawtype = "nodebox",
 		tiles = def.tiles.bottom,
+		use_texture_alpha = "opaque",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		stack_max = 1,
@@ -17,7 +18,7 @@ function beds.register_bed(name, def)
 		selection_box = {
 			type = "fixed",
 			fixed = def.selectionbox,
-				
+
 		},
 		after_place_node = function(pos, placer, itemstack)
 			local n = minetest.get_node_or_nil(pos)
@@ -35,7 +36,7 @@ function beds.register_bed(name, def)
 			end
 			minetest.set_node(p, {name = n.name:gsub("%_bottom", "_top"), param2 = n.param2})
 			return false
-		end,	
+		end,
 		on_destruct = function(pos)
 			local n = minetest.get_node_or_nil(pos)
 			if not n then return end
@@ -54,6 +55,7 @@ function beds.register_bed(name, def)
 	minetest.register_node(name .. "_top", {
 		drawtype = "nodebox",
 		tiles = def.tiles.top,
+		use_texture_alpha = "opaque",
 		paramtype = "light",
 		paramtype2 = "facedir",
 		groups = {snappy = 1, choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2},
@@ -74,5 +76,5 @@ function beds.register_bed(name, def)
 	minetest.register_craft({
 		output = name,
 		recipe = def.recipe
-	}) 
+	})
 end

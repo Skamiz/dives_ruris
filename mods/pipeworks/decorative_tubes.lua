@@ -52,6 +52,7 @@ minetest.register_node("pipeworks:steel_pane_embedded_tube", {
 		"pipeworks_pane_embedded_tube_sides.png",
 		"pipeworks_pane_embedded_tube_ends.png", "pipeworks_pane_embedded_tube_ends.png",
 		},
+	use_texture_alpha = "clip",
 	node_box = pane_box,
 	selection_box = pane_box,
 	collision_box = pane_box,

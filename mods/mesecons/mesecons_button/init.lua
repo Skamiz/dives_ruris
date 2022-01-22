@@ -22,6 +22,7 @@ minetest.register_node("mesecons_button:button_off", {
 	"jeija_wall_button_sides.png",
 	"jeija_wall_button_off.png"
 	},
+	use_texture_alpha = "opaque",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	legacy_wallmounted = true,
@@ -63,6 +64,7 @@ minetest.register_node("mesecons_button:button_on", {
 		"jeija_wall_button_sides.png",
 		"jeija_wall_button_on.png"
 		},
+	use_texture_alpha = "opaque",
 	paramtype = "light",
 	paramtype2 = "facedir",
 	legacy_wallmounted = true,

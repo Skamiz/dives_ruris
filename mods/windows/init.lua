@@ -12,7 +12,7 @@ minetest.register_node("windows:windows_wood", {
 	tiles = {"windows_windows_wood_seam.png", "windows_windows_wood_seam.png", "windows_windows_wood_seam.png",
 		"windows_windows_wood_seam.png", "windows_windows_wood_front.png", "windows_windows_wood_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -115,7 +115,7 @@ minetest.register_node("windows:windows_obsidian", {
 	tiles = {"windows_windows_obsidian_seam.png", "windows_windows_obsidian_seam.png", "windows_windows_obsidian_seam.png",
 		"windows_windows_obsidian_seam.png", "windows_windows_obsidian_front.png", "windows_windows_obsidian_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3},
 	node_box = {
@@ -150,7 +150,7 @@ minetest.register_node("windows:windows_wood_white", {
 	tiles = {"windows_windows_wood_white_seam.png", "windows_windows_wood_white_seam.png", "windows_windows_wood_white_seam.png",
 		"windows_windows_wood_white_seam.png", "windows_windows_wood_white_front.png", "windows_windows_wood_white_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -181,7 +181,7 @@ minetest.register_node("windows:windows_wood_black", {
 	tiles = {"windows_windows_wood_black_seam.png", "windows_windows_wood_black_seam.png", "windows_windows_wood_black_seam.png",
 		"windows_windows_wood_black_seam.png", "windows_windows_wood_black_front.png", "windows_windows_wood_black_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -212,7 +212,7 @@ minetest.register_node("windows:windows_wood_blue", {
 	tiles = {"windows_windows_wood_blue_seam.png", "windows_windows_wood_blue_seam.png", "windows_windows_wood_blue_seam.png",
 		"windows_windows_wood_blue_seam.png", "windows_windows_wood_blue_front.png", "windows_windows_wood_blue_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -243,7 +243,7 @@ minetest.register_node("windows:windows_wood_brown", {
 	tiles = {"windows_windows_wood_brown_seam.png", "windows_windows_wood_brown_seam.png", "windows_windows_wood_brown_seam.png",
 		"windows_windows_wood_brown_seam.png", "windows_windows_wood_brown_front.png", "windows_windows_wood_brown_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -274,7 +274,7 @@ minetest.register_node("windows:windows_wood_grey", {
 	tiles = {"windows_windows_wood_grey_seam.png", "windows_windows_wood_grey_seam.png", "windows_windows_wood_grey_seam.png",
 		"windows_windows_wood_grey_seam.png", "windows_windows_wood_grey_front.png", "windows_windows_wood_grey_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -305,7 +305,7 @@ minetest.register_node("windows:windows_wood_darkgrey", {
 	tiles = {"windows_windows_wood_darkgrey_seam.png", "windows_windows_wood_darkgrey_seam.png", "windows_windows_wood_darkgrey_seam.png",
 		"windows_windows_wood_darkgrey_seam.png", "windows_windows_wood_darkgrey_front.png", "windows_windows_wood_darkgrey_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -336,7 +336,7 @@ minetest.register_node("windows:windows_wood_darkgreen", {
 	tiles = {"windows_windows_wood_darkgreen_seam.png", "windows_windows_wood_darkgreen_seam.png", "windows_windows_wood_darkgreen_seam.png",
 		"windows_windows_wood_darkgreen_seam.png", "windows_windows_wood_darkgreen_front.png", "windows_windows_wood_darkgreen_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -367,7 +367,7 @@ minetest.register_node("windows:windows_wood_green", {
 	tiles = {"windows_windows_wood_green_seam.png", "windows_windows_wood_green_seam.png", "windows_windows_wood_green_seam.png",
 		"windows_windows_wood_green_seam.png", "windows_windows_wood_green_front.png", "windows_windows_wood_green_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -398,7 +398,7 @@ minetest.register_node("windows:windows_wood_violet", {
 	tiles = {"windows_windows_wood_violet_seam.png", "windows_windows_wood_violet_seam.png", "windows_windows_wood_violet_seam.png",
 		"windows_windows_wood_violet_seam.png", "windows_windows_wood_violet_front.png", "windows_windows_wood_violet_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -429,7 +429,7 @@ minetest.register_node("windows:windows_wood_cyan", {
 	tiles = {"windows_windows_wood_cyan_seam.png", "windows_windows_wood_cyan_seam.png", "windows_windows_wood_cyan_seam.png",
 		"windows_windows_wood_cyan_seam.png", "windows_windows_wood_cyan_front.png", "windows_windows_wood_cyan_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -460,7 +460,7 @@ minetest.register_node("windows:windows_wood_yellow", {
 	tiles = {"windows_windows_wood_yellow_seam.png", "windows_windows_wood_yellow_seam.png", "windows_windows_wood_yellow_seam.png",
 		"windows_windows_wood_yellow_seam.png", "windows_windows_wood_yellow_front.png", "windows_windows_wood_yellow_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -491,7 +491,7 @@ minetest.register_node("windows:windows_wood_orange", {
 	tiles = {"windows_windows_wood_orange_seam.png", "windows_windows_wood_orange_seam.png", "windows_windows_wood_orange_seam.png",
 		"windows_windows_wood_orange_seam.png", "windows_windows_wood_orange_front.png", "windows_windows_wood_orange_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -522,7 +522,7 @@ minetest.register_node("windows:windows_wood_red", {
 	tiles = {"windows_windows_wood_red_seam.png", "windows_windows_wood_red_seam.png", "windows_windows_wood_red_seam.png",
 		"windows_windows_wood_red_seam.png", "windows_windows_wood_red_front.png", "windows_windows_wood_red_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -553,7 +553,7 @@ minetest.register_node("windows:windows_wood_magenta", {
 	tiles = {"windows_windows_wood_magenta_seam.png", "windows_windows_wood_magenta_seam.png", "windows_windows_wood_magenta_seam.png",
 		"windows_windows_wood_magenta_seam.png", "windows_windows_wood_magenta_front.png", "windows_windows_wood_magenta_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {
@@ -584,7 +584,7 @@ minetest.register_node("windows:windows_wood_pink", {
 	tiles = {"windows_windows_wood_pink_seam.png", "windows_windows_wood_pink_seam.png", "windows_windows_wood_pink_seam.png",
 		"windows_windows_wood_pink_seam.png", "windows_windows_wood_pink_front.png", "windows_windows_wood_pink_front.png"},
 	sunlight_propagates = true,
-	use_texture_alpha = true,
+	use_texture_alpha = "blend",
 	walkable = true,
 	groups = {snappy=2,cracky=3,oddly_breakable_by_hand=3, window_wood=1},
 	node_box = {

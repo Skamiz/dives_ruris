@@ -18,7 +18,7 @@ minetest.register_node("throwing:arrow_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -27,6 +27,7 @@ minetest.register_node("throwing:arrow_box", {
 	},
 	tiles = {"throwing_arrow.png", "throwing_arrow.png", "throwing_arrow_back.png", "throwing_arrow_front.png", "throwing_arrow_2.png", "throwing_arrow.png"},
 	groups = {not_in_creative_inventory=1},
+	use_texture_alpha = "opaque",
 })
 
 local THROWING_ARROW_ENTITY={
@@ -107,7 +108,7 @@ minetest.register_node("throwing:arrow_stone_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -116,6 +117,7 @@ minetest.register_node("throwing:arrow_stone_box", {
 	},
 	tiles = {"throwing_arrow_stone.png", "throwing_arrow_stone.png", "throwing_arrow_stone_back.png", "throwing_arrow_stone_front.png", "throwing_arrow_stone_2.png", "throwing_arrow_stone.png"},
 	groups = {not_in_creative_inventory=1},
+	use_texture_alpha = "opaque",
 })
 
 local THROWING_ARROW_STONE_ENTITY={
@@ -196,7 +198,7 @@ minetest.register_node("throwing:arrow_bronze_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -205,6 +207,7 @@ minetest.register_node("throwing:arrow_bronze_box", {
 	},
 	tiles = {"throwing_arrow_bronze.png", "throwing_arrow_bronze.png", "throwing_arrow_bronze_back.png", "throwing_arrow_bronze_front.png", "throwing_arrow_bronze_2.png", "throwing_arrow_bronze.png"},
 	groups = {not_in_creative_inventory=1},
+	use_texture_alpha = "opaque",
 })
 
 local THROWING_ARROW_BRONZE_ENTITY={
@@ -285,7 +288,7 @@ minetest.register_node("throwing:arrow_diamond_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -294,6 +297,7 @@ minetest.register_node("throwing:arrow_diamond_box", {
 	},
 	tiles = {"throwing_arrow_diamond.png", "throwing_arrow_diamond.png", "throwing_arrow_diamond_back.png", "throwing_arrow_diamond_front.png", "throwing_arrow_diamond_2.png", "throwing_arrow_diamond.png"},
 	groups = {not_in_creative_inventory=1},
+	use_texture_alpha = "opaque",
 })
 
 local THROWING_ARROW_DIAMOND_ENTITY={
@@ -374,7 +378,7 @@ minetest.register_node("throwing:arrow_nyan_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -383,6 +387,7 @@ minetest.register_node("throwing:arrow_nyan_box", {
 	},
 	tiles = {"throwing_arrow_nyan.png", "throwing_arrow_nyan.png", "throwing_arrow_nyan_back.png", "throwing_arrow_nyan_front.png", "throwing_arrow_nyan_2.png", "throwing_arrow_nyan.png"},
 	groups = {not_in_creative_inventory=1},
+	use_texture_alpha = "opaque",
 })
 
 local THROWING_ARROW_NYAN_ENTITY={

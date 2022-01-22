@@ -21,6 +21,7 @@ minetest.register_node("flowers:waterlily", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	tiles = {"flowers_waterlily.png"},
+	use_texture_alpha = "clip",
 	inventory_image = "flowers_waterlily.png",
 	wield_image = "flowers_waterlily.png",
 	liquids_pointable = true,

@@ -87,6 +87,7 @@ if pipeworks.enable_one_way_tube then
 		description = "One way tube",
 		tiles = {"pipeworks_one_way_tube_top.png", "pipeworks_one_way_tube_top.png", "pipeworks_one_way_tube_output.png",
 			"pipeworks_one_way_tube_input.png", "pipeworks_one_way_tube_side.png", "pipeworks_one_way_tube_top.png"},
+		use_texture_alpha = "clip",
 		paramtype2 = "facedir",
 		drawtype = "nodebox",
 		paramtype = "light",
