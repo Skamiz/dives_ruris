@@ -34,7 +34,9 @@ local search_replace2 = function(
 	replace_rate_secondary,
 	replace_with_secondary)
 
-	if math.random(1, search_rate) == 1 then
+
+	-- TODO: find something for goblins to do that isn't extremely griefy
+	if math.random(1, search_rate) == "nope 1" then
 		-- look for nodes
 		local pos  = vector.round(self.object:get_pos())
 		local pos1 = vector.round(self.object:get_pos())
@@ -69,7 +71,7 @@ local search_replace2 = function(
 		if #nodelist > 0 then
 			--print (#nodelist.." nodes found by "..self.description.." !!!")
 			--for k,v in pairs(nodelist) do print(minetest.get_node(v).name.. " found!!") end
-			for key,value in pairs(nodelist) do 
+			for key,value in pairs(nodelist) do
 				-- ok we see some nodes around us, are we going to replace them?
 				if math.random(1, replace_rate) == 1 then
 					if replace_rate_secondary and
@@ -111,7 +113,7 @@ mobs:register_mob("goblins:goblin_cobble", {
 		textures = {
 			{"goblins_goblin_cobble1.png"},
 			{"goblins_goblin_cobble2.png"},
-			
+
 		},
 	makes_footstep_sound = true,
 	sounds = goblin_sounds,
@@ -858,14 +860,14 @@ mobs:register_spawn("goblins:goblin_king", {"default:stone_with_mese","default:m
 ]]
 --[[ function mobs_goblins:spawn_specific(
 name,
-nodes, 
-neighbors, 
-min_light, 
-max_light, 
-interval, 
-chance, 
-active_object_count, 
-min_height, 
+nodes,
+neighbors,
+min_light,
+max_light,
+interval,
+chance,
+active_object_count,
+min_height,
 max_height)
 ]]
 mobs:spawn_specific("goblins:goblin_cobble", {"default:granite"}, "air", 0, 5, 1, 10000, 3, -30000 , -10)
