@@ -59,6 +59,7 @@ if ARMOR_MATERIALS.cactus then
 	})
 end
 --]]
+
 if ARMOR_MATERIALS.steel then
 	minetest.register_tool("3d_armor:helmet_steel", {
 		description = "Steel Helmet",
@@ -139,6 +140,7 @@ if ARMOR_MATERIALS.diamond then
 		wear = 0,
 	})
 end
+
 --[[
 if ARMOR_MATERIALS.gold then
 	minetest.register_tool("3d_armor:helmet_gold", {
@@ -167,6 +169,7 @@ if ARMOR_MATERIALS.gold then
 	})
 end
 --]]
+
 if ARMOR_MATERIALS.nyan then
 	minetest.register_tool("3d_armor:helmet_nyan", {
 		description = "Nyan Helmet",
@@ -193,6 +196,7 @@ if ARMOR_MATERIALS.nyan then
 		wear = 0,
 	})
 end
+
 --[[
 if ARMOR_MATERIALS.crystal then
 	minetest.register_tool("3d_armor:helmet_crystal", {
@@ -254,9 +258,9 @@ end
 			{"default:hardened_leather", "", "default:hardened_leather"},
 		},
 	})
-	
+
 	--
-	
+
 	minetest.register_craft({
 		output = "3d_armor:helmet_steel",
 		recipe = {
@@ -288,9 +292,9 @@ end
 			{"default:steel_ingot", "3d_armor:boots_leather", "default:steel_ingot"},
 		},
 	})
-	
+
 		--
-	
+
 	minetest.register_craft({
 		output = "3d_armor:helmet_bronze",
 		recipe = {
@@ -324,7 +328,7 @@ end
 	})
 
 		--
-	
+
 	minetest.register_craft({
 		output = "3d_armor:helmet_diamond",
 		recipe = {
@@ -358,7 +362,7 @@ end
 	})
 
 	--
-	
+
 		minetest.register_craft({
 		output = "3d_armor:helmet_nyan",
 		recipe = {

@@ -1,6 +1,8 @@
 -- Modified for Dives Ruris in 2015 by Glünggi
 -- chance the recipes
 
+-- Modified by Skamiz to addcompatibility with the sfinv mod
+
 --[[
 
 Bags for Minetest
@@ -42,8 +44,53 @@ local get_formspec = function(player,page)
 	end
 end
 
+if minetest.get_modpath("sfinv") then
+	sfinv.register_page("bags:bags", {
+	    title = "Bags",
+	    get = function(self, player, context)
+			local formspec = "button[0,2;2,0.5;bag1;Bag 1]"
+			.."button[2,2;2,0.5;bag2;Bag 2]"
+			.."button[4,2;2,0.5;bag3;Bag 3]"
+			.."button[6,2;2,0.5;bag4;Bag 4]"
+			.."list[detached:"..player:get_player_name().."_bags;bag1;0.5,1;1,1;]"
+			.."list[detached:"..player:get_player_name().."_bags;bag2;2.5,1;1,1;]"
+			.."list[detached:"..player:get_player_name().."_bags;bag3;4.5,1;1,1;]"
+			.."list[detached:"..player:get_player_name().."_bags;bag4;6.5,1;1,1;]"
+
+	        return sfinv.make_formspec(player, context, formspec, true)
+	    end
+	})
+end
+
 -- register_on_player_receive_fields
 minetest.register_on_player_receive_fields(function(player, formname, fields)
+	if minetest.get_modpath("sfinv") then
+		if fields["back"] then
+			sfinv.set_page(player, "bags:bags")
+			return
+		end
+		for i=1,4 do
+			local page = "bag"..i
+			if fields[page] then
+				if player:get_inventory():get_stack(page, 1):get_definition().groups.bagslots then
+					local image = player:get_inventory():get_stack(page, 1):get_definition().inventory_image
+
+					local context = sfinv.get_or_create_context(player)
+					local form = "image[7,0;1,1;"..image.."]"
+					.."button[0,0;2,0.5;back;Back]"
+					.."list[current_player;bag"..i.."contents;0,1;8,3;]"
+					.. "list[current_player;main;0,5.2;8,1;]"
+					.. "listring[]"
+					.. "list[current_player;main;0,6.35;8,3;8]"
+
+					local formspec = sfinv.make_formspec(player, context, form, true)
+					player:set_inventory_formspec(formspec)
+				end
+				return
+			end
+		end
+		return
+	end
 	if fields.bags then
 		inventory_plus.set_inventory_formspec(player, get_formspec(player,"bags"))
 		return
@@ -62,7 +109,9 @@ end)
 
 -- register_on_joinplayer
 minetest.register_on_joinplayer(function(player)
-	inventory_plus.register_button(player,"bags","Bags")
+	if minetest.get_current_modname("inventory_plus") then
+		inventory_plus.register_button(player,"bags","Bags")
+	end
 	local player_inv = player:get_inventory()
 	local bags_inv = minetest.create_detached_inventory(player:get_player_name().."_bags",{
 		on_put = function(inv, listname, index, stack, player)

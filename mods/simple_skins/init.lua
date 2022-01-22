@@ -2,6 +2,8 @@
 -- Adds a skin gallery to the inventory, using inventory_plus
 -- Released by TenPlus1 and based on Zeg9's code under WTFPL
 
+-- edited by Skamiz to add compatibility with sfinv
+
 skins = {}
 skins.skins = {}
 skins.modpath = minetest.get_modpath("simple_skins")
@@ -79,22 +81,22 @@ end
 skins.formspec = {}
 skins.formspec.main = function(name)
 
-local selected = 1 -- select default
+	local selected = 1 -- select default
 
-local formspec = "size[7,7]"
-	.. "bgcolor[#08080822;true]"
-	.. "button[0,.75;2,.5;main;Back]"
-	.. "label[.5,2;Select Player Skin:]"
-	.. "textlist[.5,2.5;5.8,4;skins_set;"
+	local formspec = "size[7,7]"
+		.. "bgcolor[#08080822;true]"
+		.. "button[0,.75;2,.5;main;Back]"
+		.. "label[.5,2;Select Player Skin:]"
+		.. "textlist[.5,2.5;5.8,4;skins_set;"
 
-for i, v in ipairs(skins.list) do
-	formspec = formspec .. skins.meta[v].name .. ","
-	if skins.skins[name] == skins.list[i] then
-		selected = i
+	for i, v in ipairs(skins.list) do
+		formspec = formspec .. skins.meta[v].name .. ","
+		if skins.skins[name] == skins.list[i] then
+			selected = i
+		end
 	end
-end
 
-formspec = formspec .. ";" .. selected .. ";true]"
+	formspec = formspec .. ";" .. selected .. ";true]"
 
 	local meta = skins.meta[skins.skins[name]]
 	if meta then
@@ -107,6 +109,39 @@ formspec = formspec .. ";" .. selected .. ";true]"
 	end
 
 	return formspec
+end
+
+if minetest.get_modpath("sfinv") then
+	sfinv.register_page("simple_skins:selection", {
+	    title = "Skins",
+	    get = function(self, player, context)
+			name = player:get_player_name()
+			local formspec = "label[.5,2;Select Player Skin:]"
+			.. "textlist[.5,2.5;5.8,4;skins_set;"
+
+			local selected = 1
+			for i, v in ipairs(skins.list) do
+				formspec = formspec .. skins.meta[v].name .. ","
+				if skins.skins[name] == skins.list[i] then
+					selected = i
+				end
+			end
+
+			formspec = formspec .. ";" .. selected .. ";true]"
+
+			local meta = skins.meta[skins.skins[name]]
+			if meta then
+				if meta.name then
+					formspec = formspec .. "label[2,.5;Name: " .. meta.name .. "]"
+				end
+				if meta.author then
+					formspec = formspec .. "label[2,1;Author: " .. meta.author .. "]"
+				end
+			end
+
+	        return sfinv.make_formspec(player, context, formspec, false)
+	    end
+	})
 end
 
 -- Update Player Skin
@@ -127,11 +162,13 @@ minetest.register_on_joinplayer(function(player)
 		skins.skins[player:get_player_name()] = "character_1"
 	end
 	skins.update_player_skin(player)
-	inventory_plus.register_button(player,"skins","Skin")
+	if minetest.get_modpath("inventory_plus") then
+		inventory_plus.register_button(player,"skins","Skin")
+	end
 end)
 
 minetest.register_on_player_receive_fields(function(player,formname,fields)
-	if fields.skins then
+	if fields.skins and minetest.get_modpath("inventory_plus") then
 		inventory_plus.set_inventory_formspec(player, skins.formspec.main(player:get_player_name()))
 	end
 
@@ -145,7 +182,11 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			skins.skins[player:get_player_name()] = skins.list[index]
 			skins.update_player_skin(player)
 			local name = player:get_player_name()
-			inventory_plus.set_inventory_formspec(player, skins.formspec.main(player:get_player_name()))
+			if minetest.get_modpath("inventory_plus") then
+				inventory_plus.set_inventory_formspec(player, skins.formspec.main(player:get_player_name()))
+			elseif minetest.get_modpath("sfinv") then
+				sfinv.set_player_inventory_formspec(player)
+			end
 
 			if skins.armor then
 				armor.textures[player:get_player_name()].skin = skins.list[index] .. ".png"
