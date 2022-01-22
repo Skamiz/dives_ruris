@@ -4,7 +4,7 @@
 local mod_name = "vines"
 local average_height = 12
 local spawn_interval = 90
-local vines_group = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1}
+local vines_group = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1}
 -- Nodes
 minetest.register_node("vines:rope_block", {
   description = "Rope",
@@ -57,7 +57,7 @@ minetest.register_node("vines:rope", {
     fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
   },
   on_destruct = function()
-    
+
   end,
 })
 
@@ -104,7 +104,7 @@ minetest.register_node("vines:side", {
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -152,8 +152,11 @@ minetest.register_node("vines:side2", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
-    local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    local wielded
+	if user:get_wielded_item() ~= nil then
+		wielded = user:get_wielded_item()
+	else return end
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -197,7 +200,7 @@ minetest.register_node("vines:willow", {
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_willow.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_yellow=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_yellow=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -205,7 +208,7 @@ minetest.register_node("vines:willow", {
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -250,7 +253,7 @@ minetest.register_node("vines:magenta", {
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_magenta.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_magenta=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_magenta=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -258,7 +261,7 @@ minetest.register_node("vines:magenta", {
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -279,7 +282,7 @@ minetest.register_node("vines:magenta_rotten", {
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_magenta.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_magenta=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_magenta=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -301,7 +304,7 @@ minetest.register_node("vines:white", {
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_white.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_white=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_white=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -309,7 +312,7 @@ minetest.register_node("vines:white", {
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -330,7 +333,7 @@ minetest.register_node("vines:white_rotten", {
   drawtype = "plantlike",
   -- drawtype = "signlike",
   inventory_image = "vines_white.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_white=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_white=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -352,7 +355,7 @@ minetest.register_node("vines:cyan", {
   tiles = { "vines_cyan.png" },
   --drawtype = "signlike",
   inventory_image = "vines_cyan.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_cyan=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_cyan=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -360,7 +363,7 @@ minetest.register_node("vines:cyan", {
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -381,7 +384,7 @@ minetest.register_node("vines:cyan_rotten", {
   drawtype = "plantlike",
   --drawtype = "signlike",
   inventory_image = "vines_cyan.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_cyan=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_cyan=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -389,7 +392,7 @@ minetest.register_node("vines:cyan_rotten", {
 	},
 })
 
---red 
+--red
 minetest.register_node("vines:red", {
   description = "Vine Red",
   walkable = false,
@@ -402,7 +405,7 @@ minetest.register_node("vines:red", {
   tiles = { "vines_red.png" },
   --drawtype = "signlike",
   inventory_image = "vines_red.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2, hanging_node=1, color_red=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2, hanging_node=1, color_red=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
@@ -410,7 +413,7 @@ minetest.register_node("vines:red", {
 	},
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))
@@ -431,13 +434,13 @@ minetest.register_node("vines:red_rotten", {
   drawtype = "plantlike",
   --drawtype = "signlike",
   inventory_image = "vines_red.png",
-  groups = {attached_node=1,vines=1,snappy=3,flammable=2,hanging_node=1,color_red=1},
+  groups = {attached_node=0,vines=1,snappy=3,flammable=2,hanging_node=1,color_red=1},
   sounds = default.node_sound_leaves_defaults(),
   selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
-	
+
 })
 
 --
@@ -459,7 +462,7 @@ minetest.register_node("vines:root", {
   },
   after_dig_node = function(pos, oldnode, oldmetadata, user)
     local wielded if user:get_wielded_item() ~= nil then wielded = user:get_wielded_item() else return end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))      end
@@ -486,13 +489,13 @@ minetest.register_node("vines:vine", {
     fixed = {-0.3, -1/2, -0.3, 0.3, 1/2, 0.3},
   },
   after_dig_node = function(pos, oldnode, oldmetadata, user)
-    local wielded 
-	if user:get_wielded_item() ~= nil then 
-	wielded = user:get_wielded_item() 
-	else 
-	return 
+    local wielded
+	if user:get_wielded_item() ~= nil then
+	wielded = user:get_wielded_item()
+	else
+	return
 	end
-    if 'vines:shears' == wielded:get_name() then 
+    if 'vines:shears' == wielded:get_name() then
       local inv = user:get_inventory()
       if inv then
         inv:add_item("main", ItemStack(oldnode.name))      end
@@ -566,7 +569,7 @@ minetest.register_abm({
     if  n.name == "air" then
       minetest.set_node(pos, {name="vines:rope"})
       minetest.add_node(p, {name="vines:rope_end"})
-    end 
+    end
   end
 })
 
@@ -610,7 +613,7 @@ minetest.register_abm({
 			        minetest.set_node(pos, {name = "vines:side"})
 				 elseif sel == 2 or sel == 9 then
 			        minetest.set_node(pos, {name = "vines:willow"})
-				 elseif sel == 3 or sel == 10 then 
+				 elseif sel == 3 or sel == 10 then
 			        minetest.set_node(pos, {name = "vines:white"})
 				 elseif sel == 4 then
 			        minetest.set_node(pos, {name = "vines:magenta"})
@@ -713,11 +716,11 @@ if minetest.get_modpath("moreblocks") and ENABLE_STAIRSPLUS then
 		"vines:vines_block",
 		{choppy=2, oddly_breakable_by_hand=2, flammable=2},
         	{
-                	"vines_block.png", 
-                	"vines_block.png", 
-                	"vines_block.png", 
-                	"vines_block.png", 
-                	"vines_block.png", 
+                	"vines_block.png",
+                	"vines_block.png",
+                	"vines_block.png",
+                	"vines_block.png",
+                	"vines_block.png",
                 	"vines_block.png"
 		},
 		"Vines",

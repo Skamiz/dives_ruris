@@ -4,7 +4,7 @@
 externgen = {}
 
 -- seeground
-minetest.register_ore({ 
+minetest.register_ore({
 		ore_type         = "blob",
 		ore              = "default:seeground",
 		wherein          = {"default:sand", "default:gravel"},
@@ -22,8 +22,8 @@ minetest.register_ore({
 			persist=0.5
 		},
 	})
-	
-	
+
+
 -- coal desert_stone
 minetest.register_ore({
 		ore_type       = "scatter",
@@ -35,7 +35,7 @@ minetest.register_ore({
 		y_min          = -100,
 		y_max          = 31000,
 	})
-	
+
 -- iron desert_stone
 minetest.register_ore({
 		ore_type       = "scatter",
@@ -47,7 +47,7 @@ minetest.register_ore({
 		y_min          = -100,
 		y_max          = -1,
 	})
-	
+
 --- gems
 minetest.register_ore({
 		ore_type       = "scatter",
@@ -59,7 +59,7 @@ minetest.register_ore({
 		y_min          = -30000,
 		y_max          = -1,
 	})
-	
+
 minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite_with_amethyst",
@@ -70,7 +70,7 @@ minetest.register_ore({
 		y_min          = -30000,
 		y_max          = -1,
 	})
-	
+
 minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite_with_topaz",
@@ -81,7 +81,7 @@ minetest.register_ore({
 		y_min          = -30000,
 		y_max          = -1,
 	})
-	
+
 minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite_with_emerald",
@@ -92,7 +92,7 @@ minetest.register_ore({
 		y_min          = -30000,
 		y_max          = -1,
 	})
-	
+
 minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:granite_with_sapphire",
@@ -115,7 +115,7 @@ minetest.register_ore({
 		y_min          = -100,
 		y_max          = 31000,
 	})
-	
+
 minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:stone_with_salt",
@@ -137,7 +137,7 @@ minetest.register_ore({
 		y_min          = -56,
 		y_max          = 31000,
 	})
-	
+
 minetest.register_ore({
 		ore_type       = "scatter",
 		ore            = "default:vase_randomizer",
@@ -148,7 +148,7 @@ minetest.register_ore({
 		y_min          = -30000,
 		y_max          = 31000,
 	})
-	
+
 	-- more gravel
 minetest.register_ore({
 		ore_type         = "blob",
@@ -168,7 +168,7 @@ minetest.register_ore({
 			persist=0.5
 		},
 	})
-	
+
 minetest.register_ore({
 		ore_type         = "blob",
 		ore              = "default:desert_gravel",
@@ -189,7 +189,7 @@ minetest.register_ore({
 	})
 
 -- bushes for grasland:
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_with_grass",
 	sidelen = 16, -- was 16
@@ -205,7 +205,6 @@ minetest.register_decoration({
 minetest.register_node("externgen:scrub", {
 	description = "Scrub",
 	drawtype = "allfaces_optional",
-	visual_scale = 1.3,
 	tiles = {"default_scrub.png"},
 	paramtype = "light",
 	is_ground_content = false,
@@ -226,7 +225,7 @@ minetest.register_node("externgen:scrub", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-minetest.register_decoration({							
+minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_jungle_with_grass",
 	sidelen = 16, -- was 16
@@ -314,8 +313,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				end
 				local bpos = { x=pos.x - 1, y=pos.y + 1, z=pos.z - 1 }
 				minetest.place_schematic(bpos, path.."lavaspot.mts", 0, '', 0)
-			
-		
+
+
 		end
 	end
 end)
@@ -329,14 +328,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		local bpos2 = { x=pos.x, y=pos.y + 2, z=pos.z }
 
 		if minetest.get_node(bpos).name == "air" and minetest.get_node(bpos2).name == "air" and pos.y <= -300 then
-		
+
 				local pla = math.random(1,8)
 				if pla >= 2 then
 				   return
 				end
 				minetest.place_schematic(bpos, path.."occulus.mts", 0, '', 0)
-			
-		
+
+
 		end
 	end
 end)
@@ -371,7 +370,7 @@ minetest.register_node("externgen:vase_level1", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -406,7 +405,7 @@ minetest.register_node("externgen:vase_level2", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -442,7 +441,7 @@ minetest.register_node("externgen:vase_level3", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -478,7 +477,7 @@ minetest.register_node("externgen:vase_level4", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -518,7 +517,7 @@ minetest.register_node("externgen:vase_level5", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -546,7 +545,7 @@ minetest.register_node("externgen:vase_level5_c", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -581,7 +580,7 @@ minetest.register_node("externgen:vase_level1_c", {
 			{-0.0625, 0.1875, -0.0625, 0.0625, 0.5, 0.0625},
 			{-0.125, 0.375, -0.125, 0.125, 0.5, 0.125},
 			{-0.125, -0.5, -0.125, 0.125, 0.3125, 0.125},
-			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875}, 
+			{-0.1875, -0.375, -0.1875, 0.1875, 0.1875, 0.1875},
 			{-0.25, -0.25, -0.25, 0.25, 0.0625, 0.25},
 		}
 	},
@@ -608,7 +607,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		   local bpos = { x=pos.x, y=pos.y + 1, z=pos.z }
            local bpos2 = { x=pos.x, y=pos.y + 2, z=pos.z }
 		   if minetest.get_node(bpos).name == "air" and minetest.get_node(bpos2).name == "air" and pos.y <= -110 then
-		   
+
 				local para1 = {}
 				local vasentyp = {}
 				if pos.y >= -250 then para1 = 1
@@ -626,14 +625,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				elseif rndvase >= 7 and rndvase <= 9 then vasentyp = "externgen:vase_level3"
 				elseif rndvase >= 10 and rndvase <= 11 then vasentyp = "externgen:vase_level4"
 				elseif rndvase >= 12 then vasentyp = "externgen:vase_level5"
-				end	
+				end
                 local pla = math.random(1,8)
 				if pla >= 7 then
 				   return
-				end				
+				end
 				minetest.set_node(bpos, {name = vasentyp})
 		   end
-		
+
 	end
 end)
 --]]
@@ -647,7 +646,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		   local bpos = { x=pos.x, y=pos.y + 1, z=pos.z }
            local bpos2 = { x=pos.x, y=pos.y + 2, z=pos.z }
 		   if minetest.get_node(bpos).name == "air" and minetest.get_node(bpos2).name == "air" and pos.y <= -110 then
-		    
+
 				local para1 = {}
 				local vasentyp = {}
 				if pos.y >= -250 then para1 = 1
@@ -665,15 +664,14 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				elseif rndvase >= 7 and rndvase <= 9 then vasentyp = "externgen:vase_level3"
 				elseif rndvase >= 10 and rndvase <= 11 then vasentyp = "externgen:vase_level4"
 				elseif rndvase >= 12 then vasentyp = "externgen:vase_level5"
-				end	
+				end
 				local pla = math.random(1,8)
                 if pla >= 7 then
 				   return
-				end				
+				end
 				minetest.set_node(bpos, {name = vasentyp})
 		   end
-		
+
 	end
 end)
 --]]
-
