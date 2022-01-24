@@ -28,6 +28,16 @@ local vine_prototype = {
 			return itemstack
 		end
 	end,
+	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+		if itemstack:get_name() == "vines:shears" then
+			node.param2 = 1
+			minetest.set_node(pos, node)
+		else
+			if itemstack:get_definition().type == "node" then
+				return core.item_place_node(itemstack, clicker, pointed_thing)
+			end
+		end
+	end,
 	-- after_destruct = function(pos, oldnode)
 	-- 	pos.y = pos.y - 1
 	-- 	if minetest.get_node(pos).name == oldnode.name then
