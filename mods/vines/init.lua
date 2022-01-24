@@ -16,12 +16,34 @@ local vine_prototype = {
   		type = "fixed",
   		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
   	},
+	node_placement_prediction = "",
+	on_place = function(itemstack, placer, pointed_thing)
+		local above = vector.new(pointed_thing.above)
+		above.y = above.y + 1
+		local name = minetest.get_node(above).name
+		if minetest.get_item_group(name, "leaves") ~= 0 or
+				minetest.get_item_group(name, "vines") ~= 0 then
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		else
+			return itemstack
+		end
+	end,
 	-- after_destruct = function(pos, oldnode)
 	-- 	pos.y = pos.y - 1
 	-- 	if minetest.get_node(pos).name == oldnode.name then
 	-- 		minetest.remove_node(pos)
 	-- 	end
 	-- end,
+	_on_update = function(pos)
+		local above = vector.new(pos)
+		above.y = above.y + 1
+		local name = minetest.get_node(above).name
+		if minetest.get_item_group(name, "leaves") == 0 and
+				minetest.get_item_group(name, "vines") == 0 then
+			minetest.remove_node(pos)
+			return true
+		end
+	end,
 }
 
 local function register_vine(name, def)
@@ -358,7 +380,7 @@ minetest.register_node("vines:vine_block",{
 	drawtype = "glasslike",
 	tiles = {{name = "vines_block.png", scale = 2, align_style="world"}},
 	use_texture_alpha = "clip",
-	groups = {snappy = 3, oddly_breakable_by_hand=3, flammable=2},
+	groups = {snappy = 3, oddly_breakable_by_hand=3, flammable=2, leaves = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
