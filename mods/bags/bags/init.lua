@@ -176,17 +176,17 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "bags:medium",
 	recipe = {
-        {"", "default:stick", ""},
-        {"bags:small", "farming:string", "bags:small"},
-        {"bags:small", "farming:string", "bags:small"},
+        {"vines:vine_rope", "", "vines:vine_rope"},
+        {"mobs:leather", "bags:small", "mobs:leather"},
+        {"mobs:leather", "mobs:leather", "mobs:leather"},
     },
 })
 minetest.register_craft({
 	output = "bags:large",
 	recipe = {
-        {"", "default:stick", ""},
-        {"bags:medium", "farming:string", "bags:medium"},
-        {"bags:medium", "farming:string", "bags:medium"},
+        {"default:stick", "farming:string", "default:stick"},
+        {"default:hardened_leather", "bags:small", "default:hardened_leather"},
+        {"default:hardened_leather", "bags:medium", "default:hardened_leather"},
     },
 })
 
