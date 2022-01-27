@@ -2169,6 +2169,8 @@ local mob_step = function(self, dtime)
 	end
 
 	falling(self, pos)
+	if self.object:get_pos() == nil then return end
+	
 
 	-- knockback timer
 	if self.pause_timer > 0 then
