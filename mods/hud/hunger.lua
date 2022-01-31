@@ -15,7 +15,7 @@ local function poisenp(tick, time, time_left, player)
 	if player:get_hp()-1 > 0 then
 		player:set_hp(player:get_hp()-1)
 	end
-	
+
 end
 
 function hud.item_eat(hunger_change, replace_with_item, poisen)
@@ -31,11 +31,8 @@ function hud.item_eat(hunger_change, replace_with_item, poisen)
 			hud.set_hunger(user)
 			itemstack:add_item(replace_with_item) -- note: replace_with_item is optional
 			--sound:eat from adventuretest by brandon reese
-			if not sound then
-			sound = "hunger_eat"
-			end
-			minetest.sound_play(sound, {to_player = name, gain = 0.7})
-			
+			minetest.sound_play("hunger_eat", {to_player = name, gain = 0.7})
+
 			if poisen then
 				poisenp(1.0, poisen, 0, user)
 			end
