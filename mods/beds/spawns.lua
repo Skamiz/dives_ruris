@@ -37,6 +37,7 @@ function beds.read_spawns()
 	end
 end
 
+local writing = false
 function beds.save_spawns()
 	if not beds.spawn then
 		return
