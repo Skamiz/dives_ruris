@@ -141,12 +141,23 @@ default:nyancat_rainbow
 
 minetest.register_node("default:stone", {
 	description = "Stone",
-	tiles = {"default_stone.png"},
+	tiles = {
+		{name = "default_stone_1.png", align_style = "world"},
+		{name = "default_stone_2.png", align_style = "world"},
+		{name = "default_stone_3.png", align_style = "world"},
+		{name = "default_stone_4.png", align_style = "world"},
+		{name = "default_stone_5.png", align_style = "world"},
+		{name = "default_stone_6.png", align_style = "world"},
+	},
+	paramtype2 = "facedir",
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
 	drop = 'default:stone',
 	legacy_mineral = true,
 	sounds = default.node_sound_stone_defaults(),
+	on_place = function(itemstack, placer, pointed_thing)
+		return minetest.item_place(itemstack, placer, pointed_thing, math.random(24) - 1)
+	end
 })
 
 minetest.register_node("default:stone_block", {
