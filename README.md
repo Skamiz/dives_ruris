@@ -7,14 +7,12 @@ in the Minetest Engine.
 
 The Minetest Engine can be found in:
   https://github.com/minetest/minetest/
-  
- All my work is under WTFPL License 
+
+ All my work is under WTFPL License
  The extern mods have different Licenses. look at the modfolders for details.
 
 Extern mods are(mods that not from me and not part of the standard minetest-game):
- 
-3d forniture
-https://forum.minetest.net/viewtopic.php?id=2207
+
 
 bags
 https://forum.minetest.net/viewtopic.php?id=3081
@@ -36,9 +34,6 @@ https://forum.minetest.net/viewtopic.php?id=3101
 
 hud
 https://forum.minetest.net/viewtopic.php?id=6342
-
-inventory plus
-https://forum.minetest.net/viewtopic.php?id=3100
 
 item tweaks
 https://github.com/minetest-technic/item_tweaks
@@ -107,9 +102,6 @@ https://forum.minetest.net/viewtopic.php?id=2344
 xconnected
 https://forum.minetest.net/viewtopic.php?f=9&t=12882
 
-zcg
-https://forum.minetest.net/viewtopic.php?id=5564
-
 there are also some elements from the ethereal mod
 https://github.com/tenplus1/ethereal
 
@@ -122,5 +114,5 @@ Update 14.10.2016
 - Add Meshes for ramps/slopes (mystairworks)
 - Add an actual mobs api (not optimised yet)
 - simplify some cookingrecipes (delete the vessels)
-- remove some warning's 
+- remove some warning's
 I think its better to start a new worldmap, maybe there are some conflicts with older mobs and the slopeblocks.

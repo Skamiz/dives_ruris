@@ -31,10 +31,8 @@ minetest.register_alias("default:pinewood", "default:wood_pine")
 minetest.register_alias("mapgen_river_water_source", "default:river_water_source")
 
 
-minetest.set_mapgen_setting("mg_name", "v7", true)
 minetest.set_mapgen_setting("mg_flags", "nodungeons", true)
 minetest.set_mapgen_setting("mgv7_spflags", "ridges", true)
-minetest.set_mapgen_setting("water_level", "1", true)
 
 
 --
