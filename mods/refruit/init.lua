@@ -262,6 +262,7 @@ end
 --abm's
 
 minetest.register_abm({
+	label = "bud apple",
 	nodenames = {"refruit:bud_apple"},
 	neighbors = {"group:leaves"},
 	interval = 34,
@@ -272,6 +273,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "flower apple",
 	nodenames = {"refruit:flower_apple"},
 	neighbors = {"group:leaves"},
 	interval = 33,
@@ -284,6 +286,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "bud olive",
 	nodenames = {"refruit:bud_olive"},
 	neighbors = {"group:leaves"},
 	interval = 35,
@@ -294,6 +297,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "flower olive",
 	nodenames = {"refruit:flower_olive"},
 	neighbors = {"group:leaves"},
 	interval = 34,
@@ -306,6 +310,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "bud orange",
 	nodenames = {"refruit:bud_orange"},
 	neighbors = {"group:leaves"},
 	interval = 36,
@@ -316,6 +321,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "flower orange",
 	nodenames = {"refruit:flower_orange"},
 	neighbors = {"group:leaves"},
 	interval = 35,
@@ -328,6 +334,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "bud banana",
 	nodenames = {"refruit:bud_banana"},
 	neighbors = {"group:leaves"},
 	interval = 37,
@@ -338,6 +345,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "flower banana",
 	nodenames = {"refruit:flower_banana"},
 	neighbors = {"group:leaves"},
 	interval = 36,
@@ -350,6 +358,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "bud cocoa",
 	nodenames = {"refruit:bud_cocoa"},
 	neighbors = {"group:leaves"},
 	interval = 38,
@@ -360,6 +369,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "flower cocoa",
 	nodenames = {"refruit:flower_cocoa"},
 	neighbors = {"group:leaves"},
 	interval = 37,
@@ -372,6 +382,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "bud cocnut",
 	nodenames = {"refruit:bud_coconut"},
 	neighbors = {"group:leaves"},
 	interval = 39,
@@ -382,6 +393,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "flower cocnut",
 	nodenames = {"refruit:flower_coconut"},
 	neighbors = {"group:leaves"},
 	interval = 38,

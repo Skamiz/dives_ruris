@@ -16,13 +16,14 @@ minetest.register_node("default:sugarcane", {
 	},
 	groups = {snappy=3,flammable=2},
 	sounds = default.node_sound_leaves_defaults(),
-	
+
 	after_dig_node = function(pos, node, metadata, digger)
 		default.dig_up(pos, node, digger)
 	end,
 })
 
 minetest.register_abm({
+	label = "Grow sugarcane",
 	nodenames = {"default:sugarcane"},
 	neighbors = {"default:dirt_jungle_with_grass", "default:dirt_deep_with_grass", "default:dirt_med_with_grass", "default:dirt_with_grass"},
 	interval = 50,
@@ -117,6 +118,7 @@ minetest.register_node("default:reed2", {
 })
 
 minetest.register_abm({
+	label = "Spread reeds",
 	nodenames = {"group:reed"},
 	neighbors = {"default:gravel"},
 	interval = 50,
@@ -292,11 +294,3 @@ minetest.register_node("default:poison_erwin", {
 	groups = {snappy=3, flora=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-
- 
- 
-
- 
-
-
-

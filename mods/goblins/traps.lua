@@ -55,6 +55,7 @@ minetest.register_node("goblins:stone_with_diamond_trap", {
 
 --[[ too bad we can't keep track of what physics are set too by other mods...]]
 minetest.register_abm({
+	label = "Goblin trap cobble",
 	nodenames = {"goblins:mossycobble_trap"},
 	interval = 1,
 	chance = 1,
@@ -72,6 +73,7 @@ minetest.register_abm({
 	end})
 --[[ based on dwarves cactus]]
 minetest.register_abm({
+	label = "Goblin trap coal",
 	nodenames = {"goblins:stone_with_coal_trap"},
 	interval = 2,
 	chance = 3,
@@ -90,6 +92,7 @@ minetest.register_abm({
 		end
 	end})
 minetest.register_abm({
+	label = "Goblin trap iron",
 	nodenames = {"goblins:stone_with_iron_trap"},
 	interval = 2,
 	chance = 2,
@@ -108,6 +111,7 @@ minetest.register_abm({
 		end
 	end})
 minetest.register_abm({
+	label = "Goblin trap copper",
 	nodenames = {"goblins:stone_with_copper_trap"},
 	interval = 1,
 	chance = 2,
@@ -126,6 +130,7 @@ minetest.register_abm({
 		end
 	end})
 minetest.register_abm({
+	label = "Goblin trap gold",
 	nodenames = {"goblins:stone_with_gold_trap"},
 	interval = 1,
 	chance = 2,
@@ -145,6 +150,7 @@ minetest.register_abm({
 	end})
 
 minetest.register_abm({
+	label = "Goblin trap diamond",
 	nodenames = {"goblins:stone_with_diamond_trap"},
 	interval = 1,
 	chance = 1,

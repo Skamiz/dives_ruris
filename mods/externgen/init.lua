@@ -245,6 +245,7 @@ minetest.register_decoration({
 ---
 -- Randomly generate Coral or Seaweed and have Seaweed grow up to 10 high
 minetest.register_abm({
+	label = "Generate underwater plants",
 	nodenames = {"default:seeground"},
 	neighbors = {"group:water"},
 	interval = 75,

@@ -11,6 +11,7 @@ end
 
 -- Grow saplings
 minetest.register_abm({
+	label = "Grow saplings",
 	nodenames = {"group:sapling"},
 	interval = 25,
 	chance = 65,

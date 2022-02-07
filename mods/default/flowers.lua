@@ -217,6 +217,7 @@ minetest.register_node("default:flowers_lavendel", {
 ---
 
 minetest.register_abm({
+	label = "Flower spread",
 	nodenames = {"group:flora"},
 	neighbors = {"group:soil"},
 	interval = 50,

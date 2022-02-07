@@ -9,11 +9,11 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	if pt.type ~= "node" then
 		return
 	end
-	
+
 	local under = minetest.get_node(pt.under)
 	local p = {x=pt.under.x, y=pt.under.y+1, z=pt.under.z}
 	local above = minetest.get_node(p)
-	
+
 	-- return if any of the nodes is not registered
 	if not minetest.registered_nodes[under.name] then
 		return
@@ -21,39 +21,39 @@ farming.hoe_on_use = function(itemstack, user, pointed_thing, uses)
 	if not minetest.registered_nodes[above.name] then
 		return
 	end
-	
+
 	-- check if the node above the pointed thing is air
 	if above.name ~= "air" then
 		return
 	end
-	
+
 	-- check if pointing at soil
 	if minetest.get_item_group(under.name, "soil") ~= 1 then
 		return
 	end
-	
+
 	-- check if (wet) soil defined
 	local regN = minetest.registered_nodes
 	if regN[under.name].soil == nil or regN[under.name].soil.wet == nil or regN[under.name].soil.dry == nil then
 		return
 	end
-	
+
 	-- turn the node into soil, wear out item and play sound
 	minetest.set_node(pt.under, {name = regN[under.name].soil.dry})
 	minetest.sound_play("default_dig_crumbly", {
 		pos = pt.under,
 		gain = 0.5,
 	})
-	
+
 	-- worms for fishing
-	if math.random(1, 100) < 25 then 
-            local inv = user:get_inventory() 
-			if inv:room_for_item("main", {name="default:worm", count=1, wear=0, metadata=""}) then 
- 				inv:add_item("main", {name="default:worm", count=1, wear=0, metadata=""}) 
- 			end  
- 	end 
+	if math.random(1, 100) < 25 then
+            local inv = user:get_inventory()
+			if inv:room_for_item("main", {name="default:worm", count=1, wear=0, metadata=""}) then
+ 				inv:add_item("main", {name="default:worm", count=1, wear=0, metadata=""})
+ 			end
+ 	end
     --end worm
-	
+
 	if not minetest.settings:get_bool("creative_mode") then
 		itemstack:add_wear(65535/(uses-1))
 	end
@@ -128,10 +128,10 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	if pt.type ~= "node" then
 		return
 	end
-	
+
 	local under = minetest.get_node(pt.under)
 	local above = minetest.get_node(pt.above)
-	
+
 	-- return if any of the nodes is not registered
 	if not minetest.registered_nodes[under.name] then
 		return
@@ -139,22 +139,22 @@ farming.place_seed = function(itemstack, placer, pointed_thing, plantname)
 	if not minetest.registered_nodes[above.name] then
 		return
 	end
-	
+
 	-- check if pointing at the top of the node
 	if pt.above.y ~= pt.under.y+1 then
 		return
 	end
-	
+
 	-- check if you can replace the node above the pointed node
 	if not minetest.registered_nodes[above.name].buildable_to then
 		return
 	end
-	
+
 	-- check if pointing at soil
 	if minetest.get_item_group(under.name, "soil") < 2 then
 		return
 	end
-	
+
 	-- add the node and remove 1 item from the itemstack
 	minetest.add_node(pt.above, {name = plantname, param2 = 1})
 	if not minetest.settings:get_bool("creative_mode") then
@@ -235,7 +235,7 @@ farming.register_plant = function(name, def)
 		}
 		local nodegroups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
 		nodegroups[pname] = i
-		if pname == "corn" then 
+		if pname == "corn" then
 		   minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			visual_scale = 1.8,
@@ -253,7 +253,7 @@ farming.register_plant = function(name, def)
 			groups = nodegroups,
 			sounds = default.node_sound_leaves_defaults(),
 		})
-		elseif pname == "beens" then 
+		elseif pname == "beens" then
 		   minetest.register_node(mname .. ":" .. pname .. "_" .. i, {
 			drawtype = "plantlike",
 			visual_scale = 1.4,
@@ -292,6 +292,7 @@ farming.register_plant = function(name, def)
 
 	-- Growing ABM
 	minetest.register_abm({
+		label = "Grow plant: " .. pname,
 		nodenames = {"group:" .. pname, "group:seed"},
 		neighbors = {"group:soil"},
 		interval = 93,
@@ -377,7 +378,7 @@ minetest.register_node(":farming:corn_1", {
 			groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1},
 			sounds = default.node_sound_leaves_defaults(),
 		})
-		
+
 minetest.register_node(":farming:corn_2", {
 			drawtype = "plantlike",
 			visual_scale = 2.0,
@@ -402,7 +403,7 @@ minetest.register_node(":farming:corn_2", {
 			groups = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1},
 			sounds = default.node_sound_leaves_defaults(),
 		})
-		
+
 minetest.register_node(":farming:corn_3", {
 			drawtype = "plantlike",
 			visual_scale = 2.0,

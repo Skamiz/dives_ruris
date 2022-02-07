@@ -151,6 +151,7 @@ minetest.register_craft({
 
 -- beehive workings
 minetest.register_abm({
+	label = "Beehives make honey",
 	nodenames = {"mobs:beehive"},
 	interval = 6,
 	chance = 6,

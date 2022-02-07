@@ -214,6 +214,7 @@ minetest.register_node("itemframes:pedestal",{
 -- due to /clearobjects or similar
 
 minetest.register_abm({
+	label = "Restore item display objects",
 	nodenames = {"itemframes:frame", "itemframes:pedestal"},
 	interval = 15,
 	chance = 1,

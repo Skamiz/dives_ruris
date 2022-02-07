@@ -253,6 +253,7 @@ minetest.register_craftitem("vines:vine_rope", {
 
 -- grow vines downwards
 minetest.register_abm({
+	label = "Grow vines",
 	nodenames = {"vines:vine", "vines:side", "vines:side2", "vines:yellow", "vines:magenta", "vines:white", "vines:cyan", "vines:red"},
 	interval = 300,
 	chance = 2,
@@ -275,6 +276,7 @@ minetest.register_abm({
 
 -- lenghten rope
 minetest.register_abm({
+	label = "Lenghten rope",
   nodenames = {"vines:rope_end"},
   interval = 1,
   chance = 1,
@@ -294,6 +296,7 @@ minetest.register_abm({
 
 -- grow vines under leaves
 minetest.register_abm({
+	label = "Spawn vines",
 	nodenames = {"group:leaves"},
 	interval = 43,
 	chance = 3,
@@ -332,6 +335,7 @@ minetest.register_abm({
 
 -- grow roots under soils
 minetest.register_abm({
+	label = "Spawn roots",
 	nodenames = {"group:soil"},
 	interval = 43,
 	chance = 3,

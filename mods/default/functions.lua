@@ -98,6 +98,7 @@ default.cool_lava_flowing = function(pos)
 end
 
 minetest.register_abm({
+	label = "Flowing Lava cooling",
 	nodenames = {"default:lava_flowing"},
 	neighbors = {"group:water"},
 	interval = 1,
@@ -108,6 +109,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Source Lava cooling",
 	nodenames = {"default:lava_source"},
 	neighbors = {"group:water"},
 	interval = 1,
@@ -122,6 +124,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "Grow cactus",
 	nodenames = {"default:cactus"},
 	neighbors = {"group:sand"},
 	interval = 50,
@@ -141,11 +144,12 @@ minetest.register_abm({
 					minetest.set_node(pos, {name="default:cactus"})
 				end
 			end
-		end  
+		end
 	end,
 })
 
 minetest.register_abm({
+	label = "Grow papyrus",
 	nodenames = {"default:papyrus"},
 	neighbors = {"default:dirt_jungle_with_grass", "default:dirt_deep_with_grass", "default:dirt_med_with_grass", "default:dirt_with_grass", "default:sand", "default:desert_sand"},
 	interval = 50,
@@ -209,6 +213,7 @@ default.after_place_leaves = function(pos, placer, itemstack, pointed_thing)
 end
 
 minetest.register_abm({
+	label = "Leaf decay",
 	nodenames = {"group:leafdecay"},
 	neighbors = {"air", "group:liquid"},
 	-- A low interval and a high inverse chance spreads the load
@@ -287,6 +292,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "Grow moss on cobble",
 	nodenames = {"default:cobble"},
 	neighbors = {"group:water"},
 	interval = 56,
@@ -301,6 +307,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "Grow grass on dirt",
 	nodenames = {"default:dirt"},
 	interval = 2,
 	chance = 200,
@@ -321,6 +328,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Kill grass on dirt",
 	nodenames = {"default:dirt_with_grass"},
 	interval = 2,
 	chance = 20,
@@ -341,6 +349,7 @@ minetest.register_abm({
 --
 
 minetest.register_abm({
+	label = "Grow grass on mediterran dirt",
 	nodenames = {"default:dirt_med"},
 	interval = 2,
 	chance = 200,
@@ -361,6 +370,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Kill grass on mediterran dirt",
 	nodenames = {"default:dirt_med_with_grass"},
 	interval = 2,
 	chance = 20,
@@ -377,6 +387,7 @@ minetest.register_abm({
 })
 -- deep forest
 minetest.register_abm({
+	label = "Grow grass on deep forest dirt",
 	nodenames = {"default:dirt_deep"},
 	interval = 2,
 	chance = 200,
@@ -397,6 +408,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Kill grass on deep forest dirt",
 	nodenames = {"default:dirt_deep_with_grass"},
 	interval = 2,
 	chance = 20,
@@ -414,6 +426,7 @@ minetest.register_abm({
 
 -- jungle
 minetest.register_abm({
+	label = "Grow grass on jungle dirt",
 	nodenames = {"default:dirt_jungle"},
 	interval = 2,
 	chance = 200,
@@ -434,6 +447,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
+	label = "Kill grass on jungle dirt",
 	nodenames = {"default:dirt_jungle_with_grass"},
 	interval = 2,
 	chance = 20,
@@ -455,6 +469,7 @@ default.cool_ice = function(pos)
 end
 
 minetest.register_abm({
+	label = "Freeze water",
 	nodenames = {"group:water"},
 	neighbors = {"default:ice"},
 	interval = 452,
@@ -474,6 +489,7 @@ minetest.register_abm({
 local para1 = {}
 local blockname = {}
 minetest.register_abm({
+	label = "Randomize resource blocks",
 	nodenames = {"default:block_randomizer"},
 	interval = 1,
 	chance = 2,
@@ -493,7 +509,7 @@ minetest.register_abm({
 		elseif rndblock >= 5 and rndblock <= 6 then blockname = "default:bronzeblock"
 		elseif rndblock >= 7 and rndblock <= 8 then blockname = "default:goldblock"
 		elseif rndblock >= 9 and rndblock <= 10 then blockname = "default:mese"
-		elseif rndblock >= 11 then 
+		elseif rndblock >= 11 then
 			local gemset = math.random(1,6)
 			if gemset <= 1 then blockname = "default:rubyblock"
 			elseif gemset == 2 then blockname = "default:topazblock"
@@ -504,12 +520,13 @@ minetest.register_abm({
 			end
 		end
 		minetest.set_node(pos, {name = blockname})
-		
-		
+
+
 	end
 })
 -- Vases
 minetest.register_abm({
+	label = "Randomize vases",
 	nodenames = {"default:vase_randomizer"},
 	interval = 1,
 	chance = 3,
@@ -531,33 +548,32 @@ minetest.register_abm({
 				elseif rndvase >= 7 and rndvase <= 9 then vasentyp = "externgen:vase_level3"
 				elseif rndvase >= 10 and rndvase <= 11 then vasentyp = "externgen:vase_level4"
 				elseif rndvase >= 12 then vasentyp = "externgen:vase_level5"
-				end	
+				end
 				local pla = math.random(1,8)
                 if pla >= 7 then
 				   minetest.set_node(pos, {name = "air"})
 				   return
-				end				
+				end
 				minetest.set_node(pos, {name = vasentyp})
-		
+
 	end
 })
 
 -- Torch near water
 -- by TenPlus1:
 minetest.register_abm({
-   nodenames = {"default:torch"},
-   neighbors = {"default:water_source", "default:water_flowing"},
-   interval = 1, chance = 1,
+	label = "Pop torches near water",
+	nodenames = {"default:torch"},
+	neighbors = {"default:water_source", "default:water_flowing"},
+	interval = 1, chance = 1,
 
-   action = function(pos, node)
-      local pos0 = {x=pos.x-1,y=pos.y,z=pos.z-1}
-      local pos1 = {x=pos.x+1,y=pos.y+1,z=pos.z+1}
-      if #minetest.find_nodes_in_area(pos0, pos1,
-         {"default:water_source", "default:water_flowing"}) > 0 then
-         minetest.set_node(pos, {name="default:water_flowing"})
-         minetest.add_item(pos, {name="default:torch"})
-      end
-   end,
+	action = function(pos, node)
+		local pos0 = {x=pos.x-1,y=pos.y,z=pos.z-1}
+		local pos1 = {x=pos.x+1,y=pos.y+1,z=pos.z+1}
+		if #minetest.find_nodes_in_area(pos0, pos1,
+				{"default:water_source", "default:water_flowing"}) > 0 then
+			minetest.set_node(pos, {name="default:water_flowing"})
+			minetest.add_item(pos, {name="default:torch"})
+		end
+	end,
 })
-
-

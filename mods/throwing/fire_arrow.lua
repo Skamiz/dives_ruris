@@ -18,7 +18,7 @@ minetest.register_node("throwing:arrow_fire_box", {
 			{7.5/17, -2.5/17, 2.5/17, 6.5/17, -1.5/17, 1.5/17},
 			{7.5/17, 2.5/17, -2.5/17, 6.5/17, 1.5/17, -1.5/17},
 			{6.5/17, -1.5/17, -1.5/17, 7.5/17, -2.5/17, -2.5/17},
-			
+
 			{7.5/17, 2.5/17, 2.5/17, 8.5/17, 3.5/17, 3.5/17},
 			{8.5/17, -3.5/17, 3.5/17, 7.5/17, -2.5/17, 2.5/17},
 			{8.5/17, 3.5/17, -3.5/17, 7.5/17, 2.5/17, -2.5/17},
@@ -101,7 +101,7 @@ minetest.register_node("throwing:light", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	tiles = {"throwing_empty.png"},
-	light_source = LIGHT_MAX-4,
+	light_source = minetest.LIGHT_MAX-4,
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -112,6 +112,7 @@ minetest.register_node("throwing:light", {
 })
 
 minetest.register_abm({
+	label = "Remove light",
 	nodenames = {"throwing:light"},
 	interval = 10,
 	chance = 1,

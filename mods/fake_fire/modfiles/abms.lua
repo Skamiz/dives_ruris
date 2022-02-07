@@ -11,7 +11,7 @@
 		* Torches have long been impervious to water.
 		* Minetest creates surreal worlds so it's OK if some things aren't
 		perfectly realistic.
- 
+
 	Besides, the fake-fire can be put out by punching it - simple and effective.
 	~ LazyJ, 2014_03_14
 
@@ -48,9 +48,9 @@ minetest.register_abm({
 
   Do I need an ABM for this? Can I add this to the node definition with an
   "on_construct" or "after_place_node"?
-  
+
   Yes and no.
-  
+
   The on_construct worked, but.. only once. When the leafdecay removed
   the smoke no more new smoke was produced to replace the previous smoke.
   So an ABM is needed to pull-off the appearing and disappearing
@@ -62,7 +62,7 @@ minetest.register_abm({
 	the nodes.lua file.
 
 	~ LazyJ
-	
+
 --]]
 
 
@@ -116,7 +116,7 @@ minetest.register_abm({
   and high chance will spread the load ABMs put on the computers.
 
 	~ LazyJ, 2014_07_28
-	
+
 --]]
 
 
@@ -127,6 +127,7 @@ minetest.register_abm({
 -- WHITE, BOTTOM SMOKE
 -- Closest to fire, hotter, faster, more dense
 minetest.register_abm({
+  label = "Fake fire smoke white",
   nodenames = {
         "fake_fire:fake_fire_d",
         "fake_fire:ice_fire_d",
@@ -166,6 +167,7 @@ minetest.register_abm({
 -- GREY, MIDDLE SMOKE
 -- Cooler, slower, not as dense.
 minetest.register_abm({
+  label = "Fake fire smoke grey",
   nodenames = {
         "fake_fire:fake_fire_d",
         "fake_fire:ice_fire_d",
@@ -215,6 +217,7 @@ minetest.register_abm({
 -- BLACK, TOP SMOKE
 -- Farthest from the fire, coolest, slowest, more spread out.
 minetest.register_abm({
+  label = "Fake fire smoke black",
   nodenames = {
         "fake_fire:fake_fire_d",
         "fake_fire:ice_fire_d",
@@ -248,7 +251,7 @@ minetest.register_abm({
     minetest.get_node({x=pos.x, y=pos.y+5.0, z=pos.z-3.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+6.0, z=pos.z-3.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+7.0, z=pos.z-3.0}).name == "air" and
-    
+
     minetest.get_node({x=pos.x, y=pos.y+1.0, z=pos.z-4.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+2.0, z=pos.z-4.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+3.0, z=pos.z-4.0}).name == "air" and
@@ -256,7 +259,7 @@ minetest.register_abm({
     minetest.get_node({x=pos.x, y=pos.y+5.0, z=pos.z-4.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+6.0, z=pos.z-4.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+7.0, z=pos.z-4.0}).name == "air" and
-    
+
     minetest.get_node({x=pos.x, y=pos.y+1.0, z=pos.z-4.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+2.0, z=pos.z-4.0}).name == "air" and
     minetest.get_node({x=pos.x, y=pos.y+3.0, z=pos.z-5.0}).name == "air" and
@@ -294,6 +297,7 @@ minetest.register_abm({
 -- WHITE, BOTTOM SMOKE
 -- Closest to fire, hotter, faster, more dense
 minetest.register_abm({
+  label = "Fake fire smoke white non-drift",
   nodenames = {
         "fake_fire:fake_fire",
         "fake_fire:ice_fire",
@@ -335,6 +339,7 @@ minetest.register_abm({
 -- GREY, MIDDLE SMOKE
 -- Cooler, slower, not as dense.
 minetest.register_abm({
+  label = "Fake fire smoke grey non-drift",
   nodenames = {
         "fake_fire:fake_fire",
         "fake_fire:ice_fire",
@@ -383,6 +388,7 @@ minetest.register_abm({
 -- BLACK, TOP SMOKE
 -- Farthest from the fire, coolest, slowest, more spread out.
 minetest.register_abm({
+  label = "Fake fire smoke black non-drift",
   nodenames = {
         "fake_fire:fake_fire",
         "fake_fire:ice_fire",
@@ -429,7 +435,7 @@ OBSERVATION NOTES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * amount
-How many particles are created when they "win" the interval and chance lottery. 
+How many particles are created when they "win" the interval and chance lottery.
 
 * time
 I'm not sure about this one. The larger the number was the more particles there
@@ -491,7 +497,7 @@ speed.
 
 Maximum Acceleration - I don't understand this one either. Once particles reach
 maximum velocity they can't accelerate any more so what's the purpose of having
-a maximum acceleration (maxacc)? Maybe the maxacc multiplies the maxvel?? 
+a maximum acceleration (maxacc)? Maybe the maxacc multiplies the maxvel??
 
 
 
