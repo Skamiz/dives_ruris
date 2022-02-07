@@ -94,7 +94,7 @@ minetest.register_abm({
 	interval = 1,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		if node.name = "default:lava_source" then
+		if node.name == "default:lava_source" then
 			minetest.set_node(pos, {name="default:obsidian"})
 		else
 			minetest.set_node(pos, {name="default:gravel"})

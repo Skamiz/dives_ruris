@@ -18,7 +18,7 @@ screwdriver.rotate_simple = function(pos, node, user, mode, new_param2)
 		return false
 	end
 end
-local USES = 200
+-- local USES = 200
 
 -- Handles rotation
 local function screwdriver_handler(itemstack, user, pointed_thing, mode)
@@ -78,7 +78,7 @@ local function screwdriver_handler(itemstack, user, pointed_thing, mode)
 	end
 
 	if not minetest.settings:get_bool("creative_mode") then
-		itemstack:add_wear(65535 / (USES - 1))
+		itemstack:add_wear(65535 / (itemstack:get_definition()._uses - 1))
 	end
 
 	return itemstack
@@ -88,6 +88,21 @@ end
 minetest.register_tool("screwdriver:screwdriver", {
 	description = "Screwdriver (left-click rotates face, right-click rotates axis)",
 	inventory_image = "screwdriver.png",
+	_uses = 200,
+	on_use = function(itemstack, user, pointed_thing)
+		screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_FACE)
+		return itemstack
+	end,
+	on_place = function(itemstack, user, pointed_thing)
+		screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_AXIS)
+		return itemstack
+	end,
+})
+
+minetest.register_tool("screwdriver:screwdriver_dia", {
+	description = "Diamond Screwdriver (left-click rotates face, right-click rotates axis)",
+	inventory_image = "screwdriver_dia.png",
+	_uses = 800,
 	on_use = function(itemstack, user, pointed_thing)
 		screwdriver_handler(itemstack, user, pointed_thing, screwdriver.ROTATE_FACE)
 		return itemstack
@@ -107,7 +122,16 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = "screwdriver:screwdriver_dia",
+	recipe = {
+		{"default:diamond"},
+		{"group:stick"}
+	}
+})
+
 minetest.register_alias("screwdriver:screwdriver1", "screwdriver:screwdriver")
 minetest.register_alias("screwdriver:screwdriver2", "screwdriver:screwdriver")
 minetest.register_alias("screwdriver:screwdriver3", "screwdriver:screwdriver")
 minetest.register_alias("screwdriver:screwdriver4", "screwdriver:screwdriver")
+minetest.register_alias("screwdriver_dia:screwdriver_dia", "screwdriver:screwdriver_dia")
