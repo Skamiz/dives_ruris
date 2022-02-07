@@ -139,6 +139,27 @@ register_vine("vines:root", {
 	    type = "fixed",
 	    fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
   	},
+	on_place = function(itemstack, placer, pointed_thing)
+		local above = vector.new(pointed_thing.above)
+		above.y = above.y + 1
+		local name = minetest.get_node(above).name
+		if minetest.get_item_group(name, "soil") ~= 0 or
+				minetest.get_item_group(name, "vines") ~= 0 then
+			return minetest.item_place(itemstack, placer, pointed_thing)
+		else
+			return itemstack
+		end
+	end,
+	_on_update = function(pos)
+		local above = vector.new(pos)
+		above.y = above.y + 1
+		local name = minetest.get_node(above).name
+		if minetest.get_item_group(name, "soil") == 0 and
+				minetest.get_item_group(name, "vines") == 0 then
+			minetest.remove_node(pos)
+			return true
+		end
+	end,
 })
 
 
@@ -301,34 +322,34 @@ minetest.register_abm({
 	interval = 43,
 	chance = 3,
 	action = function(pos, node)
-		local above = {x=pos.x, y=pos.y-1, z=pos.z}
-		local name = minetest.get_node(above).name
-		local sel = math.random(1,23)
+		local below = {x=pos.x, y=pos.y-1, z=pos.z}
+		local name = minetest.get_node(below).name
+		if name ~= "air" then return end
+
 		local pos0 = {x=pos.x-5,y=pos.y-5,z=pos.z-5}
 		local pos1 = {x=pos.x+5,y=pos.y+5,z=pos.z+5}
-	    if #minetest.find_nodes_in_area(pos0, pos1, "default:tree_jungle") > 1 then
-		   if #minetest.find_nodes_in_area(pos0, pos1, "group:vines") > 5 then
-		      return
-		   else
-		      if name == "air" then
-		         pos.y = pos.y-1
-		         if sel == 1 or sel == 7 or sel == 8 then
-			        minetest.set_node(pos, {name = "vines:side"})
-				 elseif sel == 2 or sel == 9 then
-			        minetest.set_node(pos, {name = "vines:yellow"})
-				 elseif sel == 3 or sel == 10 then
-			        minetest.set_node(pos, {name = "vines:white"})
-				 elseif sel == 4 then
-			        minetest.set_node(pos, {name = "vines:magenta"})
-				 elseif sel == 5 then
-			        minetest.set_node(pos, {name = "vines:cyan"})
-				 elseif sel == 6 or sel == 11 then
-			        minetest.set_node(pos, {name = "vines:red"})
-				 else
-			        minetest.set_node(pos, {name = "vines:side2"})
-			     end
-			  end
-		   end
+		if minetest.find_node_near(pos, 5, "default:tree_jungle") and
+		-- if #minetest.find_nodes_in_area(pos0, pos1, "default:tree_jungle") > 1 and
+				#minetest.find_nodes_in_area(pos0, pos1, "group:vines") <= 5 then
+
+			local sel = math.random(1,23)
+			pos.y = pos.y-1
+
+			if sel == 1 or sel == 7 or sel == 8 then
+				minetest.set_node(pos, {name = "vines:side"})
+			elseif sel == 2 or sel == 9 then
+				minetest.set_node(pos, {name = "vines:yellow"})
+			elseif sel == 3 or sel == 10 then
+				minetest.set_node(pos, {name = "vines:white"})
+			elseif sel == 4 then
+				minetest.set_node(pos, {name = "vines:magenta"})
+			elseif sel == 5 then
+				minetest.set_node(pos, {name = "vines:cyan"})
+			elseif sel == 6 or sel == 11 then
+				minetest.set_node(pos, {name = "vines:red"})
+			else
+				minetest.set_node(pos, {name = "vines:side2"})
+			end
 		end
 	end
 })
@@ -337,22 +358,20 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Spawn roots",
 	nodenames = {"group:soil"},
+	-- neighbors = {"air"},
 	interval = 43,
 	chance = 3,
 	action = function(pos, node)
-		local above = {x=pos.x, y=pos.y-1, z=pos.z}
-		local name = minetest.get_node(above).name
+		local below = {x=pos.x, y=pos.y-1, z=pos.z}
+		local name = minetest.get_node(below).name
+		if name ~= "air" then return end
+
 		local pos0 = {x=pos.x-5,y=pos.y-5,z=pos.z-5}
 		local pos1 = {x=pos.x+5,y=pos.y+5,z=pos.z+5}
-	    if #minetest.find_nodes_in_area(pos0, pos1, "group:tree") > 1 then
-		   if #minetest.find_nodes_in_area(pos0, pos1, "group:vines") > 5 then
-		      return
-		   else
-		      if name == "air" then
-		         pos.y = pos.y-1
-			     minetest.set_node(pos, {name = "vines:vine"})
-			  end
-		   end
+	    if minetest.find_node_near(pos, 5, "group:tree") and
+				#minetest.find_nodes_in_area(pos0, pos1, "group:vines") <= 5 then
+	        pos.y = pos.y-1
+		    minetest.set_node(pos, {name = "vines:root"})
 		end
 	end
 })
