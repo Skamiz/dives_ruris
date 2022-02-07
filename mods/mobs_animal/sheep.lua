@@ -90,7 +90,7 @@ for _, col in pairs(all_colours) do
 			local itemname = item:get_name()
 
 			--are we giving a haircut>
-			if itemname == "mobs:shears" then
+			if itemname == "mobs:shears" or itemname == "vines:shears" then
 
 				if self.gotten ~= false
 				or self.child ~= false
