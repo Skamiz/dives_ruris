@@ -99,9 +99,6 @@ https://forum.minetest.net/viewtopic.php?id=4877
 vines
 https://forum.minetest.net/viewtopic.php?id=2344
 
-xconnected
-https://forum.minetest.net/viewtopic.php?f=9&t=12882
-
 there are also some elements from the ethereal mod
 https://github.com/tenplus1/ethereal
 
