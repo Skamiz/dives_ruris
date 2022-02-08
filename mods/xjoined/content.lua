@@ -70,6 +70,7 @@ if minetest.get_modpath("default") then
 	xjoined.register_wall("xjoined:wall_hedge", {
 		description = "Hedge",
 		tiles = {"default_leaves.png"},
+		use_texture_alpha = "clip",
 		groups = {snappy = 3, flammable = 2},
 	})
 	xjoined.register_wall_recipe("xjoined:wall_clay 8", "default:clay")
