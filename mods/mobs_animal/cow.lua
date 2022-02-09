@@ -76,14 +76,26 @@ mobs:register_mob("mobs_animal:cow", {
 
 			local inv = clicker:get_inventory()
 
-			inv:remove_item("main", "bucket:bucket_empty")
+			-- inv:remove_item("main", "bucket:bucket_empty")
+			--
+			-- if inv:room_for_item("main", {name = "mobs:bucket_milk"}) then
+			-- 	clicker:get_inventory():add_item("main", "mobs:bucket_milk")
+			-- else
+			-- 	local pos = self.object:get_pos()
+			-- 	pos.y = pos.y + 0.5
+			-- 	minetest.add_item(pos, {name = "mobs:bucket_milk"})
+			-- end
 
-			if inv:room_for_item("main", {name = "mobs:bucket_milk"}) then
-				clicker:get_inventory():add_item("main", "mobs:bucket_milk")
+			-- imediately give milk bottles instead of milk bucket eliminating a pointless crafting step
+
+			local milk_bottle = ItemStack("mobs:milkbottle 2")
+
+			if inv:room_for_item("main", milk_bottle) then
+				clicker:get_inventory():add_item("main", milk_bottle)
 			else
 				local pos = self.object:get_pos()
 				pos.y = pos.y + 0.5
-				minetest.add_item(pos, {name = "mobs:bucket_milk"})
+				minetest.add_item(pos, milk_bottle)
 			end
 
 			self.gotten = true -- milked
