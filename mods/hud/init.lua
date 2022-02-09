@@ -159,7 +159,7 @@ local function update_hud(player)
 	if player:get_breath() ~= air then
 		air = player:get_breath()
 		hud.air[name] = air
-		if air > 10 then air = 0 end
+		if air > 9 then air = 0 end
 		player:hud_change(air_hud[name], "number", air*2)
 	end
  --health
@@ -243,7 +243,7 @@ end)
 
 minetest.register_on_respawnplayer(function(player)
 	-- reset player breath since the engine doesnt
-	player:set_breath(11)
+	player:set_breath(10)
 	-- reset hunger (and save)
 	hud.hunger[player:get_player_name()] = 20
 	if HUD_ENABLE_HUNGER then
