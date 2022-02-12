@@ -2962,6 +2962,28 @@ minetest.register_node("default:ladder", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+minetest.register_node("default:chains", {
+	description = "Chains",
+	drawtype = "signlike",
+	tiles = {"default_chains.png"},
+	inventory_image = "default_chains.png",
+	wield_image = "default_chains.png",
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	walkable = false,
+	climbable = true,
+	is_ground_content = false,
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	legacy_wallmounted = true,
+	sounds = default.node_sound_wood_defaults(),
+})
+
 -- colored wood
 
 minetest.register_node("default:colwood_black", {

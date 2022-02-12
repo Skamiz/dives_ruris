@@ -129,13 +129,23 @@ minetest.register_craft({
 		        }
 	})
 
+-- minetest.register_craft({
+-- 	        output = "travelnet:elevator_door_steel_closed",
+-- 	        recipe = {
+-- 		        {"default:steel_ingot", "", "default:steel_ingot", },
+-- 			{"default:steel_ingot", "", "default:steel_ingot", },
+-- 			{"default:steel_ingot", "", "default:steel_ingot", }
+-- 		        }
+-- 	})
+
+-- since the door uses a stone texture anyway
 minetest.register_craft({
 	        output = "travelnet:elevator_door_steel_closed",
 	        recipe = {
-		        {"default:steel_ingot", "", "default:steel_ingot", },
-			{"default:steel_ingot", "", "default:steel_ingot", },
-			{"default:steel_ingot", "", "default:steel_ingot", }
-		        }
+		        {"default:stone", "", "default:stone", },
+				{"default:stone", "", "default:stone", },
+				{"default:stone", "", "default:stone", },
+	        }
 	})
 --      local old_node = minetest.get_node( pos );
 --      minetest.add_node(pos, {name = "travelnet:elevator_door_glass_closed", param2 = old_node.param2})
