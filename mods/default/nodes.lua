@@ -195,7 +195,16 @@ minetest.register_node("default:mossycobble", {
 
 minetest.register_node("default:desert_stone", {
 	description = "Desert Stone",
-	tiles = {"default_desert_stone.png"},
+	-- tiles = {"default_desert_stone.png"},
+	tiles = {
+		{name = "default_desert_stone_1.png", align_style = "world"},
+		{name = "default_desert_stone_2.png", align_style = "world"},
+		{name = "default_desert_stone_3.png", align_style = "world"},
+		{name = "default_desert_stone_4.png", align_style = "world"},
+		{name = "default_desert_stone_5.png", align_style = "world"},
+		{name = "default_desert_stone_6.png", align_style = "world"},
+	},
+	paramtype2 = "facedir",
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
 	drop = 'default:desert_stone',
