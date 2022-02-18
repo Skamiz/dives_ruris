@@ -7,13 +7,16 @@ Stone
 (1. Material 2. Cobble variant 3. Brick variant [4. Modified forms])
 
 default:stone
+default:stone_block
 default:cobble
 default:stonebrick
 default:mossycobble
 
 default:desert_stone
+default:desert_stone_block
 default:desert_cobble
 default:desert_stonebrick
+default:desert_gravel
 
 default:sandstone
 default:sandstonebrick
@@ -21,16 +24,36 @@ default:sandstonebrick
 default:obsidian
 default:obsidianbrick
 
+default:granite
+default:granite_block
+default:granite_brick
+
+default:marble
+default:marble_block
+default:marble_brick
+
 Soft / Non-Stone
 ----------------
 (1. Material [2. Modified forms])
 
 default:dirt
 default:dirt_with_grass
+default:dirt_med
+default:dirt_med_with_grass
+default:dirt_deep
+default:dirt_deep_with_grass
+default:dirt_jungle
+default:dirt_jungle_with_grass
+
 default:dirt_with_grass_footsteps
+default:dirt_med_with_grass_footsteps
+default:dirt_deep_with_grass_footsteps
+default:dirt_jungle_with_grass_footsteps
+
 default:dirt_with_snow
 
 default:sand
+default:seeground
 default:desert_sand
 
 default:gravel
@@ -51,6 +74,63 @@ default:wood
 default:leaves
 default:sapling
 default:apple
+
+default:sapling_beech
+default:leaves_beech
+
+default:sapling_cypress
+default:leaves_cypress
+
+default:tree_palm
+default:wood_palm
+default:leaves_palm
+default:sapling_palm
+default:fruit_coconut
+
+default:sapling_cocoa
+default:leaves_cocoa
+default:fruit_cocoa
+
+default:sapling_banana
+default:leaves_banana
+default:fruit_banana
+
+default:tree_orange
+default:wood_orange
+default:leaves_orange
+default:sapling_orange
+default:fruit_orange
+
+default:tree_olive
+default:wood_olive
+default:leaves_olive
+default:sapling_olive
+default:fruit_olive
+
+default:tree_birch
+default:wood_birch
+default:leaves_birch
+default:sapling_birch
+
+default:tree_poplar
+default:wood_poplar
+default:leaves_poplar
+default:sapling_poplar
+
+default:tree_rubber
+default:wood_rubber
+default:leaves_rubber
+default:sapling_rubber
+
+default:tree_ahorn
+default:wood_ahorn
+default:leaves_ahorn
+default:sapling_ahorn
+
+default:tree_oak
+default:wood_oak
+default:leaves_oak
+default:sapling_oak
 
 default:jungletree
 default:junglewood
@@ -281,6 +361,7 @@ minetest.register_node("default:obsidianbrick", {
 	groups = {cracky=1,level=2},
 })
 
+
 minetest.register_node("default:granite", {
 	description = "Granite",
 	tiles = {"default_granite.png"},
@@ -481,7 +562,6 @@ minetest.register_node("default:dirt_with_snow", {
 })
 
 
-
 minetest.register_node("default:sand", {
 	description = "Sand",
 	tiles = {"default_sand.png"},
@@ -507,7 +587,6 @@ minetest.register_node("default:desert_sand", {
 })
 
 
-
 minetest.register_node("default:gravel", {
 	description = "Gravel",
 	tiles = {"default_gravel.png"},
@@ -520,7 +599,6 @@ minetest.register_node("default:gravel", {
 })
 
 
-
 minetest.register_node("default:clay", {
 	description = "Clay",
 	tiles = {"default_clay.png"},
@@ -529,7 +607,6 @@ minetest.register_node("default:clay", {
 	drop = 'default:clay',
 	sounds = default.node_sound_dirt_defaults(),
 })
-
 
 
 minetest.register_node("default:snow", {
@@ -561,7 +638,6 @@ minetest.register_node("default:snow", {
 	end,
 })
 
-
 minetest.register_node("default:snowblock", {
 	description = "Snow Block",
 	tiles = {"default_snow.png"},
@@ -572,7 +648,6 @@ minetest.register_node("default:snowblock", {
 		dug = {name="default_snow_footstep", gain=0.75},
 	}),
 })
-
 
 
 minetest.register_node("default:ice", {
@@ -606,23 +681,6 @@ minetest.register_node("default:wood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-minetest.register_node("default:sapling", {
-	description = "Appletree Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling.png"},
-	inventory_image = "default_sapling.png",
-	wield_image = "default_sapling.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
-})
-
 minetest.register_node("default:leaves", {
 	description = "Appletree Leaves",
 	drawtype = "allfaces_optional",
@@ -649,6 +707,23 @@ minetest.register_node("default:leaves", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_place_node = default.after_place_leaves,
+})
+
+minetest.register_node("default:sapling", {
+	description = "Appletree Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling.png"},
+	inventory_image = "default_sapling.png",
+	wield_image = "default_sapling.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:apple", {
@@ -768,7 +843,6 @@ minetest.register_node("default:leaves_cypress", {
 })
 
 --palmtree
-
 minetest.register_node("default:tree_palm", {
 	description = "Palm Tree",
 	tiles = {"default_tree_palm_top.png", "default_tree_palm_top.png", "default_tree_palm.png"},
@@ -785,23 +859,6 @@ minetest.register_node("default:wood_palm", {
 	tiles = {"default_wood_palm.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_palm", {
-	description = "Palm Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_palm.png"},
-	inventory_image = "default_sapling_palm.png",
-	wield_image = "default_sapling_palm.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_palm", {
@@ -832,6 +889,23 @@ minetest.register_node("default:leaves_palm", {
 	after_place_node = default.after_place_leaves,
 })
 
+minetest.register_node("default:sapling_palm", {
+	description = "Palm Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_palm.png"},
+	inventory_image = "default_sapling_palm.png",
+	wield_image = "default_sapling_palm.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 minetest.register_node("default:fruit_coconut", {
 	description = "Coconut",
 	drawtype = "plantlike",
@@ -857,11 +931,6 @@ minetest.register_node("default:fruit_coconut", {
 })
 
 --cocoatree
-
-
-
-
-
 minetest.register_node("default:sapling_cocoa", {
 	description = "Cocoa Sapling",
 	drawtype = "plantlike",
@@ -932,7 +1001,6 @@ minetest.register_node("default:fruit_cocoa", {
 })
 
 --bananatree
-
 minetest.register_node("default:sapling_banana", {
 	description = "Banana Sapling",
 	drawtype = "plantlike",
@@ -1003,7 +1071,6 @@ minetest.register_node("default:fruit_banana", {
 })
 
 --Orangetree
-
 minetest.register_node("default:tree_orange", {
 	description = "Orangetree",
 	tiles = {"default_tree_orange_top.png", "default_tree_orange_top.png", "default_tree_orange.png"},
@@ -1020,23 +1087,6 @@ minetest.register_node("default:wood_orange", {
 	tiles = {"default_wood_orange.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_orange", {
-	description = "Orangetree Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_orange.png"},
-	inventory_image = "default_sapling_orange.png",
-	wield_image = "default_sapling_orange.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_orange", {
@@ -1067,6 +1117,23 @@ minetest.register_node("default:leaves_orange", {
 	after_place_node = default.after_place_leaves,
 })
 
+minetest.register_node("default:sapling_orange", {
+	description = "Orangetree Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_orange.png"},
+	inventory_image = "default_sapling_orange.png",
+	wield_image = "default_sapling_orange.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 minetest.register_node("default:fruit_orange", {
 	description = "Orange",
 	drawtype = "plantlike",
@@ -1092,7 +1159,6 @@ minetest.register_node("default:fruit_orange", {
 })
 
 --Olivetree
-
 minetest.register_node("default:tree_olive", {
 	description = "Olivetree",
 	tiles = {"default_tree_olive_top.png", "default_tree_olive_top.png", "default_tree_olive.png"},
@@ -1109,23 +1175,6 @@ minetest.register_node("default:wood_olive", {
 	tiles = {"default_wood_olive.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_olive", {
-	description = "Olivetree Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_olive.png"},
-	inventory_image = "default_sapling_olive.png",
-	wield_image = "default_sapling_olive.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_olive", {
@@ -1156,6 +1205,23 @@ minetest.register_node("default:leaves_olive", {
 	after_place_node = default.after_place_leaves,
 })
 
+minetest.register_node("default:sapling_olive", {
+	description = "Olivetree Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_olive.png"},
+	inventory_image = "default_sapling_olive.png",
+	wield_image = "default_sapling_olive.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 minetest.register_node("default:fruit_olive", {
 	description = "Olive",
 	drawtype = "plantlike",
@@ -1181,7 +1247,6 @@ minetest.register_node("default:fruit_olive", {
 })
 
 --birchtree
-
 minetest.register_node("default:tree_birch", {
 	description = "Birch Tree",
 	tiles = {"default_tree_birch_top.png", "default_tree_birch_top.png", "default_tree_birch.png"},
@@ -1198,23 +1263,6 @@ minetest.register_node("default:wood_birch", {
 	tiles = {"default_wood_birch.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_birch", {
-	description = "Birch Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_birch.png"},
-	inventory_image = "default_sapling_birch.png",
-	wield_image = "default_sapling_birch.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_birch", {
@@ -1244,6 +1292,24 @@ minetest.register_node("default:leaves_birch", {
 
 	after_place_node = default.after_place_leaves,
 })
+
+minetest.register_node("default:sapling_birch", {
+	description = "Birch Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_birch.png"},
+	inventory_image = "default_sapling_birch.png",
+	wield_image = "default_sapling_birch.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 --Poplartree
 minetest.register_node("default:tree_poplar", {
 	description = "Poplar Tree",
@@ -1261,23 +1327,6 @@ minetest.register_node("default:wood_poplar", {
 	tiles = {"default_wood_poplar.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_poplar", {
-	description = "Poplar Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_poplar.png"},
-	inventory_image = "default_sapling_poplar.png",
-	wield_image = "default_sapling_poplar.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_poplar", {
@@ -1307,8 +1356,25 @@ minetest.register_node("default:leaves_poplar", {
 
 	after_place_node = default.after_place_leaves,
 })
--- Rubbertree
 
+minetest.register_node("default:sapling_poplar", {
+	description = "Poplar Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_poplar.png"},
+	inventory_image = "default_sapling_poplar.png",
+	wield_image = "default_sapling_poplar.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+-- Rubbertree
 minetest.register_node("default:tree_rubber", {
 	description = "Rubber Tree",
 	tiles = {"default_tree_rubber_top.png", "default_tree_rubber_top.png", "default_tree_rubber.png"},
@@ -1325,23 +1391,6 @@ minetest.register_node("default:wood_rubber", {
 	tiles = {"default_wood_rubber.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_rubber", {
-	description = "Rubbertree Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_rubber.png"},
-	inventory_image = "default_sapling_rubber.png",
-	wield_image = "default_sapling_rubber.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_rubber", {
@@ -1372,8 +1421,24 @@ minetest.register_node("default:leaves_rubber", {
 	after_place_node = default.after_place_leaves,
 })
 
--- Ahorntree
+minetest.register_node("default:sapling_rubber", {
+	description = "Rubbertree Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_rubber.png"},
+	inventory_image = "default_sapling_rubber.png",
+	wield_image = "default_sapling_rubber.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
 
+-- Ahorntree
 minetest.register_node("default:tree_ahorn", {
 	description = "Ahorn Tree",
 	tiles = {"default_tree_ahorn_top.png", "default_tree_ahorn_top.png", "default_tree_ahorn.png"},
@@ -1390,23 +1455,6 @@ minetest.register_node("default:wood_ahorn", {
 	tiles = {"default_wood_ahorn.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_ahorn", {
-	description = "Ahorntree Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_ahorn.png"},
-	inventory_image = "default_sapling_ahorn.png",
-	wield_image = "default_sapling_ahorn.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_ahorn", {
@@ -1437,8 +1485,24 @@ minetest.register_node("default:leaves_ahorn", {
 	after_place_node = default.after_place_leaves,
 })
 
--- Oaktree
+minetest.register_node("default:sapling_ahorn", {
+	description = "Ahorntree Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_ahorn.png"},
+	inventory_image = "default_sapling_ahorn.png",
+	wield_image = "default_sapling_ahorn.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
 
+-- Oaktree
 minetest.register_node("default:tree_oak", {
 	description = "Oak Tree",
 	tiles = {"default_tree_oak_top.png", "default_tree_oak_top.png", "default_tree_oak.png"},
@@ -1455,23 +1519,6 @@ minetest.register_node("default:wood_oak", {
 	tiles = {"default_wood_oak.png"},
 	groups = {choppy=2,oddly_breakable_by_hand=2,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
-})
-
-minetest.register_node("default:sapling_oak", {
-	description = "Oaktree Sapling",
-	drawtype = "plantlike",
-	tiles = {"default_sapling_oak.png"},
-	inventory_image = "default_sapling_oak.png",
-	wield_image = "default_sapling_oak.png",
-	paramtype = "light",
-	walkable = false,
-	is_ground_content = true,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
-	},
-	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
-	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("default:leaves_oak", {
@@ -1502,8 +1549,24 @@ minetest.register_node("default:leaves_oak", {
 	after_place_node = default.after_place_leaves,
 })
 
---Jungletree
+minetest.register_node("default:sapling_oak", {
+	description = "Oaktree Sapling",
+	drawtype = "plantlike",
+	tiles = {"default_sapling_oak.png"},
+	inventory_image = "default_sapling_oak.png",
+	wield_image = "default_sapling_oak.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.35, 0.3}
+	},
+	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
 
+--Jungletree
 minetest.register_node("default:tree_jungle", {
 	description = "Jungle Tree",
 	tiles = {"default_tree_jungle_top.png", "default_tree_jungle_top.png", "default_tree_jungle.png"},
@@ -1565,6 +1628,7 @@ minetest.register_node("default:sapling_jungle", {
 	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
+
 -- jungle2
 minetest.register_node("default:leaves_jungle2", {
 	description = "Green Jungle Leaves",
@@ -1609,8 +1673,8 @@ minetest.register_node("default:sapling_jungle2", {
 	groups = {snappy=2,dig_immediate=3,flammable=2,attached_node=1,sapling=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
---Jungle3
 
+--Jungle3
 minetest.register_node("default:leaves_jungle3", {
 	description = "Bright Green Jungle Leaves",
 	drawtype = "allfaces_optional",
@@ -1865,7 +1929,7 @@ minetest.register_node("default:stone_with_copper", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("default:copper_block", {
+minetest.register_node("default:copperblock", {
 	description = "Copper Block",
 	tiles = {"default_copper_block.png"},
 	is_ground_content = true,
