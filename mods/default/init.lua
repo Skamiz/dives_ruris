@@ -50,6 +50,7 @@ dofile(minetest.get_modpath("default").."/plants.lua")
 dofile(minetest.get_modpath("default").."/food.lua")
 dofile(minetest.get_modpath("default").."/fishing.lua")
 dofile(minetest.get_modpath("default").."/stone_rotation.lua")
+dofile(minetest.get_modpath("default").."/torch.lua")
 
 -- 10 slot hotbar key 1 - 0 (for ppl w/o a mouseweel)
 hotbar_size = minetest.settings:get("hotbar_size") or 10
