@@ -4,11 +4,4 @@ mystairwork = {}
 dofile(minetest.get_modpath("mystairwork").."/stairwork.lua")
 dofile(minetest.get_modpath("mystairwork").."/machines.lua")
 dofile(minetest.get_modpath("mystairwork").."/register.lua")
-
-
-
-
-
-
-
-
+dofile(minetest.get_modpath("mystairwork").."/legacy.lua")

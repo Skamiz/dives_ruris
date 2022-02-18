@@ -2125,27 +2125,22 @@ minetest.register_node("default:amethystblock", {
 
 minetest.register_node("default:cactus", {
 	description = "Cactus",
-	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png",
-	         "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png",
-	         "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png",
-	         "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png",
-	         "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png",
-	         "default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png"},
+	tiles = {"default_cactus_top.png", "default_cactus_top.png", "default_cactus_side.png",},
 	paramtype = "light",
     paramtype2 = "facedir",
 	is_ground_content = true,
 	drawtype = "nodebox",
-		node_box = {
-			type = "fixed",
-			fixed = {
-				{-0.35,-0.5,-0.4,0.35,0.5,0.4},
-				{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
-				{-0.25,-0.5,-0.45,0.25,0.5,0.45},
-				{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
-				{-0.15,-0.5,-0.5,0.15,0.5,0.5},
-				{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
-			},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.35,-0.5,-0.4,0.35,0.5,0.4},
+			{-0.4,-0.5,-0.35, 0.4,0.5,0.35},
+			{-0.25,-0.5,-0.45,0.25,0.5,0.45},
+			{-0.45,-0.5,-0.25, 0.45,0.5,0.25},
+			{-0.15,-0.5,-0.5,0.15,0.5,0.5},
+			{-0.5,-0.5,-0.15, 0.5,0.5,0.15},
 		},
+	},
 	groups = {snappy=1,choppy=3,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
 	on_place = minetest.rotate_node,

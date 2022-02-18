@@ -11,6 +11,8 @@ local loadmodule = function(path)
 	return dofile(path)
 end
 
+worldedit = {}
+
 loadmodule(path .. "/manipulations.lua")
 loadmodule(path .. "/primitives.lua")
 loadmodule(path .. "/visualization.lua")
