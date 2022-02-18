@@ -1,10 +1,13 @@
 arrows = {
 	{"throwing:arrow", "throwing:arrow_entity"},
 	{"throwing:arrow_stone", "throwing:arrow_stone_entity"},
-	{"throwing:arrow_fire", "throwing:arrow_fire_entity"},
 	{"throwing:arrow_teleport", "throwing:arrow_teleport_entity"},
-	{"throwing:arrow_dig", "throwing:arrow_dig_entity"},
-	{"throwing:arrow_build", "throwing:arrow_build_entity"}
+	-- {"throwing:arrow_fire", "throwing:arrow_fire_entity"},
+	-- {"throwing:arrow_dig", "throwing:arrow_dig_entity"},
+	-- {"throwing:arrow_build", "throwing:arrow_build_entity"}
+	{"throwing:arrow_bronze", "throwing:arrow_bronze_entity"},
+	{"throwing:arrow_diamond", "throwing:arrow_diamond_entity"},
+	{"throwing:arrow_nyan", "throwing:arrow_nyan_entity"},
 }
 
 local throwing_shoot_arrow = function(itemstack, player)
