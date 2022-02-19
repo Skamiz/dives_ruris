@@ -35,8 +35,8 @@ https://forum.minetest.net/viewtopic.php?id=3101
 hud
 https://forum.minetest.net/viewtopic.php?id=6342
 
-item tweaks
-https://github.com/minetest-technic/item_tweaks
+item_drop
+https://github.com/minetest-mods/item_drop
 
 item frames
 https://forum.minetest.net/viewtopic.php?id=5600
