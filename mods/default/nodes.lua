@@ -4115,3 +4115,60 @@ minetest.register_node("default:nyancat_rainbow", {
 	is_ground_content = false,
 	sounds = default.node_sound_defaults(),
 })
+
+minetest.register_node("default:diamond_light", {
+	description = "Diamond Light",
+	tiles = {"default_diamond_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+minetest.register_node("default:sapphire_light", {
+	description = "Sapphire Light",
+	tiles = {"default_sapphire_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+minetest.register_node("default:amethyst_light", {
+	description = "Amethyst Light",
+	tiles = {"default_amethyst_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+minetest.register_node("default:ruby_light", {
+	description = "Ruby Light",
+	tiles = {"default_ruby_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+minetest.register_node("default:topaz_light", {
+	description = "Topaz Light",
+	tiles = {"default_topaz_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+minetest.register_node("default:mese_light", {
+	description = "Mese Light",
+	tiles = {"default_mese_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})
+minetest.register_node("default:emerald_light", {
+	description = "Emerald Light",
+	tiles = {"default_emerald_light.png"},
+	is_ground_content = false,
+	light_source = minetest.LIGHT_MAX - 1,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+})

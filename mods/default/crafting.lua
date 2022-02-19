@@ -2038,18 +2038,76 @@ minetest.register_craft({
 	burntime = 10,
 })
 
-minetest.register_craft({
-	output = 'beds:fancy_bed',
-	recipe = {
-		{"wool:red", "wool:white", "group:stick"},
-		{"group:wood", "group:wood", "group:wood"},
-	}
-})
+-- bed recipes already present in the beds mod
+-- minetest.register_craft({
+-- 	output = 'beds:fancy_bed',
+-- 	recipe = {
+-- 		{"wool:red", "wool:white", "group:stick"},
+-- 		{"group:wood", "group:wood", "group:wood"},
+-- 	}
+-- })
+--
+-- minetest.register_craft({
+-- 	output = 'beds:bed',
+-- 	recipe = {
+-- 		{"wool:red", "wool:red", "wool:white"},
+-- 		{"group:wood", "group:wood", "group:wood"},
+-- 	}
+-- })
 
 minetest.register_craft({
-	output = 'beds:bed',
+	output = "default:diamond_light 4",
 	recipe = {
-		{"wool:red", "wool:red", "wool:white"},
-		{"group:wood", "group:wood", "group:wood"},
+		{"", "default:glass", ""},
+		{"default:glass", "default:diamond", "default:glass"},
+		{"", "default:glass", ""},
+	}
+})
+minetest.register_craft({
+	output = "default:sapphire_light 4",
+	recipe = {
+		{"", "default:glass", ""},
+		{"default:glass", "default:sapphire", "default:glass"},
+		{"", "default:glass", ""},
+	}
+})
+minetest.register_craft({
+	output = "default:amethyst_light 4",
+	recipe = {
+		{"", "default:glass", ""},
+		{"default:glass", "default:amethyst", "default:glass"},
+		{"", "default:glass", ""},
+	}
+})
+minetest.register_craft({
+	output = "default:ruby_light 4",
+	recipe = {
+		{"", "default:glass", ""},
+		{"default:glass", "default:ruby", "default:glass"},
+		{"", "default:glass", ""},
+	}
+})
+minetest.register_craft({
+	output = "default:topaz_light 4",
+	recipe = {
+		{"", "default:glass", ""},
+		{"default:glass", "default:topaz", "default:glass"},
+		{"", "default:glass", ""},
+	}
+})
+minetest.register_craft({
+	output = "default:mese_light 4",
+	recipe = {
+		{"", "default:glass", ""},
+		{"default:glass", "default:mese_crystal", "default:glass"},
+		{"", "default:glass", ""},
+	}
+})
+minetest.register_craft({
+	output = "default:emerald_light 4",
+	recipe = {
+		{"", "default:glass", ""},
+		{"default:glass", "default:emerald", "default:glass"},
+		{"", "default:glass", ""},
 	}
 })
