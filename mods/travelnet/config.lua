@@ -24,7 +24,7 @@ travelnet.doors_enabled            = true;
 
 travelnet.travelnet_recipe = {
          {"default:glass", "default:steel_ingot", "default:glass", },
-         {"default:mese", "default:diamondblock", "default:mese", },
+         {"default:mese", "default:nyancat_rainbow", "default:mese", },
          {"default:glass", "default:steel_ingot", "default:glass", }
 }
 travelnet.elevator_recipe = {
@@ -40,7 +40,7 @@ travelnet.elevator_recipe = {
 -- if you want to allow *everybody* to attach stations to all nets, let the
 -- function always return true;
 -- if the function returns false, players with the travelnet_attach priv
--- can still add stations to that network 
+-- can still add stations to that network
 
 
 travelnet.allow_attach = function( player_name, owner_name, network_name )
