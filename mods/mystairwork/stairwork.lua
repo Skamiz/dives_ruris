@@ -32,11 +32,19 @@ end
 
  mystairwork.registered_materials = {}
 
+-- new register code
+-- local nr = ""
+
 function mystairwork.register_all(desc, image, groups, craft, sounds)
 	local def = minetest.registered_nodes[craft]
-	if not def then
-		minetest.log("warning", "Stair material: '" .. craft .. "' is not registered at this time.")
-	end
+
+	-- trying to automatically rewrite the registration code
+	-- nr = nr .. "mystairwork.register_all(" .. craft .. ", {\n"
+	-- if desc ~= def.description then
+	-- 	nr = nr .. "description = " .. desc .. "\n,"
+	-- end
+	-- nr = nr .. "})\n"
+
 
 	mystairwork.registered_materials[craft] = {
 		material = craft,
@@ -47,9 +55,9 @@ function mystairwork.register_all(desc, image, groups, craft, sounds)
 		sounds = sounds or def.sounds or default.node_sound_defaults(),
 	}
 
-	if desc ~= def.description then
-		minetest.log("warning", "Stair description: '" .. desc .. "' does not match material description: " .. def.description .. "'")
-	end
+	-- if desc ~= def.description then
+	-- 	minetest.log("warning", "Stair description: '" .. desc .. "' does not match material description: " .. def.description .. "'")
+	-- end
 
 	-- local im = def.tiles[1]
 	-- if type(im) == "table" then
