@@ -542,22 +542,3 @@ minetest.register_abm({
 
 	end
 })
-
--- Torch near water
--- by TenPlus1:
-minetest.register_abm({
-	label = "Pop torches near water",
-	nodenames = {"default:torch"},
-	neighbors = {"default:water_source", "default:water_flowing"},
-	interval = 1, chance = 1,
-
-	action = function(pos, node)
-		local pos0 = {x=pos.x-1,y=pos.y,z=pos.z-1}
-		local pos1 = {x=pos.x+1,y=pos.y+1,z=pos.z+1}
-		if #minetest.find_nodes_in_area(pos0, pos1,
-				{"default:water_source", "default:water_flowing"}) > 0 then
-			minetest.set_node(pos, {name="default:water_flowing"})
-			minetest.add_item(pos, {name="default:torch"})
-		end
-	end,
-})

@@ -8,6 +8,7 @@ arrows = {
 	{"throwing:arrow_bronze", "throwing:arrow_bronze_entity"},
 	{"throwing:arrow_diamond", "throwing:arrow_diamond_entity"},
 	{"throwing:arrow_nyan", "throwing:arrow_nyan_entity"},
+	{"throwing:arrow_torch", "throwing:arrow_torch_entity"},
 }
 
 local throwing_shoot_arrow = function(itemstack, player)
@@ -21,7 +22,7 @@ local throwing_shoot_arrow = function(itemstack, player)
 			local dir = player:get_look_dir()
 			obj:set_velocity({x=dir.x*19, y=dir.y*19, z=dir.z*19})
 			obj:set_acceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
-			obj:set_yaw(player:get_look_yaw()+math.pi)
+			obj:set_yaw(player:get_look_horizontal()-(math.pi/2))
 			minetest.sound_play("throwing_sound", {pos=playerpos})
 			if obj:get_luaentity().player == "" then
 				obj:get_luaentity().player = player
@@ -85,7 +86,7 @@ minetest.register_tool("throwing:bow_steel", {
 	inventory_image = "throwing_bow_steel.png",
     stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
-		if throwing_shoot_arrow(item, user, pointed_thing) then
+		if throwing_shoot_arrow(itemstack, user, pointed_thing) then
 			if not minetest.settings:get_bool("creative_mode") then
 				itemstack:add_wear(65535/200)
 			end
@@ -108,6 +109,7 @@ dofile(minetest.get_modpath("throwing").."/arrow.lua")
 dofile(minetest.get_modpath("throwing").."/teleport_arrow.lua")
 --dofile(minetest.get_modpath("throwing").."/dig_arrow.lua")
 --dofile(minetest.get_modpath("throwing").."/build_arrow.lua")
+dofile(minetest.get_modpath("throwing").."/torch_arrow.lua")
 
 if minetest.settings:get("log_mods") then
 	minetest.log("action", "throwing loaded")
