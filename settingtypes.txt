@@ -1,3 +1,6 @@
+#Add rotation and texture variety to several common nodes.
+dives_ruris.texture_randomization (Texture randomization) bool true
+
 ##Itemdrop##
 
 #Pick up items automatically
