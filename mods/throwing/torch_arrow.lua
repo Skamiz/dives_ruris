@@ -70,18 +70,24 @@ THROWING_ARROW_ENTITY.on_step = function(self, dtime)
 	end
 
 	if self.lastpos.x~=nil then
-		if node.name ~= "air" and node.name ~= "throwing:light" then
+		local def = minetest.registered_nodes[node.name]
+		if def.walkable then
 			-- placing torch
 			local lpos = vector.round(self.lastpos)
+			local ldef = minetest.registered_nodes[minetest.get_node(lpos).name]
 			local npos = vector.round(pos)
-			
-			if npos.y < lpos.y then
-				minetest.set_node(self.lastpos, {name="default:torch", param2 = 1})
-			elseif npos.y > lpos.y then
-				minetest.set_node(self.lastpos, {name="default:torch_ceiling", param2 = 0})
+
+			if ldef.air_equivalent then
+				if npos.y < lpos.y then
+					minetest.set_node(self.lastpos, {name="default:torch", param2 = 1})
+				elseif npos.y > lpos.y then
+					minetest.set_node(self.lastpos, {name="default:torch_ceiling", param2 = 0})
+				else
+					local param2 = minetest.dir_to_wallmounted(vector.subtract(npos, lpos))
+					minetest.set_node(self.lastpos, {name="default:torch_wall", param2 = param2})
+				end
 			else
-				local param2 = minetest.dir_to_wallmounted(vector.subtract(npos, lpos))
-				minetest.set_node(self.lastpos, {name="default:torch_wall", param2 = param2})
+				minetest.add_item(self.lastpos, "throwing:arrow_torch")
 			end
 			self.object:remove()
 		end
@@ -110,8 +116,12 @@ minetest.register_node("throwing:light", {
 	drawtype = "airlike",
 	paramtype = "light",
 	sunlight_propagates = true,
+	drawtype = "airlike",
 	tiles = {"throwing_empty.png"},
 	light_source = minetest.LIGHT_MAX-4,
+	pointable = false,
+	walkable = false,
+	air_equivalent = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {
