@@ -13,10 +13,8 @@ end
 minetest.register_abm({
 	label = "Grow saplings",
 	nodenames = {"group:sapling"},
-	-- interval = 25,
-	-- chance = 65,
-	interval = 1,
-	chance = 1,
+	interval = 25,
+	chance = 65,
 	action = function(pos, node)
 
 		local under =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
