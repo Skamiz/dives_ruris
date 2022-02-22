@@ -13,8 +13,10 @@ end
 minetest.register_abm({
 	label = "Grow saplings",
 	nodenames = {"group:sapling"},
-	interval = 25,
-	chance = 65,
+	-- interval = 25,
+	-- chance = 65,
+	interval = 1,
+	chance = 1,
 	action = function(pos, node)
 
 		local under =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
@@ -63,3 +65,77 @@ minetest.register_abm({
 
 	end,
 })
+
+---[[
+-- delayed because refruit mod depends on default, so we can't override it's nodes yet
+minetest.register_on_mods_loaded(function()
+	default.register_leafdecay({
+		trunks = {"default:tree"},
+		leaves = {"default:leaves",
+				"refruit:bud_apple", "refruit:flower_apple", "default:apple",
+				"default:leaves_beech",
+				"default:leaves_cypress",
+				"default:leaves_cocoa",
+				"refruit:bud_cocoa", "refruit:flower_cocoa", "default:fruit_cocoa",
+				"default:leaves_banana",
+				"refruit:bud_banana", "refruit:flower_banana", "default:fruit_banana",
+		},
+		radius = 3,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_palm"},
+		leaves = {"default:leaves_palm", "refruit:bud_coconut", "refruit:flower_coconut", "default:fruit_coconut"},
+		radius = 3,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_olive"},
+		leaves = {"default:leaves_olive", "refruit:bud_olive", "refruit:flower_olive", "default:fruit_olive"},
+		radius = 2,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_orange"},
+		leaves = {"default:leaves_orange", "refruit:bud_orange", "refruit:flower_orange", "default:fruit_orange"},
+		radius = 2,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_pine"},
+		leaves = {"default:leaves_pine"},
+		radius = 3,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_birch"},
+		leaves = {"default:leaves_birch"},
+		radius = 2,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_poplar"},
+		leaves = {"default:leaves_poplar"},
+		radius = 2,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_oak"},
+		leaves = {"default:leaves_oak"},
+		radius = 2,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_ahorn"},
+		leaves = {"default:leaves_ahorn"},
+		radius = 2,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_rubber"},
+		leaves = {"default:leaves_rubber"},
+		radius = 3,
+	})
+	default.register_leafdecay({
+		trunks = {"default:tree_jungle"},
+		leaves = {"default:leaves_jungle", "default:leaves_jungle2", "default:leaves_jungle3"},
+		radius = 3,
+	})
+	default.register_leafdecay({
+		trunks = {"default:acacia_tree"},
+		leaves = {"default:acacia_leaves"},
+		radius = 2,
+	})
+end)
+--]]
