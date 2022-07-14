@@ -62,6 +62,26 @@ minetest.register_on_joinplayer(function(player)
 	end)
 end)
 
+-- protect nodes which have an 'owner'
+local old_is_protected = minetest.is_protected
+minetest.is_protected = function(pos, name)
+	if name then
+		local player = minetest.get_player_by_name(name)
+		if player and minetest.check_player_privs(player, "protection_bypass") then
+			return false
+		end
+	end
+
+	local meta = minetest.get_meta(pos)
+	local owner = meta:get("owner")
+
+	if owner and owner == name then
+		return old_is_protected(pos, name)
+	else
+		return true
+	end
+end
+
 -- minetest.register_node("default:glow_air", {
 -- 	description = "Glowing Air",
 -- 	inventory_image = "air.png",
