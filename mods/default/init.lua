@@ -75,13 +75,13 @@ minetest.is_protected = function(pos, name)
 	local meta = minetest.get_meta(pos)
 	local owner = meta:get("owner")
 
-	if owner and owner == name then
-		return old_is_protected(pos, name)
-	else
+	if owner and owner ~= name then
 		return true
+	else
+		return old_is_protected(pos, name)
 	end
 end
-
+--
 -- minetest.register_node("default:glow_air", {
 -- 	description = "Glowing Air",
 -- 	inventory_image = "air.png",
@@ -103,4 +103,51 @@ end
 
 -- minetest.override_item("air", {
 -- 	light_source = 2,
+-- })
+-- local c_gair = minetest.get_content_id("default:glow_air")
+-- -- TODO: override 'remove_node' to place glowing air instead
+-- local c_air = minetest.CONTENT_AIR
+--
+-- local data = {}
+--
+-- minetest.register_on_generated(function(minp, maxp, blockseed)
+-- 	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
+-- 	local area = VoxelArea:new({MinEdge=emin, MaxEdge=emax})
+-- 	local flat_area = VoxelArea:new({MinEdge=emin, MaxEdge={x = emax.x, y = emin.y, z = emax.z}})
+-- 	vm:get_data(data)
+--
+-- 	-- for k, v in pairs(data) do
+-- 	-- 	if v == c_air then
+-- 	-- 		data[k] = c_gair
+-- 	-- 	end
+-- 	-- end
+--
+-- 	for z = minp.z, maxp.z do
+-- 		for y = minp.y, maxp.y do
+-- 			for x = minp.x, maxp.x do
+-- 				local vi = area:index(x, y, z)
+--
+-- 				if data[vi] == c_air then
+-- 					data[vi] = c_gair
+-- 				end
+-- 			end
+-- 		end
+-- 	end
+--
+-- 	vm:set_data(data)
+-- 	-- vm:set_lighting({day = 0, night = 0}, minp, maxp)
+-- 	-- vm:calc_lighting()
+-- 	vm:write_to_map()
+-- end)
+--
+-- minetest.register_abm({
+--     label = "Air to glow",
+--     nodenames = {"air"},
+--     interval = 1,
+--     chance = 1,
+--     min_y = basal_bottom,
+--     max_y = basal_top,
+--     action = function(pos, node, active_object_count, active_object_count_wider)
+--         minetest.set_node(pos, {name = "default:glow_air"})
+--     end,
 -- })
