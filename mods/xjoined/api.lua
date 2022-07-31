@@ -50,7 +50,7 @@ function xjoined.register_wall(name, def)
 
 	minetest.register_node(name, def)
 
-	def_np.drops = {name}
+	def_np.drop = name
 	def_np.groups.not_in_creative_inventory = 1
 	def_np.node_box = nodebox_wall_nopost
 	def_np.on_punch = function(pos, node, puncher, pointed_thing)
@@ -152,7 +152,7 @@ function xjoined.register_fence(name, def)
 
 	minetest.register_node(name, def)
 
-	def_np.drops = {name}
+	def_np.drop = name
 	def_np.groups.not_in_creative_inventory = 1
 	def_np.node_box = nodebox_fence_nopost
 	def_np.on_punch = function(pos, node, puncher, pointed_thing)
