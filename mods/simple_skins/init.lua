@@ -115,7 +115,7 @@ if minetest.get_modpath("sfinv") then
 	sfinv.register_page("simple_skins:selection", {
 	    title = "Skins",
 	    get = function(self, player, context)
-			name = player:get_player_name()
+			local name = player:get_player_name()
 			local formspec = "label[.5,2;Select Player Skin:]"
 			.. "textlist[.5,2.5;5.8,4;skins_set;"
 

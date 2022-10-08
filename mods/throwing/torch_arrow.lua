@@ -29,6 +29,7 @@ minetest.register_node("throwing:arrow_torch_box", {
 	},
 	tiles = {"throwing_arrow_fire.png", "throwing_arrow_fire.png", "throwing_arrow_fire_back.png", "throwing_arrow_fire_front.png", "throwing_arrow_fire_2.png", "throwing_arrow_fire.png"},
 	groups = {not_in_creative_inventory=1},
+	use_texture_alpha = "opaque",
 })
 
 local THROWING_ARROW_ENTITY={
