@@ -166,7 +166,7 @@ minetest.register_on_mods_loaded(function()
 end)
 
 local function coords(i, cols)
-	return i % cols, math.floor(i / cols)
+	return (i % cols) * 1.25, math.floor(i / cols) * 1.25
 end
 
 local function is_fuel(item)
@@ -174,7 +174,7 @@ local function is_fuel(item)
 end
 
 local function item_button_fs(fs, x, y, item, element_name, groups)
-	table.insert(fs, ("item_image_button[%s,%s;1.05,1.05;%s;%s;%s]")
+	table.insert(fs, ("item_image_button[%s,%s;1.,1.;%s;%s;%s]")
 		:format(x, y, item, element_name, groups and "\n"..esc(S("G")) or ""))
 
 	local tooltip
@@ -217,14 +217,14 @@ local function recipe_fs(fs, data)
 		end
 	end
 
-	table.insert(fs, ("label[5.5,1;%s]"):format(esc(data.show_usages
+	table.insert(fs, ("label[6.25,1;%s]"):format(esc(data.show_usages
 		and S("Usage @1 of @2", data.rnum, #data.recipes)
 		or S("Recipe @1 of @2", data.rnum, #data.recipes))))
 
 	if #data.recipes > 1 then
 		table.insert(fs,
-			"image_button[5.5,1.6;0.8,0.8;craftguide_prev_icon.png;recipe_prev;]"..
-			"image_button[6.2,1.6;0.8,0.8;craftguide_next_icon.png;recipe_next;]"..
+			"image_button[6.25,1.25;0.75,0.75;craftguide_prev_icon.png;recipe_prev;]"..
+			"image_button[7.25,1.25;0.75,0.75;craftguide_next_icon.png;recipe_next;]"..
 			"tooltip[recipe_prev;"..esc(S("Previous recipe")).."]"..
 			"tooltip[recipe_next;"..esc(S("Next recipe")).."]")
 	end
@@ -248,19 +248,19 @@ local function recipe_fs(fs, data)
 			item = groups_to_item(groups)
 			elem_name = esc(item.."."..table.concat(groups, "+"))
 		end
-		item_button_fs(fs, base_x + x, base_y + y, item, elem_name, groups)
+		item_button_fs(fs, base_x * 1.25 + x, base_y * 1.25 + y, item, elem_name, groups)
 	end
 
 	if shapeless or recipe.method == "cooking" then
-		table.insert(fs, ("image[3.2,0.5;0.5,0.5;craftguide_%s.png]")
+		table.insert(fs, ("image[4,0.5;0.5,0.5;craftguide_%s.png]")
 			:format(shapeless and "shapeless" or "furnace"))
 		local tooltip = shapeless and S("Shapeless") or
 			S("Cooking time: @1", minetest.colorize("yellow", cooktime))
 		table.insert(fs, "tooltip[3.2,0.5;0.5,0.5;"..esc(tooltip).."]")
 	end
-	table.insert(fs, "image[3,1;1,1;sfinv_crafting_arrow.png]")
+	table.insert(fs, "image[3.75,1.25;1,1;sfinv_crafting_arrow.png]")
 
-	item_button_fs(fs, 4, 1, recipe.output, recipe.output:match("%S*"))
+	item_button_fs(fs, 5, 1.25, recipe.output, recipe.output:match("%S*"))
 end
 
 local function get_formspec(player)
@@ -270,14 +270,13 @@ local function get_formspec(player)
 
 	local fs = {}
 	table.insert(fs,
-		"style_type[item_image_button;padding=2]"..
-		"field[0.3,4.2;2.8,1.2;filter;;"..esc(data.filter).."]"..
-		"label[5.8,4.15;"..minetest.colorize("yellow", data.pagenum).." / "..
+		"field[0,5;2.75,0.75;filter;;"..esc(data.filter).."]"..
+		"label[7.5,5.375;"..minetest.colorize("yellow", data.pagenum).." / "..
 			data.pagemax.."]"..
-		"image_button[2.63,4.05;0.8,0.8;craftguide_search_icon.png;search;]"..
-		"image_button[3.25,4.05;0.8,0.8;craftguide_clear_icon.png;clear;]"..
-		"image_button[5,4.05;0.8,0.8;craftguide_prev_icon.png;prev;]"..
-		"image_button[7.25,4.05;0.8,0.8;craftguide_next_icon.png;next;]"..
+		"image_button[3,5;0.75,0.75;craftguide_search_icon.png;search;]"..
+		"image_button[4,5;0.75,0.75;craftguide_clear_icon.png;clear;]"..
+		"image_button[6.25,5;0.75,0.75;craftguide_prev_icon.png;prev;]"..
+		"image_button[9,5;0.75,0.75;craftguide_next_icon.png;next;]"..
 		"tooltip[search;"..esc(S("Search")).."]"..
 		"tooltip[clear;"..esc(S("Reset")).."]"..
 		"tooltip[prev;"..esc(S("Previous page")).."]"..
@@ -285,7 +284,7 @@ local function get_formspec(player)
 		"field_close_on_enter[filter;false]")
 
 	if #data.items == 0 then
-		table.insert(fs, "label[3,2;"..esc(S("No items to show.")).."]")
+		table.insert(fs, "label[4,2;"..esc(S("No items to show.")).."]")
 	else
 		local first_item = (data.pagenum - 1) * 32
 		for i = first_item, first_item + 31 do
@@ -298,7 +297,7 @@ local function get_formspec(player)
 		end
 	end
 
-	table.insert(fs, "container[0,5.6]")
+	table.insert(fs, "container[0,6.25]")
 	if data.recipes then
 		recipe_fs(fs, data)
 	elseif data.prev_item then
@@ -424,7 +423,7 @@ end)
 sfinv.register_page("mtg_craftguide:craftguide", {
 	title = esc(S("Recipes")),
 	get = function(self, player, context)
-		return sfinv.make_formspec(player, context, get_formspec(player))
+		return sfinv.make_formspec(player, context, get_formspec(player), false, nil, true)
 	end,
 	on_player_receive_fields = function(self, player, context, fields)
 		if on_receive_fields(player, fields) then

@@ -103,18 +103,20 @@ if minetest.get_modpath("sfinv") then
 	sfinv.register_page("home_gui:buttons", {
 	    title = "Home",
 	    get = function(self, player, context)
-			local formspec = "button_exit[6,0;2,0.5;home_gui_set;Set Home]"
-			.."image[3.1,4.20;2,2;inventory_plus_home_gui.png]"
-			.."button_exit[3,6;2,0.5;home_gui_go;Go Home]"
+			local fs = {
+				"button[3.875,0;2,0.75;home_gui_set;Set Home]",
+				"image[3.875,4;2,2;inventory_plus_home_gui.png]",
+				"button_exit[3.875,6.5;2,0.75;home_gui_go;Go Home]",
+			}
+
 
 			local home = homepos[player:get_player_name()]
 			if home ~= nil then
-				formspec = formspec
-					.."label[6,0.5;Home set to:]"
-					.."label[6,0.8;"..math.floor(home.x).." , "..math.floor(home.y).." , "..math.floor(home.z).."]"
+				fs[#fs + 1] = "label[3.875,1;Home set to:]"
+				fs[#fs + 1] = "label[3.875,1.5;"..math.floor(home.x).." , "..math.floor(home.y).." , "..math.floor(home.z).."]"
 			end
 
-	        return sfinv.make_formspec(player, context, formspec, false)
+	        return sfinv.make_formspec(player, context, table.concat(fs), false, nil, true)
 	    end
 	})
 end

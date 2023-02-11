@@ -152,28 +152,26 @@ function creative.register_tab(name, title, items)
 			local pagenum = math.floor(inv.start_i / (4*8) + 1)
 			local pagemax = math.ceil(inv.size / (4*8))
 			local esc = minetest.formspec_escape
+			-- listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]
 			return sfinv.make_formspec(player, context,
-				"label[5.8,4.15;" .. minetest.colorize("#FFFF00", tostring(pagenum)) .. " / " .. tostring(pagemax) .. "]" ..
-				[[
-					image[4.08,4.2;0.8,0.8;creative_trash_icon.png]
-					listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]
-					list[detached:creative_trash;main;4.02,4.1;1,1;]
-					listring[]
-					image_button[5,4.05;0.8,0.8;creative_prev_icon.png;creative_prev;]
-					image_button[7.2,4.05;0.8,0.8;creative_next_icon.png;creative_next;]
-					image_button[2.63,4.05;0.8,0.8;creative_search_icon.png;creative_search;]
-					image_button[3.25,4.05;0.8,0.8;creative_clear_icon.png;creative_clear;]
-				]] ..
+				"label[7.5,5.375;" .. minetest.colorize("#FFFF00", tostring(pagenum)) .. " / " .. tostring(pagemax) .. "]" ..
+				"list[detached:creative_trash;main;5,5;1,1;]" ..
+				"image[5.1,5.1;0.8,0.8;creative_trash_icon.png]" ..
+				"listring[]" ..
+				"image_button[6.25,5;0.75,0.75;creative_prev_icon.png;creative_prev;]" ..
+				"image_button[9,5;0.75,0.75;creative_next_icon.png;creative_next;]" ..
+				"image_button[3,5;0.75,0.75;creative_search_icon.png;creative_search;]" ..
+				"image_button[4,5;0.75,0.75;creative_clear_icon.png;creative_clear;]" ..
 				"tooltip[creative_search;" .. esc(S("Search")) .. "]" ..
 				"tooltip[creative_clear;" .. esc(S("Reset")) .. "]" ..
 				"tooltip[creative_prev;" .. esc(S("Previous page")) .. "]" ..
 				"tooltip[creative_next;" .. esc(S("Next page")) .. "]" ..
 				"listring[current_player;main]" ..
 				"field_close_on_enter[creative_filter;false]" ..
-				"field[0.3,4.2;2.8,1.2;creative_filter;;" .. esc(inv.filter) .. "]" ..
+				"field[0,5;2.75,0.75;creative_filter;;" .. esc(inv.filter) .. "]" ..
 				"listring[detached:creative_" .. player_name .. ";main]" ..
 				"list[detached:creative_" .. player_name .. ";main;0,0;8,4;" .. tostring(inv.start_i) .. "]" ..
-				creative.formspec_add, true)
+				creative.formspec_add, true, nil, true)
 		end,
 		on_enter = function(self, player, context)
 			local player_name = player:get_player_name()

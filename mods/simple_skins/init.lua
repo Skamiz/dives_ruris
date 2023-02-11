@@ -116,8 +116,9 @@ if minetest.get_modpath("sfinv") then
 	    title = "Skins",
 	    get = function(self, player, context)
 			local name = player:get_player_name()
-			local formspec = "label[.5,2;Select Player Skin:]"
-			.. "textlist[.5,2.5;5.8,4;skins_set;"
+			local formspec = ""--"container[0,0]"
+			.. "label[2.5,2;Select Player Skin:]"
+			.. "textlist[2.5,2.5;4.75,4;skins_set;"
 
 			local selected = 1
 			for i, v in ipairs(skins.list) do
@@ -132,14 +133,15 @@ if minetest.get_modpath("sfinv") then
 			local meta = skins.meta[skins.skins[name]]
 			if meta then
 				if meta.name then
-					formspec = formspec .. "label[2,.5;Name: " .. meta.name .. "]"
+					formspec = formspec .. "label[2.5,0.5;Name: " .. meta.name .. "]"
 				end
 				if meta.author then
-					formspec = formspec .. "label[2,1;Author: " .. meta.author .. "]"
+					formspec = formspec .. "label[2.5,1;Author: " .. meta.author .. "]"
 				end
 			end
+			-- formspec = formspec .. "container_end[]"
 
-	        return sfinv.make_formspec(player, context, formspec, false)
+	        return sfinv.make_formspec(player, context, formspec, false, nil, true)
 	    end
 	})
 end

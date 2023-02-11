@@ -13,7 +13,7 @@ minetest.register_on_joinplayer(
 
         local meta = player:get_meta()
 
-        local locked = minetest.deserialize(meta:get("lock_conf")) or {}
+        local locked = minetest.deserialize(meta:get("lock_conf") or "") or {}
         for i = 1, size do
             if locked[i] == nil then
                 locked[i] = i <= 8
@@ -28,7 +28,11 @@ local orig_get = sfinv.pages["sfinv:crafting"].get
 sfinv.override_page("sfinv:crafting", {
     get = function(self, player, context)
         local fs = orig_get(self, player, context)
-        return fs .. "image_button[7,4.2;1,1;as_store_to_nearby.png;store_to_nearby;]"
+		if fs:find("formspec_version") then
+			return fs .. "image_button[9.25,5.5;1,1;as_store_to_nearby.png;store_to_nearby;]"
+		else
+        	return fs .. "image_button[7,4.2;1,1;as_store_to_nearby.png;store_to_nearby;]"
+		end
     end
 })
 

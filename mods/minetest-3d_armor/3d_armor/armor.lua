@@ -124,26 +124,27 @@ elseif minetest.get_modpath("inventory_enhanced") then
 	inv_mod = "inventory_enhanced"
 elseif minetest.get_modpath("sfinv") then
 	inv_mod = "sfinv"
-	armor.formspec = "size[8,8.5]button[0,0;2,0.5;main;Back]"
-		.."list[detached:player_name_armor;armor;0,1;2,3;]"
-		.."image[2.5,0.75;2,4;armor_preview]"
-		.."label[5,1;Level: armor_level]"
-		.."label[5,1.5;Heal:  armor_heal]"
-		.."label[5,2;Fire:  armor_fire]"
-		..default.gui_slots
-		.."list[current_player;main;0,4.5;8,4;]"
+	-- armor.formspec = "size[8,8.5]button[0,0;2,0.5;main;Back]"
+	-- 	.."list[detached:player_name_armor;armor;0,1;2,3;]"
+	-- 	.."image[2.5,0.75;2,4;armor_preview]"
+	-- 	.."label[5,1;Level: armor_level]"
+	-- 	.."label[5,1.5;Heal:  armor_heal]"
+	-- 	.."label[5,2;Fire:  armor_fire]"
+	-- 	..default.gui_slots
+	-- 	.."list[current_player;main;0,4.5;8,4;]"
 	sfinv.register_page(modname .. ":armor", {
     title = "Armor",
     get = function(self, player, context)
 		local name = player:get_player_name()
         return sfinv.make_formspec(player, context,
-		"list[detached:" .. name .. "_armor;armor;0,1;2,3;]"
-		.."image[2.5,0.75;2,4;" .. armor.textures[name].preview .. "]"
-		.."label[5,1;Level: " .. armor.def[name].level .. "]"
-		.."label[5,1.5;Heal:  " .. armor.def[name].heal .. "]"
-		.."label[5,2;Fire:  " .. armor.def[name].fire .. "]"
-		..default.gui_slots
-		, true)
+		"list[detached:" .. name .. "_armor;armor;0,1.25;2,3;]"
+		.."listring[]"
+		.."image[3,0.75;2,4;" .. armor.textures[name].preview .. "]"
+		.."label[6,1;Level: " .. armor.def[name].level .. "]"
+		.."label[6,1.5;Heal:  " .. armor.def[name].heal .. "]"
+		.."label[6,2;Fire:  " .. armor.def[name].fire .. "]"
+		-- ..default.gui_slots
+		, true, nil, true)
     end
 })
 end

@@ -49,7 +49,7 @@ local theme_inv = [[
 		list[current_player;main;0,6.35;8,3;8]
 	]]
 
-function sfinv.make_formspec(player, context, content, show_inv, size)
+function sfinv.make_formspec(player, context, content, show_inv, size, true_coordinates)
 	local tmp = {
 		size or "size[8,9.1]",
 		sfinv.get_nav_fs(player, context, context.nav_titles, context.nav_idx),
@@ -59,6 +59,17 @@ function sfinv.make_formspec(player, context, content, show_inv, size)
 		-- default.gui_bg_img,
 		default.gui_slots,
 	}
+	if true_coordinates then
+		tmp = {
+			"formspec_version[6]",
+			size or "size[10.75,12]",
+			sfinv.get_nav_fs(player, context, context.nav_titles, context.nav_idx),
+			"container[0.5,0.5]",
+			show_inv and "list[current_player;main;0,6.25;8,4;]" or "",
+			content,
+			"container_end[]",
+		}
+	end
 	return table.concat(tmp, "")
 end
 

@@ -48,16 +48,17 @@ if minetest.get_modpath("sfinv") then
 	sfinv.register_page("bags:bags", {
 	    title = "Bags",
 	    get = function(self, player, context)
-			local formspec = "button[0,2;2,0.5;bag1;Bag 1]"
-			.."button[2,2;2,0.5;bag2;Bag 2]"
-			.."button[4,2;2,0.5;bag3;Bag 3]"
-			.."button[6,2;2,0.5;bag4;Bag 4]"
-			.."list[detached:"..player:get_player_name().."_bags;bag1;0.5,1;1,1;]"
-			.."list[detached:"..player:get_player_name().."_bags;bag2;2.5,1;1,1;]"
-			.."list[detached:"..player:get_player_name().."_bags;bag3;4.5,1;1,1;]"
-			.."list[detached:"..player:get_player_name().."_bags;bag4;6.5,1;1,1;]"
+			local formspec = ""
+			.. "button[0,2.5;2.25,0.75;bag1;Bag 1]"
+			.. "button[2.5,2.5;2.25,0.75;bag2;Bag 2]"
+			.. "button[5,2.5;2.25,0.75;bag3;Bag 3]"
+			.. "button[7.5,2.5;2.25,0.75;bag4;Bag 4]"
+			.. "list[detached:"..player:get_player_name().."_bags;bag1;0.625,1;1,1;]"
+			.. "list[detached:"..player:get_player_name().."_bags;bag2;3.125,1;1,1;]"
+			.. "list[detached:"..player:get_player_name().."_bags;bag3;5.625,1;1,1;]"
+			.. "list[detached:"..player:get_player_name().."_bags;bag4;8.125,1;1,1;]"
 
-	        return sfinv.make_formspec(player, context, formspec, true)
+	        return sfinv.make_formspec(player, context, formspec, true, nil, true)
 	    end
 	})
 end
@@ -76,14 +77,17 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 					local image = player:get_inventory():get_stack(page, 1):get_definition().inventory_image
 
 					local context = sfinv.get_or_create_context(player)
-					local form = "image[7,0;1,1;"..image.."]"
-					.."button[0,0;2,0.5;back;Back]"
-					.."list[current_player;bag"..i.."contents;0,1;8,3;]"
-					.. "list[current_player;main;0,5.2;8,1;]"
+					local form = "image[8.75,0;1,1;"..image.."]"
+					.. "button[0,0;2.25,0.75;back;Back]"
+					.. "list[current_player;bag"..i.."contents;0,1.25;8,3;]"
+					-- .. "list[current_player;main;0,5.2;8,4;]"
 					.. "listring[]"
-					.. "list[current_player;main;0,6.35;8,3;8]"
+					-- .. "list[current_player;main;0,6.35;8,3;8]"
 
-					local formspec = sfinv.make_formspec(player, context, form, true)
+					local formspec = sfinv.make_formspec(player, context, form, true, nil, true)
+					if cfs then
+						formspec = cfs.style_formspec(formspec, player, nil)
+					end
 					player:set_inventory_formspec(formspec)
 				end
 				return
